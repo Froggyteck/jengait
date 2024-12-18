@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jenga IT Hub</title>
+  <style>
+    /* Reset styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+      color: #242323;
+      line-height: 1.6;
+    }
+
+     /* General Navbar Styling */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ff8800; /* Solid orange background */
+  padding: 5px 10px; /* Spacing for navbar */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Navbar Links */
+.navbar ul {
+  list-style: none; /* Remove bullet points */
+  display: flex; /* Horizontal layout */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin: 0 15px; /* Space between links */
+}
+
+.navbar ul li a {
+  text-decoration: none; /* Remove underline */
+  color: #fff; /* White text color */
+  font-size: 16px; /* Adjust font size */
+  font-weight: bold; /* Bold links */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover Effect on Links */
+.navbar ul li a:hover {
+  color: #333; /* Change color on hover */
+  transform: scale(1.1); /* Slightly grow on hover */
+}
+
+/* Logo Styling */
+.navbar .logo-container {
+  display: flex;
+  align-items: center; /* Vertically center the logo */
+}
+
+.navbar .logo-container img {
+  height: 60px; /* Logo size */
+  width: 60px; /* Circular size */
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Ensures the image fits inside */
+  border: 2px solid #fff; /* Aesthetic white border */
+  animation: bounce 2s ease-in-out infinite; /* Continuous bounce animation */
+}
+
+/* Keyframes for Bouncing Logo Animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0); /* Original position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move slightly upwards */
+  }
+}
+
+    
+    /* Landing Section */
+.landing-section {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  background: url('img/Home\ HH.jpeg') no-repeat center center/cover;
+  animation: zoomInBackground 15s ease-in-out infinite; /* Background zoom animation */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sliding Overlay */
+.landing-overlay {
+  position: absolute;
+  top: 0;
+  left: -100%; /* Start off-screen */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: slideInOverlay 1s ease-out forwards; /* Sliding overlay animation */
+}
+
+/* Landing Content */
+.landing-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  opacity: 0; /* Start hidden */
+  transform: translateY(30px); /* Slight downward offset */
+  animation: fadeIn 2.5s cubic-bezier(0.42, 0, 0.58, 1) forwards; /* Smooth fade-in animation */
+}
+
+.landing-content h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.landing-content p {
+  font-size: 1.2em;
+  margin-bottom: 40px; /* Adjust spacing below text */
+}
+
+/* Call-to-Action Button */
+.cta-button {
+  padding: 12px 24px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 30px; /* Push the button further down */
+  animation: pulse 2s infinite; /* Continuous pulsing effect */
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+/* Keyframes for Smoother Fade-In Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* More noticeable offset at start */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Settle back into place */
+  }
+}
+
+/* Keyframes for Sliding Overlay */
+@keyframes slideInOverlay {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+/* Keyframes for Background Zoom Animation */
+@keyframes zoomInBackground {
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 110%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+/* Keyframes for Pulsing Button */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+}
+
+
+    /* Carousel */
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 50px auto;
+      overflow: hidden;
+    }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-item img {
+      max-width: 50%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .carousel-content {
+      max-width: 40%;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .carousel-content h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .carousel-content p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .carousel-content button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .carousel-content button:hover {
+      background-color: #0056b3;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .carousel-controls button {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .carousel-indicators span {
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      background-color: #ccc;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .carousel-indicators span.active {
+      background-color: #007bff;
+    }
+
+    /* Programs Section */
+#programs {
+  padding: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.programs {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.programs h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.programs p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Program Container */
+.program {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #c7ccce; /* Skyblue Solid Background Color */
+  box-shadow: 0 4px 6px rgba(250, 114, 3, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.programs-section {
+    background-color: #e4dada;
+}
+
+.program img {
+  width: 250px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.program.intermediate {
+  flex-direction: row-reverse;
+}
+
+.program.intermediate img {
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+.program-content {
+  max-width: 800px;
+  text-align: left;
+}
+
+.program-content h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.program-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Hover Effect */
+.program:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 12px rgba(250, 114, 3, 0.2); /* Enhanced hover shadow */
+}
+
+
+
+    /* Trusted Partner Section */
+.trusted-partner-container {
+  text-align: center; /* Centers text elements horizontally */
+  margin-bottom: 20px; /* Adds space between heading and cards */
+  min-height: 100px; /* Adjust this value to increase height */
+  margin-top: 60px;
+}
+
+.trusted-partner {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.partner-card {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #eeece5;
+  text-align: center;
+}
+
+.partner-card img {
+  width: 100%;
+  height: 250px;
+}
+
+.partner-card h3 {
+  margin: 10px 0;
+}
+
+.partner-card p {
+  padding: 10px;
+}
+
+
+
+    .testimonial-section {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #ffffff;
+    }
+
+    .testimonial-section h2 {
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+      color: #333;
+      margin-bottom: 30px;
+      text-align: center;
+      
+    }
+
+    .testimonial-slider {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .testimonial-card {
+      width: 80%;
+      max-width: 700px;
+      background-color: #f2f2f2;
+      padding: 20px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .testimonial-card.active {
+      opacity: 1;
+    }
+
+    .testimonial-quote {
+      font-size: 18px;
+      font-style: italic;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .testimonial-author-name {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .testimonial-author-role {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .testimonial-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 15px;
+    }
+
+    .testimonial-controls button {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: none;
+    }
+
+    .testimonial-controls button:hover {
+      background-color: #444;
+    }
+
+    .testimonial-controls button#testimonial-next {
+      margin-right: 55px;
+    }
+
+    .testimonial-indicators {
+      margin-top: 15px;
+    }
+
+    .testimonial-indicators span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      background-color: #ccc;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .testimonial-indicators span.active {
+      background-color: #007bff;
+    }
+
+
+    /* Contact Section */
+.contact-section {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(45deg, #ff8800, #6d6c6c); /* Initial gradient */
+    background-size: 200% 200%;
+    animation: gradientShift 6s ease infinite; /* Gradient animation */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: black;
+}
+
+/* Section Heading */
+.contact-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Icons Container */
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Icons wrap on smaller screens */
+    animation: bounceIn 1s ease forwards; /* All icons bounce in at once */
+}
+
+/* Individual Contact Icons */
+.contact-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    gap: 8px;
+    transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Icon Images */
+.contact-icon img.icon-logo {
+    width: 40px; 
+    height: 40px;
+    object-fit: contain;
+    transition: transform 0.3s ease; /* Smooth scaling */
+    background: none; /* Ensure no background is applied */
+    box-shadow: none; /* Remove any potential shadow effects */
+    border: none; /* Remove any borders */
+}
+
+/* Hover Effects */
+.contact-icon:hover {
+    transform: scale(1.1); /* Scale slightly */
+    color: #0073e6;
+    box-shadow: 0 0 15px #0073e6; /* Add glow effect */
+}
+
+.contact-icon:hover img.icon-logo {
+    animation: pulse 0.8s infinite; /* Pulse animation on hover */
+}
+
+/* Label Below Icons */
+.contact-icon span {
+    margin-top: 5px; /* Space between logo and text */
+}
+
+/* Animations */
+
+/* Gradient Background Animation */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+        background-color: #ff8800; /* Start with original color */
+    }
+    50% {
+        background-position: 100% 50%;
+        background-color: #ffa64d; /* Transition to lighter shade */
+    }
+    100% {
+        background-position: 0% 50%;
+        background-color: #ff8800; /* Return to original color */
+    }
+}
+
+/* Bounce-In Effect for Icons */
+@keyframes bounceIn {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Pulse Effect */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-icon {
+        font-size: 16px; /* Slightly smaller text on smaller screens */
+    }
+
+    .contact-icon img.icon-logo {
+        width: 35px; /* Smaller icons */
+        height: 35px;
+    }
+}
+
+  /* Back to Top Button Styles */
+  #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none; /* Hidden by default */
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: white;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    #back-to-top:hover {
+      background-color: #0056b3;
+      transform: scale(1.1);
+    }
+
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo-container">
+      <img src="img/robotics header.jpeg" alt="Logo">
+    </div>
+    <ul>
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="About.html">About</a></li>
+      <li><a href="programs.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  
+
+  <!-- Landing Section -->
+  <div class="landing-section">
+    <div class="landing-overlay"></div>
+    <div class="landing-content">
+      <h1>Empowering Young Innovators</h1>
+      <p>At Jenga IT Hub, we ignite creativity and curiosity in children through engaging coding and robotics training.</p>
+      <a href="contact.html" class="cta-button">Contact Us</a>
+    </div>
+  </div>
+
+  <!-- Carousel -->
+  <div class="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <img src="img/F.Coders.jpeg" alt="Inspiring Future Coders">
+        <div class="carousel-content">
+          <h2>Inspiring Future Coders</h2>
+          <p>Our coding programs are designed to foster critical thinking and problem-solving skills in children.</p>
+          <a href="About.html" class="cta-button">Read-more</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="img/C2.jpeg" alt="Building Robots">
+        <div class="carousel-content">
+          <h2>Building Robots for Tomorrow</h2>
+          <p>Through our robotics training, kids learn to design, build, and program robots, promoting teamwork and creativity while enhancing their technical abilities.</p>
+          <a href="About.html" class="cta-button">Read-more</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="img/C3.jpeg" alt="Hands-On Learning">
+        <div class="carousel-content">
+          <h2>Hands-On Learning Experience</h2>
+          <p>We believe in learning by doing. Our interactive sessions encourage children to explore, experiment, and innovate in a supportive environment.</p>
+          <a href="About.html" class="cta-button">read-more</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button id="prev">&#10094;</button>
+      <button id="next">&#10095;</button>
+    </div>
+    <div class="carousel-indicators">
+      <span data-slide="0" class="active"></span>
+      <span data-slide="1"></span>
+      <span data-slide="2"></span>
+    </div>
+  </div>
+        <!-- Programs Section -->
+<section id="programs" class="programs-section">
+    <div class="programs">
+      <h1>Diverse Learning Opportunities</h1>
+      <p>Tailored programs for every age and skill level to nurture your child's interest in technology.</p>
+    </div>
+  
+    <!-- Program 1 -->
+    <div class="program">
+      <img src="img/Red sweater.jpg" alt="Introduction to Coding">
+      <div class="program-content">
+        <h3>Introduction to Coding & Advanced Coding</h3>
+        <p>
+          We introduce young learners to the exciting world of coding through age-appropriate lessons that teach foundational programming concepts.
+          From simple block-based coding to advanced languages, children develop logical thinking and problem-solving skills while fostering creativity and innovation.
+        </p>
+      </div>
+    </div>
+  
+    <!-- Program 2 -->
+    <div class="program intermediate">
+      <img src="img/Arduino1.jpg" alt="Electronics & Robotics">
+      <div class="program-content">
+        <h3>Electronics & Robotics</h3>
+        <p>
+          Children step into the exciting realm of robotics, working hands-on with Quarky or Arduino boards, depending on their age and skill level.
+          Through interactive projects, they learn how to build and program robots, gaining a deep understanding of electronics and engineering concepts in a fun and engaging way.
+        </p>
+      </div>
+    </div>
+  
+    <!-- Program 3 -->
+    <div class="program">
+      <img src="img/AI.mach.jpg" alt="AI & Machine Learning">
+      <div class="program-content">
+        <h3>AI & Machine Learning for Kids</h3>
+        <p>
+          This program introduces young minds to the incredible world of Artificial Intelligence. Kids explore how to build smart applications and understand
+          machine learning algorithms, breaking down complex ideas into manageable and enjoyable activities. They’ll gain early exposure to the technologies shaping tomorrow’s world.
+        </p>
+      </div>
+    </div>
+  
+    <!-- Program 4 -->
+    <div class="program intermediate">
+      <img src="img/kid lego.jpg" alt="LEGO Engineering">
+      <div class="program-content">
+        <h3>LEGO Engineering</h3>
+        <p>
+          Designed for younger learners, this program uses LEGO bricks to teach the basics of engineering. Children engage in playful, hands-on activities
+          where they can design, build, and problem-solve, fostering creativity, teamwork, and a love for innovation.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  
+
+  <!-- Trusted Partner Section -->
+<section>
+    <div class="trusted-partner-container">
+      <h1>Your Trusted Partner in Learning</h1>
+      <p>Committed to excellence in education and innovation.</p>
+    </div>
+    <div class="trusted-partner">
+      <div class="partner-card">
+        <img src="img/Exp.jpeg" alt="Expert Instructors">
+        <h3>Expert Instructors</h3>
+        <p>Our trainers are industry professionals with a passion for teaching. They bring real-world experience to the classroom, ensuring that students gain relevant skills and knowledge.</p>
+      </div>
+      <div class="partner-card">
+        <img src="img/pers.jpeg" alt="Personalized Learning Pathways">
+        <h3>Personalized Learning Pathways</h3>
+        <p>Our programs are designed to adapt to individual learning styles, helping students build confidence and encourage a deeper understanding of coding and robotics.</p>
+      </div>
+      <div class="partner-card">
+        <img src="img/innov.jpeg" alt="Innovative Curriculum">
+        <h3>Innovative Curriculum</h3>
+        <p>We incorporate hands-on projects, competitions, and challenges to keep learning exciting and prepare students for future opportunities in the tech industry.</p>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Testimonial Section -->
+  <div class="testimonial-section">
+    <h2>What our clients say</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">
+          "Jenga IT Hub transformed the way my child learns. The hands-on coding classes were both fun and educational!"
+        </div>
+        <div class="testimonial-author">
+          <img src="img" alt="">
+          <div class="testimonial-author-name">john ndungu</div>
+          <div class="testimonial-author-role">Satisfied Parent</div>
+        </div>
+        <div class="testimonial-controls">
+          <button id="testimonial-prev">&lt;</button>
+          <button id="testimonial-next">&gt;</button>
+        </div>
+      </div>
+      <div class="testimonial-indicators">
+        <span class="active" data-index="0"></span>
+        <span data-index="1"></span>
+        <span data-index="2"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="contact-section">
+    <h2>Contact Us</h2>
+    <div class="contact-icons">
+        <!-- X Logo -->
+        <a href="https://x.com/7_muhindi" target="_blank" class="contact-icon">
+            <img src="img/twitter.png" alt="X Logo" class="icon-logo">
+            <span></span>
+        </a>
+        
+        <!-- Facebook Logo -->
+        <a href="https://facebook.com/" target="_blank" class="contact-icon">
+            <img src="img/facebook.png" alt="Facebook Logo" class="icon-logo">
+            <span></span>
+        </a>
+        
+        <!-- WhatsApp Logo -->
+      <a href="https://wa.me/+254111777512?text=Hello!%20I%20would%20like%20to%20contact%20you" target="_blank" class="contact-icon">
+        <img src="img/whatsapp.png" alt="WhatsApp Logo" class="icon-logo">
+    </a>
+        
+        <!-- Email Logo -->
+        <a href="mailto:jengaithubafrica@gmail.com" class="contact-icon">
+            <img src="img/gmail (1).png" alt="Email Logo" class="icon-logo">
+            <span></span>
+        </a>
+        
+        <!-- Instagram Logo -->
+        <a href="https://www.instagram.com/jengaitafrica?igsh=bGR4MHRvM2t2ajcx" target="_blank" class="contact-icon">
+            <img src="img/instagram.png" alt="Instagram Logo" class="icon-logo">
+            <span></span>
+        </a>
+    </div>
+    
+  </style>
+</head>
+<body>
+  <!-- Back to Top Button -->
+  <button id="back-to-top">↑ Back to Top</button>
+
+  <script>
+    // Select the button
+    const backToTopButton = document.getElementById("back-to-top");
+
+    // Show the button when the user scrolls down 300px
+    window.onscroll = function () {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTopButton.style.display = "block";
+      } else {
+        backToTopButton.style.display = "none";
+      }
+    };
+
+    // Smooth scroll back to the top
+    backToTopButton.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  </script>
+</div>
+  <script>
+    // Carousel Script
+    const carouselInner = document.querySelector('.carousel-inner');
+    const carouselIndicators = document.querySelectorAll('.carousel-indicators span');
+    let currentSlide = 0;
+
+    document.getElementById('prev').addEventListener('click', () => {
+      currentSlide = (currentSlide > 0) ? currentSlide - 1 : carouselIndicators.length - 1;
+      updateCarousel();
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+      currentSlide = (currentSlide < carouselIndicators.length - 1) ? currentSlide + 1 : 0;
+      updateCarousel();
+    });
+
+    carouselIndicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        currentSlide = index;
+        updateCarousel();
+      });
+    });
+
+    function updateCarousel() {
+      carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+      carouselIndicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    // Testimonial Script
+    const testimonials = [
+      {
+        quote: "Jenga IT Hub transformed the way my child learns. The hands-on coding classes were both fun and educational!",
+        name: "Alex Johnson",
+        role: "Satisfied Parent",
+      },
+      {
+        quote: "The coding academy has been a game-changer for my child's education. Highly recommended!",
+        name: "Lucas Lucas",
+        role: "Impressed Parent",
+      },
+      {
+        quote: "Interactive and engaging environment! My child now loves coding thanks to Jenga IT Hub.",
+        name: "Chris Thompson",
+        role: "Happy Parent",
+      }
+    ];
+
+    const prevTestimonial = document.getElementById("testimonial-prev");
+    const nextTestimonial = document.getElementById("testimonial-next");
+    const testimonialIndicators = document.querySelectorAll(".testimonial-indicators span");
+    const testimonialCard = document.querySelector(".testimonial-card");
+    const quoteElement = document.querySelector(".testimonial-quote");
+    const nameElement = document.querySelector(".testimonial-author-name");
+    const roleElement = document.querySelector(".testimonial-author-role");
+    const imageElement = document.querySelector(".testimonial-author img");
+
+    let currentTestimonialIndex = 0;
+
+    function updateTestimonial(index) {
+      const testimonial = testimonials[index];
+      quoteElement.textContent = testimonial.quote;
+      nameElement.textContent = testimonial.name;
+      roleElement.textContent = testimonial.role;
+      imageElement.src = testimonial.image;
+
+      testimonialIndicators.forEach((indicator, i) => {
+        indicator.classList.toggle("active", i === index);
+      });
+
+      testimonialCard.classList.remove("active");
+      setTimeout(() => {
+        testimonialCard.classList.add("active");
+      }, 50);
+    }
+
+    prevTestimonial.addEventListener("click", () => {
+      currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+      updateTestimonial(currentTestimonialIndex);
+    });
+
+    nextTestimonial.addEventListener("click", () => {
+      currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+      updateTestimonial(currentTestimonialIndex);
+    });
+
+    updateTestimonial(currentTestimonialIndex);
+  </script>
+</body>
+</html>

@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jenga IT Hub</title>
+  <style>
+    /* Reset Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #ff8800;
+      padding: 2px 3px;
+    }
+
+    .navbar .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .logo-container img {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+    }
+
+    .navbar ul li {
+      margin: 0 15px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: #000;
+      font-size: 16px;
+    }
+
+    .navbar ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Landing Section */
+    .landing-section {
+      position: relative;
+      width: 100%;
+      height: 60vh;
+      background: url('img/Header.jpg') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .landing-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .landing-content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-align: center;
+    }
+
+    .landing-content h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .landing-content p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .cta-button {
+      padding: 12px 24px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .cta-button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Additional Section Styles */
+    h2.section-title {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 2em;
+      color: #333;
+    }
+
+    p.section-subtitle {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #555;
+    }
+/* Coding Section */
+.coding-section {
+    padding: 20px; /* Padding similar to achievements section */
+    background-color: #f9f9f9; /* Optional: Set a light background */
+    text-align: center; /* Center-align text content */
+}
+
+.coding-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-align: center; /* Ensure the title is centered */
+}
+
+.coding-section .subtitle {
+    font-size: 1.2rem;
+    color: #555; /* Adjusted for better contrast */
+    margin-bottom: 30px;
+    text-align: center; /* Ensure the subtitle is centered */
+}
+
+/* Coding Container */
+.coding-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards */
+    gap: 20px; /* Space between cards */
+    margin: 0 auto; /* Center the container */
+    max-width: 1200px; /* Restrict the container width */
+}
+
+/* Coding for Beginners Section */
+.coding-for-beginners {
+    padding: 20px; /* Adjust padding for spacing */
+    background-color: #f9f9f9; /* Optional light background */
+    text-align: center; /* Center-align all text-based elements */
+}
+
+/* Title Styling */
+.coding-for-beginners h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px; /* Space below title */
+    color: #333; /* Optional color for better readability */
+}
+
+/* Subtitle Styling */
+.coding-for-beginners .subtitle {
+    font-size: 1.2rem;
+    color: #555; /* Contrast color for subtitle */
+    margin-bottom: 30px; /* Space below subtitle */
+}
+
+/* Coding Container */
+.coding-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of cards */
+    justify-content: center; /* Center the cards */
+    gap: 20px; /* Space between cards */
+    margin: 0 auto; /* Center the container */
+    max-width: 1200px; /* Restrict the container width */
+}
+
+/* Card Styling */
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden;
+    max-width: 350px; /* Limit card width */
+    text-align: center; /* Center-align card content */
+}
+
+/* Card Image Styling */
+.card img {
+    width: 100%;
+    height: 250px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensure images cover the space without distortion */
+}
+
+/* Card Title Styling */
+.card h3 {
+    margin: 15px 0; /* Space around the title */
+    color: #333; /* Darker text for contrast */
+    font-size: 1.2em; /* Slightly larger text */
+}
+
+/* Card Text Styling */
+.card p {
+    padding: 0 15px 20px; /* Space for readability */
+    color: #666; /* Slightly lighter text */
+    font-size: 1rem; /* Standard paragraph size */
+    line-height: 1.5; /* Better line spacing */
+}
+
+/* Read More Link */
+.read-more {
+    display: block;
+    margin: 15px auto; /* Center the link */
+    font-size: 1rem;
+    color: #007BFF; /* Blue for link text */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Emphasize the link */
+}
+
+.read-more:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .coding-container {
+        flex-direction: column; /* Stack cards vertically for smaller screens */
+        align-items: center; /* Align cards at the center */
+    }
+
+    .card {
+        width: 90%; /* Use most of the screen width */
+        max-width: none; /* Remove max-width restriction */
+    }
+}
+
+
+
+
+        /* Robotics Workshop Section */
+.robotics-workshop-section {
+    padding: 40px 20px;
+    background-color: #f8f8f7;
+    text-align: center;
+}
+
+.robotics-workshop-section .section-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.robotics-workshop-section .section-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+/* Robotics Workshop Container */
+.robotics-workshop-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Robotics Card */
+.robotics-card {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    position: relative;
+}
+
+.robotics-card-front, 
+.robotics-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.robotics-card-front {
+    transform: rotateY(0deg);
+}
+
+.robotics-card-back {
+    transform: rotateY(180deg);
+    background-color: #f0f0f0;
+}
+
+/* Hover Flip Effect */
+.robotics-card:hover .robotics-card-front {
+    transform: rotateY(-180deg);
+}
+
+.robotics-card:hover .robotics-card-back {
+    transform: rotateY(0deg);
+}
+
+/* Card Front */
+.robotics-card-front img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.robotics-card-front h3 {
+    margin-top: 15px;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+/* Card Back */
+.robotics-card-back h3 {
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+.robotics-card-back p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .robotics-workshop-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .robotics-card {
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+    }
+
+    .robotics-card-front img {
+        height: 150px;
+    }
+}
+
+
+
+        /* Advanced Coding Techniques Section */
+.advanced-coding-techniques-section {
+    padding: 20px;
+    background-color: #e6f4ff;
+}
+
+.advanced-coding-techniques-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.advanced-coding-techniques-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 350px;
+    text-align: center;
+}
+
+.advanced-coding-techniques-card img {
+    width: 100%;
+    height: auto;
+}
+
+.advanced-coding-techniques-card h3 {
+    margin: 15px 0;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.advanced-coding-techniques-card p {
+    padding: 0 15px 20px;
+    color: #666;
+}
+
+
+        /* Contact Section */
+.contact-section {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(45deg, #ff8800, #6d6c6c); /* Initial gradient */
+    background-size: 200% 200%;
+    animation: gradientShift 6s ease infinite; /* Gradient animation */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: black;
+}
+
+/* Section Heading */
+.contact-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Icons Container */
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Icons wrap on smaller screens */
+    animation: bounceIn 1s ease forwards; /* All icons bounce in at once */
+}
+
+/* Individual Contact Icons */
+.contact-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    gap: 8px;
+    transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Icon Images */
+.contact-icon img.icon-logo {
+    width: 40px; 
+    height: 40px;
+    object-fit: contain;
+    transition: transform 0.3s ease; /* Smooth scaling */
+    background: none; /* Ensure no background is applied */
+    box-shadow: none; /* Remove any potential shadow effects */
+    border: none; /* Remove any borders */
+}
+
+/* Hover Effects */
+.contact-icon:hover {
+    transform: scale(1.1); /* Scale slightly */
+    color: #0073e6;
+    box-shadow: 0 0 15px #0073e6; /* Add glow effect */
+}
+
+.contact-icon:hover img.icon-logo {
+    animation: pulse 0.8s infinite; /* Pulse animation on hover */
+}
+
+/* Label Below Icons */
+.contact-icon span {
+    margin-top: 5px; /* Space between logo and text */
+}
+
+/* Animations */
+
+/* Gradient Background Animation */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+        background-color: #ff8800; /* Start with original color */
+    }
+    50% {
+        background-position: 100% 50%;
+        background-color: #ffa64d; /* Transition to lighter shade */
+    }
+    100% {
+        background-position: 0% 50%;
+        background-color: #ff8800; /* Return to original color */
+    }
+}
+
+/* Bounce-In Effect for Icons */
+@keyframes bounceIn {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Pulse Effect */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-icon {
+        font-size: 16px; /* Slightly smaller text on smaller screens */
+    }
+
+    .contact-icon img.icon-logo {
+        width: 35px; /* Smaller icons */
+        height: 35px;
+    }
+}
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo-container">
+      <img src="img/robotics header.jpeg" alt="Logo">
+    </div>
+    <ul>
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="About.html">About</a></li>
+      <li><a href="programs.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Landing Section -->
+  <div class="landing-section">
+    <div class="landing-overlay"></div>
+    <div class="landing-content">
+      <h1>Empowering Young Innovators</h1>
+      <p>At Jenga IT Hub, we ignite creativity and curiosity in children through engaging coding and robotics training.</p>
+      <a href="#contact-us" class="cta-button">Contact Us</a>
+    </div>
+  </div>
+
+  
+  <!-- Coding for Beginners -->
+  <section class="coding-for-beginners">
+    <h1>Coding for Beginners</h1>
+    <p class="subtitle">Unlock the world of programming!</p>
+    <div class="coding-container">
+        <div class="card">
+            <img src="img/kericho 2.jpeg" alt="Interactive Learning Modules">
+            <h3>Interactive Learning Modules</h3>
+            <p>Our beginner program features interactive learning modules that make coding fun and accessible. Kids will engage with hands-on projects that allow them to see the results of their code in real-time, fostering both creativity and problem-solving skills. Each module is designed to gradually introduce concepts, ensuring a solid foundation in coding fundamentals.</p>
+        </div>
+        <div class="card">
+            <img src="img/kericho 7.jpeg" alt="Creative Project Development">
+            <h3>Creative Project Development</h3>
+            <p>Students will have the opportunity to work on creative projects that encourage them to apply their coding skills. From developing simple games to creating animations, kids will learn to think like programmers while expressing their ideas. This hands-on approach ensures that learning is both enjoyable.</p>
+        </div>
+        <div class="card">
+            <img src="img/Robotics 2.jpeg" alt="Supportive Learning Environment">
+            <h3>Supportive Learning Environment</h3>
+            <p>We prioritize a supportive learning environment where students can thrive. Our experienced instructors provide personalized guidance, nurturing each child's unique pace and style of learning. This approach not only boosts confidence but also cultivates a lifelong interest in technology and coding.</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- Robotics Workshop Section -->
+<section class="robotics-workshop-section">
+  <h2 class="section-title">Robotics Workshop</h2>
+  <p class="section-subtitle">Explore the exciting world of robotics and AI through interactive learning!</p>
+  <div class="robotics-workshop-container">
+    <!-- Card 1: Hands-On Building Experience -->
+    <div class="robotics-card">
+      <div class="robotics-card-front">
+        <img src="img/kericho 10.jpeg" alt="Hands-On Building Experience">
+        <h3>Hands-On Building</h3>
+      </div>
+      <div class="robotics-card-back">
+        <h3>Hands-On Building Experience</h3>
+        <p>Kids construct robots using practical tools, learning mechanical concepts and teamwork skills.</p>
+      </div>
+    </div>
+
+    <!-- Card 2: Programming Robots -->
+    <div class="robotics-card">
+      <div class="robotics-card-front">
+        <img src="img/Robotics A.I" alt="Programming Robots">
+        <h3>Programming Robots</h3>
+      </div>
+      <div class="robotics-card-back">
+        <h3>Programming Robots</h3>
+        <p>Students program their robots with user-friendly platforms, bringing their creations to life.</p>
+      </div>
+    </div>
+
+    <!-- Card 3: Competitions and Challenges -->
+    <div class="robotics-card">
+      <div class="robotics-card-front">
+        <img src="img/continuous-learning.jpg" alt="Competitions and Challenges">
+        <h3>Competitions</h3>
+      </div>
+      <div class="robotics-card-back">
+        <h3>Competitions and Challenges</h3>
+        <p>Showcase creativity through challenges, fostering innovation and perseverance.</p>
+      </div>
+    </div>
+
+    <!-- Card 4: AI & Machine Learning for Kids -->
+    <div class="robotics-card">
+      <div class="robotics-card-front">
+        <img src="img/A.I learning.jpeg" alt="AI & Machine Learning for Kids">
+        <h3>AI for Kids</h3>
+      </div>
+      <div class="robotics-card-back">
+        <h3>AI & Machine Learning for Kids</h3>
+        <p>Explore AI concepts like neural networks and build fun AI projects such as chatbots and image recognition systems.</p>
+      </div>
+    </div>
+
+    <!-- Card 5: LEGO Engineering -->
+    <div class="robotics-card">
+      <div class="robotics-card-front">
+        <img src="img/Lego.jpeg" alt="LEGO Engineering">
+        <h3>LEGO Engineering</h3>
+      </div>
+      <div class="robotics-card-back">
+        <h3>LEGO Engineering</h3>
+        <p>Build and program LEGO robots to perform tasks while exploring gears, levers, and motors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- Advanced Coding Techniques -->
+<section class="advanced-coding-techniques-section">
+  <h2 class="section-title">Advanced Coding Techniques</h2>
+  <p class="section-subtitle">Take your coding skills to the next level!</p>
+  <div class="advanced-coding-techniques-container">
+      <!-- Card 1 -->
+      <div class="advanced-coding-techniques-card">
+          <h3>In-Depth Language Exploration</h3>
+          <p>
+              This program delves into advanced programming languages and concepts, offering students a chance to explore languages 
+              such as Python, Java, and C++. With in-depth modules, students will learn about algorithms, data structures, and software 
+              development practices, preparing them for more complex projects.
+          </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="advanced-coding-techniques-card">
+          <h3>Real-World Applications</h3>
+          <p>
+              Students will work on real-world applications and projects that mirror industry standards. This experience not only enhances 
+              their technical skills but also provides insight into the software development lifecycle, emphasizing the importance of testing 
+              and debugging.
+          </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="advanced-coding-techniques-card">
+          <h3>Collaborative Group Projects</h3>
+          <p>
+              Collaboration is key in the tech industry, and our program emphasizes group projects that foster teamwork. Students will learn 
+              to communicate effectively, share ideas, and tackle challenges together, preparing them for future endeavors in tech.
+          </p>
+      </div>
+  </div>
+</section>
+
+  <!-- Contact Section -->
+  <div class="contact-section" id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-icons">
+      <!-- X Logo -->
+      <a href="https://x.com/7_muhindi" target="_blank" class="contact-icon">
+        <img src="img/twitter.png" alt="X Logo" class="icon-logo">
+        <span></span>
+    </a>
+    <!-- Facebook Logo -->
+    <a href="https://facebook.com/" target="_blank" class="contact-icon">
+        <img src="img/facebook.png" alt="Facebook Logo" class="icon-logo">
+        <span></span>
+    </a>
+    <!-- WhatsApp Logo -->
+    <a href="https://web.whatsapp.com/" target="_blank" class="contact-icon">
+        <img src="img/whatsapp.png" alt="WhatsApp Logo" class="icon-logo">
+        <span></span>
+    </a>
+    <!-- Email Logo -->
+    <a href="mailto:jengaithubafrica@gmail.com" class="contact-icon">
+        <img src="img/gmail (1).png" alt="Email Logo" class="icon-logo">
+        <span></span>
+    </a>
+    <!-- Instagram Logo -->
+    <a href="https://instagram.com/" target="_blank" class="contact-icon">
+        <img src="img/instagram.png" alt="Instagram Logo" class="icon-logo">
+        <span></span>
+    </a>
+</div>
+    </div>
+  </div>
+</body>
+</html>
