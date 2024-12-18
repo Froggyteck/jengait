@@ -490,43 +490,47 @@
     }
 }
 
-/* Bounce-In Effect for Icons */
-@keyframes bounceIn {
+/* Back to Top Button Styles */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: block; /* Visible by default */
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #c57b0d, #ff9b05);
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease, transform 0.3s ease, opacity 1s ease;
+    animation: bounce 3s infinite alternate ease-in-out;
+}
+
+#back-to-top:hover {
+    background: linear-gradient(135deg, #ff9b05, #1d1100);
+    transform: scale(1.1);
+}
+
+@keyframes bounce {
     0% {
-        transform: translateY(50px);
-        opacity: 0;
+        transform: translateY(0);
     }
-    60% {
+    50% {
         transform: translateY(-10px);
-        opacity: 0;
     }
     100% {
         transform: translateY(0);
     }
 }
 
-/* Pulse Effect */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
+@keyframes fadeVisibility {
+    0%, 50% {
+        opacity: 1;
     }
-    50% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .contact-icon {
-        font-size: 16px; /* Slightly smaller text on smaller screens */
-    }
-
-    .contact-icon img.icon-logo {
-        width: 35px; /* Smaller icons */
-        height: 35px;
+    51%, 100% {
+        opacity: 0.2;
     }
 }
   </style>
