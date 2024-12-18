@@ -81,7 +81,7 @@
 }
 
     
-    /* Landing Section */
+    /* General Landing Section Styles */
 .landing-section {
   position: relative;
   width: 100%;
@@ -142,7 +142,7 @@
   background-color: #0056b3;
 }
 
-/* Keyframes for Smoother Fade-In Animation */
+/* Keyframes for Animations */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -154,7 +154,6 @@
   }
 }
 
-/* Keyframes for Sliding Overlay */
 @keyframes slideInOverlay {
   0% {
     left: -100%;
@@ -164,7 +163,6 @@
   }
 }
 
-/* Keyframes for Background Zoom Animation */
 @keyframes zoomInBackground {
   0% {
     background-size: 100%;
@@ -177,7 +175,6 @@
   }
 }
 
-/* Keyframes for Pulsing Button */
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -193,100 +190,227 @@
   }
 }
 
+/* Responsive Design for Tablets (768px and below) */
+@media (max-width: 768px) {
+  .landing-section {
+    height: 50vh; /* Reduce height */
+    background-size: cover; /* Ensure background fits */
+  }
 
-    /* Carousel */
-    .carousel {
-      position: relative;
-      width: 100%;
-      max-width: 1200px;
-      margin: 50px auto;
-      overflow: hidden;
-    }
+  .landing-content h1 {
+    font-size: 2em; /* Slightly smaller heading */
+    margin-bottom: 15px;
+  }
 
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
+  .landing-content p {
+    font-size: 1em; /* Slightly smaller text */
+    margin-bottom: 30px;
+  }
 
-    .carousel-item {
-      min-width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  .cta-button {
+    font-size: 14px; /* Adjust button size */
+    padding: 10px 20px;
+  }
+}
 
-    .carousel-item img {
-      max-width: 50%;
-      height: auto;
-      border-radius: 10px;
-    }
+/* Responsive Design for Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+  .landing-section {
+    height: 40vh; /* Further reduce height for small screens */
+    background-size: cover; /* Ensure the background fits */
+  }
 
-    .carousel-content {
-      max-width: 40%;
-      padding: 20px;
-      text-align: left;
-    }
+  .landing-content h1 {
+    font-size: 1.8em; /* Reduce heading size */
+    margin-bottom: 10px;
+  }
 
-    .carousel-content h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
+  .landing-content p {
+    font-size: 0.9em; /* Reduce paragraph size */
+    margin-bottom: 20px;
+  }
 
-    .carousel-content p {
-      font-size: 1rem;
-      margin-bottom: 20px;
-    }
+  .cta-button {
+    font-size: 12px; /* Smaller button font */
+    padding: 8px 16px;
+  }
+}
 
-    .carousel-content button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
 
-    .carousel-content button:hover {
-      background-color: #0056b3;
-    }
 
-    .carousel-controls {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-    }
+    /* Carousel Base Styles */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto;
+  overflow: hidden;
+}
 
-    .carousel-controls button {
-      background: none;
-      border: none;
-      font-size: 2rem;
-      cursor: pointer;
-      color: #333;
-    }
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
 
-    .carousel-indicators {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
+.carousel-item {
+  min-width: 100%;
+  display: flex;
+  flex-direction: row; /* Default row layout for larger screens */
+  align-items: center;
+  justify-content: center;
+}
 
-    .carousel-indicators span {
-      width: 10px;
-      height: 10px;
-      margin: 0 5px;
-      background-color: #ccc;
-      border-radius: 50%;
-      cursor: pointer;
-    }
+.carousel-item img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 10px;
+}
 
-    .carousel-indicators span.active {
-      background-color: #007bff;
-    }
+.carousel-content {
+  max-width: 40%;
+  padding: 20px;
+  text-align: left;
+}
+
+.carousel-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.carousel-content p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.carousel-content button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.carousel-content button:hover {
+  background-color: #0056b3;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.carousel-controls button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.carousel-indicators span {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.carousel-indicators span.active {
+  background-color: #007bff;
+}
+
+/* Responsive Design for Tablets (768px and below) */
+@media (max-width: 768px) {
+  .carousel-item {
+    flex-direction: column; /* Stack image and content vertically */
+    padding: 10px;
+  }
+
+  .carousel-item img {
+    max-width: 80%; /* Adjust image size for smaller screens */
+    margin-bottom: 20px; /* Add spacing below image */
+  }
+
+  .carousel-content {
+    max-width: 90%; /* Use most of the screen width */
+    text-align: center; /* Center align text */
+    padding: 10px;
+  }
+
+  .carousel-content h2 {
+    font-size: 1.8rem; /* Slightly smaller heading */
+  }
+
+  .carousel-content p {
+    font-size: 0.9rem; /* Slightly smaller paragraph text */
+  }
+
+  .carousel-content button {
+    font-size: 14px; /* Adjust button size */
+    padding: 8px 16px;
+  }
+
+  .carousel-controls button {
+    font-size: 1.5rem; /* Smaller control icons */
+  }
+}
+
+/* Responsive Design for Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+  .carousel-item {
+    flex-direction: column; /* Stack content vertically */
+    padding: 10px;
+  }
+
+  .carousel-item img {
+    max-width: 90%; /* Smaller image for mobile */
+    margin-bottom: 15px; /* Spacing below image */
+  }
+
+  .carousel-content {
+    max-width: 100%; /* Take full width */
+    text-align: center; /* Center text alignment */
+    padding: 5px;
+  }
+
+  .carousel-content h2 {
+    font-size: 1.5rem; /* Smaller heading for mobile */
+  }
+
+  .carousel-content p {
+    font-size: 0.85rem; /* Smaller text */
+  }
+
+  .carousel-content button {
+    font-size: 12px; /* Smaller button text */
+    padding: 6px 12px; /* Adjust padding */
+  }
+
+  .carousel-controls button {
+    font-size: 1.2rem; /* Smaller control buttons */
+  }
+
+  .carousel-indicators span {
+    width: 8px; /* Smaller indicator dots */
+    height: 8px;
+    margin: 0 3px; /* Reduce spacing between dots */
+  }
+}
+
 
     /* Programs Section */
 #programs {
@@ -322,9 +446,6 @@
   background-color: #c7ccce; /* Skyblue Solid Background Color */
   box-shadow: 0 4px 6px rgba(250, 114, 3, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.programs-section {
-    background-color: #e4dada;
 }
 
 .program img {
@@ -367,20 +488,81 @@
   box-shadow: 0 8px 12px rgba(250, 114, 3, 0.2); /* Enhanced hover shadow */
 }
 
+/* Responsive Design for Tablets (768px and below) */
+@media (max-width: 768px) {
+  #programs {
+    padding: 30px; /* Reduce padding */
+  }
 
+  .program {
+    flex-direction: column; /* Stack image and content vertically */
+    align-items: center; /* Center-align content */
+    text-align: center; /* Center text for smaller screens */
+  }
+
+  .program img {
+    width: 80%; /* Scale down image for tablets */
+    margin: 0 0 20px 0; /* Add spacing below the image */
+  }
+
+  .program-content {
+    max-width: 90%; /* Use most of the screen width */
+  }
+
+  .program-content h3 {
+    font-size: 1.3rem; /* Slightly smaller heading */
+  }
+
+  .program-content p {
+    font-size: 0.9rem; /* Slightly smaller text */
+  }
+}
+
+/* Responsive Design for Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+  #programs {
+    padding: 20px; /* Further reduce padding */
+  }
+
+  .program {
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center-align all elements */
+    text-align: center;
+    padding: 15px; /* Reduce padding */
+  }
+
+  .program img {
+    width: 90%; /* Scale image for small screens */
+    margin: 0 0 15px 0; /* Spacing below image */
+  }
+
+  .program-content {
+    max-width: 100%; /* Take full width */
+    padding: 0 10px; /* Add slight padding for content */
+  }
+
+  .program-content h3 {
+    font-size: 1.2rem; /* Smaller heading for mobile */
+  }
+
+  .program-content p {
+    font-size: 0.85rem; /* Adjust text size */
+  }
+}
 
     /* Trusted Partner Section */
 .trusted-partner-container {
   text-align: center; /* Centers text elements horizontally */
-  margin-bottom: 20px; /* Adds space between heading and cards */
-  min-height: 100px; /* Adjust this value to increase height */
-  margin-top: 60px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.2rem; /* Keep larger font size for desktop */
 }
 
 .trusted-partner {
   display: flex;
   justify-content: space-between;
-  gap: 25px;
+  gap: 25px; /* Maintain desktop spacing */
 }
 
 .partner-card {
@@ -394,7 +576,7 @@
 
 .partner-card img {
   width: 100%;
-  height: 250px;
+  height: 250px; /* Fixed height for desktop */
 }
 
 .partner-card h3 {
@@ -405,131 +587,224 @@
   padding: 10px;
 }
 
+/* Responsive Design for Tablets (768px and below) */
+@media (max-width: 768px) {
+  .trusted-partner {
+    flex-wrap: wrap; /* Allow wrapping for tablets */
+    justify-content: center; /* Center-align cards */
+    gap: 20px; /* Reduce spacing slightly */
+  }
+
+  .partner-card {
+    max-width: 45%; /* Display two cards per row */
+    margin-bottom: 20px; /* Add spacing below cards */
+  }
+
+  .partner-card img {
+    height: auto; /* Allow image to resize naturally */
+  }
+
+  .trusted-partner-container {
+    font-size: 1rem; /* Adjust font size slightly for tablets */
+  }
+}
+
+/* Responsive Design for Mobile Phones (480px and below) */
+@media (max-width: 480px) {
+  .trusted-partner {
+    flex-direction: column; /* Stack cards vertically */
+    gap: 15px; /* Reduce gap further for tighter layout */
+  }
+
+  .partner-card {
+    max-width: 90%; /* Full-width for mobile */
+    margin: 0 auto 20px; /* Center-align and add spacing below */
+  }
+
+  .partner-card img {
+    height: auto; /* Allow image to scale naturally */
+  }
+
+  .trusted-partner-container {
+    font-size: 0.9rem; /* Reduce font size for smaller screens */
+    margin: 10px; /* Adjust margins for compact layout */
+  }
+
+  .partner-card h3 {
+    font-size: 1rem; /* Slightly smaller heading font */
+  }
+
+  .partner-card p {
+    font-size: 0.85rem; /* Adjust paragraph text size */
+  }
+}
 
 
-    .testimonial-section {
-      text-align: center;
-      padding: 50px 20px;
-      background-color: #ffffff;
+.testimonial-section {
+  text-align: center;
+  padding: 40px 15px;
+  background-color: #ffffff;
+}
+
+.testimonial-section h2 {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.testimonial-slider {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonial-card {
+  width: 80%;
+  max-width: 800px;
+  background-color: #f2f2f2;
+  padding:20px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.testimonial-card.active {
+  opacity: 1;
+}
+
+.testimonial-quote {
+  font-size: 18px;
+  font-style: italic;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonial-author-name {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.testimonial-author-role {
+  font-size: 12px;
+  color: #666;
+}
+
+.testimonial-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 10px;
+}
+
+.testimonial-controls button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.testimonial-controls button:hover {
+  background-color: #444;
+}
+
+.testimonial-controls button#testimonial-next {
+      margin-right: 20px;
     }
+.testimonial-indicators {
+  margin-top: 10px;
+}
 
-    .testimonial-section h2 {
-        font-family: Arial, sans-serif;
-        font-size: 24px;
-      color: #333;
-      margin-bottom: 30px;
-      text-align: center;
-      
-    }
+.testimonial-indicators span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
 
-    .testimonial-slider {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+.testimonial-indicators span.active {
+  background-color: #007bff;
+}
 
-    .testimonial-card {
-      width: 80%;
-      max-width: 700px;
-      background-color: #f2f2f2;
-      padding: 20px 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      text-align: center;
-      position: relative;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
+@media (max-width: 768px) {
+  .testimonial-card {
+    width: 95%;
+  }
+  .testimonial-section h2 {
+    font-size: 18px;
+  }
+  .testimonial-quote {
+    font-size: 14px;
+  }
+  .testimonial-author-name {
+    font-size: 12px;
+  }
+  .testimonial-author-role {
+    font-size: 10px;
+  }
+  .testimonial-controls button {
+    width: 30px;
+    height: 30px;
+  }
+}
 
-    .testimonial-card.active {
-      opacity: 1;
-    }
+@media (max-width: 480px) {
+  .testimonial-section {
+    padding: 30px 10px;
+  }
+  .testimonial-section h2 {
+    font-size: 16px;
+  }
+  .testimonial-quote {
+    font-size: 12px;
+  }
+  .testimonial-author-name {
+    font-size: 10px;
+  }
+  .testimonial-author-role {
+    font-size: 8px;
+  }
+  .testimonial-controls button {
+    width: 25px;
+    height: 25px;
+  }
+}
 
-    .testimonial-quote {
-      font-size: 18px;
-      font-style: italic;
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-
-    .testimonial-author {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .testimonial-author-name {
-      font-size: 16px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .testimonial-author-role {
-      font-size: 14px;
-      color: #666;
-    }
-
-    .testimonial-controls {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      padding: 0 15px;
-    }
-
-    .testimonial-controls button {
-      background-color: #000;
-      color: #fff;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      outline: none;
-    }
-
-    .testimonial-controls button:hover {
-      background-color: #444;
-    }
-
-    .testimonial-controls button#testimonial-next {
-      margin-right: 55px;
-    }
-
-    .testimonial-indicators {
-      margin-top: 15px;
-    }
-
-    .testimonial-indicators span {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      margin: 0 5px;
-      background-color: #ccc;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    .testimonial-indicators span.active {
-      background-color: #007bff;
-    }
 
 
     /* Contact Section */
 .contact-section {
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     background: linear-gradient(45deg, #ff8800, #6d6c6c); /* Initial gradient */
-    background-size: 200% 200%;
+    background-size: 100% 100%;
     animation: gradientShift 6s ease infinite; /* Gradient animation */
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -649,26 +924,49 @@
 }
 
   /* Back to Top Button Styles */
-  #back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: none; /* Hidden by default */
-      padding: 10px 15px;
-      background-color: #007BFF;
-      color: white;
-      font-size: 14px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: block; /* Visible by default */
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #c57b0d, #ff9b05);
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease, transform 0.3s ease, opacity 1s ease;
+    animation: bounce 3s infinite alternate ease-in-out;
+}
 
-    #back-to-top:hover {
-      background-color: #0056b3;
-      transform: scale(1.1);
+#back-to-top:hover {
+    background: linear-gradient(135deg, #ff9b05, #1d1100);
+    transform: scale(1.1);
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
     }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeVisibility {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0.2;
+    }
+}
+
 
   </style>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -852,9 +1150,9 @@
     <div class="contact-icons">
         <!-- X Logo -->
         <a href="https://x.com/7_muhindi" target="_blank" class="contact-icon">
-            <img src="img/twitter.png" alt="X Logo" class="icon-logo">
-            <span></span>
-        </a>
+          <img src="img/twitter.png" alt="X Logo" class="icon-logo">
+          <span></span>
+      </a>
         
         <!-- Facebook Logo -->
         <a href="https://facebook.com/" target="_blank" class="contact-icon">
@@ -942,17 +1240,17 @@
     const testimonials = [
       {
         quote: "Jenga IT Hub transformed the way my child learns. The hands-on coding classes were both fun and educational!",
-        name: "Alex Johnson",
+        name: "Lucas Mwaura",
         role: "Satisfied Parent",
       },
       {
         quote: "The coding academy has been a game-changer for my child's education. Highly recommended!",
-        name: "Lucas Lucas",
+        name: "Rashid",
         role: "Impressed Parent",
       },
       {
         quote: "Interactive and engaging environment! My child now loves coding thanks to Jenga IT Hub.",
-        name: "Chris Thompson",
+        name: "Vivian Mueni",
         role: "Happy Parent",
       }
     ];
