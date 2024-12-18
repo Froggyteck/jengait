@@ -640,26 +640,48 @@ p.section-subtitle {
 
 
     /* Back to Top Button Styles */
-    #back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: none; /* Hidden by default */
-      padding: 10px 15px;
-      background-color: #007BFF;
-      color: white;
-      font-size: 14px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: block; /* Visible by default */
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #c57b0d, #ff9b05);
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease, transform 0.3s ease, opacity 1s ease;
+    animation: bounce 3s infinite alternate ease-in-out;
+}
 
-    #back-to-top:hover {
-      background-color: #0056b3;
-      transform: scale(1.1);
+#back-to-top:hover {
+    background: linear-gradient(135deg, #ff9b05, #1d1100);
+    transform: scale(1.1);
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
     }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeVisibility {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0.2;
+    }
+}
   </style>
 </head>
 <body>
