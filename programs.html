@@ -319,23 +319,23 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .coding-container {
-        flex-wrap: nowrap; /* Prevent wrapping of cards */
-        overflow-x: auto; /* Enable horizontal scrolling */
         display: flex;
-        padding: 10px 0; /* Add padding for better aesthetics */
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile devices */
+        flex-wrap: nowrap; /* Prevent wrapping of cards */
+        overflow-x: scroll; /* Enable horizontal scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
         gap: 10px; /* Adjust spacing between cards */
+        padding: 10px; /* Add some padding for better aesthetics */
     }
 
     .coding-container::-webkit-scrollbar {
-        display: none; /* Hide scrollbar for a cleaner look */
+        display: none; /* Hide the scrollbar */
     }
 
     .card {
-        flex: 0 0 auto; /* Keep cards at their natural size */
-        width: 80%; /* Adjust card width for better viewing on smaller screens */
-        max-width: 300px; /* Ensure consistent width */
-        margin: 0 10px; /* Space between cards */
+        flex: 0 0 auto; /* Prevent cards from shrinking or wrapping */
+        width: 80%; /* Set card width for mobile screens */
+        max-width: 300px; /* Ensure cards don't become too large */
+        margin: 0 10px; /* Add space between cards */
     }
 }
 
