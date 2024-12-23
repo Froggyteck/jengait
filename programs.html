@@ -349,7 +349,6 @@
     padding: 40px 20px;
     background-color: #ffa652;
     text-align: center;
-    /* Keep the original style for larger screens */
     animation: gradientAnimation 5s infinite alternate; /* Animated gradient */
 }
 
@@ -373,28 +372,41 @@
     overflow: hidden;
     white-space: nowrap;
     display: inline-block;
+    border-right: 2px solid #555; /* Blinking cursor */
+    animation: typing 3s steps(30, end), blink 0.5s step-end infinite;
 }
 
 /* Robotics Workshop Container */
 .robotics-workshop-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap;
     gap: 20px;
     margin: 0 auto;
-    max-width: 1100px;
-    animation: fadeIn 1s ease-in-out;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: 10px 0;
+    position: relative;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth; /* Smooth scrolling */
 }
 
-/* Robotics Card */
-.robotics-card {
-    width: 350px; /* Original width for larger screens */
-    height: 500px; /* Original height for larger screens */
+/* Create a scrollable animation loop */
+.robotics-workshop-container .scrolling-wrapper {
+    display: flex;
+    animation: infiniteScroll 20s linear infinite; /* Infinite scroll */
+}
+
+.robotics-workshop-container .scrolling-wrapper .robotics-card {
+    flex-shrink: 0;
+    width: 350px;
+    height: 500px;
     perspective: 1000px;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    scroll-snap-align: start;
 }
 
+/* Card Hover Effects */
 .robotics-card:hover {
     transform: translateY(-10px) scale(1.05);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
@@ -426,15 +438,6 @@
 .robotics-card-back {
     transform: rotateY(180deg);
     background-color: #f0f0f0;
-}
-
-/* Hover Flip Effect */
-.robotics-card:hover .robotics-card-front {
-    transform: rotateY(-180deg);
-}
-
-.robotics-card:hover .robotics-card-back {
-    transform: rotateY(0deg);
 }
 
 /* Card Front */
@@ -471,53 +474,43 @@
 
 /* Mobile-specific Adjustments */
 @media (max-width: 768px) {
-    /* Adjust Section Padding for Smaller Screens */
-    .robotics-workshop-section {
-        padding: 30px 15px; /* Reduced padding for mobile */
-    }
-
-    /* Adjust Section Title for Mobile */
-    .robotics-workshop-section .section-title {
-        font-size: 1.8rem; /* Smaller font for mobile */
-        margin-bottom: 10px;
-    }
-
-    /* Adjust Section Subtitle for Mobile */
-    .robotics-workshop-section .section-subtitle {
-        font-size: 1rem; /* Smaller font for mobile */
-        margin-bottom: 30px;
-    }
-
-    /* Adjust the Container Layout for Smaller Screens */
     .robotics-workshop-container {
-        flex-direction: column;
-        align-items: center;
+        flex-wrap: nowrap;
+        gap: 10px;
+        margin: 0 10px;
+        overflow-x: hidden;
     }
 
-    /* Adjust Card Size for Smaller Screens */
     .robotics-card {
-        width: 90%; /* Take up most of the width */
-        max-width: 400px;
-        height: auto; /* Auto height for better proportions */
+        width: 80%;
+        max-width: 350px;
+        height: 450px;
     }
 
-    /* Adjust Card Image for Mobile */
     .robotics-card-front img {
-        height: 200px; /* Reduced height */
+        height: 200px;
     }
 
-    /* Font Size Adjustments for Card Front */
     .robotics-card-front h3 {
-        font-size: 1.1rem; /* Slightly smaller font */
+        font-size: 1.1rem;
     }
 
-    /* Card Back Adjustments */
     .robotics-card-back h3 {
-        font-size: 1.2rem; /* Adjust font size for back card */
+        font-size: 1.2rem;
     }
 
     .robotics-card-back p {
-        font-size: 1rem; /* Adjust font size for mobile */
+        font-size: 1rem;
+    }
+}
+
+/* Infinite Scroll Animation */
+@keyframes infiniteScroll {
+    0% {
+        transform: translateX(0); /* Start at the beginning */
+    }
+    100% {
+        transform: translateX(-100%); /* Move to the left until all cards are scrolled */
     }
 }
         /* AI & Machine Learning Section */
