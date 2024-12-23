@@ -227,106 +227,94 @@
 /* Coding for Beginners Section */
 .coding-for-beginners {
     padding: 20px; /* Adjust padding for spacing */
-    background-color: #ffb76b; /* Solid pink background */
+    background-color: #ffb76b; /* Solid orange background */
     text-align: center; /* Center-align all text-based elements */
 }
 
 /* Title Styling */
 .coding-for-beginners h1 {
     font-size: 2.5rem;
-    margin-bottom: 10px; /* Space below title */
+    margin-bottom: 10px; /* Space below the title */
     color: #333; /* Optional color for better readability */
 }
 
 /* Subtitle Styling */
 .coding-for-beginners .subtitle {
     font-size: 1.2rem;
-    color: #555; /* Contrast color for subtitle */
+    color: #555; /* Contrast color for the subtitle */
     margin-bottom: 30px; /* Space below subtitle */
-    overflow: hidden; /* Ensure content doesn't overflow */
-    white-space: nowrap;
-    display: inline-block;
-    border-right: none; /* Remove blinking cursor */
+}
+
+/* Coding Container */
+.coding-container {
+    display: flex;
+    overflow: hidden; /* Hide overflow for clean appearance */
+    scroll-behavior: smooth; /* Smooth scrolling for better effect */
+    gap: 20px; /* Space between cards */
+    padding: 20px;
+    max-width: 100%;
+    position: relative;
 }
 
 /* Card Styling */
 .card {
-    background-color: #fff;
+    flex: 0 0 300px; /* Fixed card width */
+    background: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    overflow: hidden;
-    max-width: 350px; /* Limit card width */
-    text-align: center; /* Center-align card content */
-    perspective: 1000px; /* Enable 3D for flipping */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease; /* Smooth transform on hover */
 }
 
-/* Hover Effect: Scale and Shadow */
-.card:hover {
-    transform: translateY(-10px); /* Lift the card slightly */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
-}
-
-/* Card Inner */
-.card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d; /* Maintain 3D context */
-    transition: transform 0.8s;
-}
-
-/* Card Front and Back */
-.card-front,
-.card-back {
-    position: absolute;
-    backface-visibility: hidden; /* Hide back side when not flipped */
-    width: 100%;
-    height: 100%;
-}
-
-.card-back {
-    transform: rotateY(180deg);
-    background: #007BFF; /* Back of the card */
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Card Image Styling */
 .card img {
     width: 100%;
-    height: 250px; /* Fixed height for uniformity */
-    object-fit: cover; /* Ensure images cover the space without distortion */
+    height: 150px; /* Consistent height for all cards */
+    object-fit: cover; /* Maintain image proportions */
+    border-top-left-radius: 8px; /* Match card border radius */
+    border-top-right-radius: 8px;
 }
 
-/* Card Title Styling */
 .card h3 {
     margin: 15px 0; /* Space around the title */
-    font-size: 1.2em; /* Slightly larger text */
-    color: #333; /* Solid text color */
+    font-size: 1.2rem;
+    color: #333;
 }
 
-/* Card Text Styling */
 .card p {
-    padding: 0 15px 20px; /* Space for readability */
-    color: #666; /* Slightly lighter text */
-    font-size: 1rem; /* Standard paragraph size */
-    line-height: 1.5; /* Better line spacing */
+    font-size: 0.9rem;
+    color: #555;
+    padding: 0 10px 20px;
+    line-height: 1.5; /* Better readability */
 }
 
-/* Mobile Responsiveness */
+/* Auto-scroll animation */
+@keyframes scroll-cards {
+    0%, 100% {
+        transform: translateX(0); /* Start at the first card */
+    }
+    33% {
+        transform: translateX(-320px); /* Move to the second card */
+    }
+    66% {
+        transform: translateX(-640px); /* Move to the third card */
+    }
+}
+
+.auto-scroll {
+    animation: scroll-cards 6s infinite; /* Smooth loop: 6 seconds total */
+}
+
+/* Responsive Styling for Mobile */
 @media (max-width: 768px) {
     .coding-container {
         flex-wrap: nowrap; /* Prevent wrapping */
-        overflow-x: auto; /* Enable horizontal scrolling */
+        overflow-x: auto; /* Horizontal scrolling for smaller screens */
         -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile devices */
     }
 
     .card {
-        flex: 0 0 auto; /* Keep cards at their natural size */
-        width: 80%; /* Slightly reduce card width for better fit */
+        flex: 0 0 auto; /* Maintain natural size */
+        width: 80%; /* Reduce width for better fit */
         margin: 0 10px; /* Space between cards */
     }
 }
@@ -1035,27 +1023,27 @@
 
   
   <!-- Coding for Beginners -->
-  <section class="coding-for-beginners">
-    <h1>Coding for Beginners</h1>
-    <p class="subtitle">Unlock the world of programming!</p>
-    <div class="coding-container">
-        <div class="card">
-            <img src="img/kericho 2.jpeg" alt="Interactive Learning Modules">
-            <h3>Interactive Learning Modules</h3>
-            <p>Our beginner program features interactive learning modules that make coding fun and accessible. Kids will engage with hands-on projects that allow them to see the results of their code in real-time, fostering both creativity and problem-solving skills. Each module is designed to gradually introduce concepts, ensuring a solid foundation in coding fundamentals.</p>
-        </div>
-        <div class="card">
-            <img src="img/kericho 7.jpeg" alt="Creative Project Development">
-            <h3>Creative Project Development</h3>
-            <p>Students will have the opportunity to work on creative projects that encourage them to apply their coding skills. From developing simple games to creating animations, kids will learn to think like programmers while expressing their ideas. This hands-on approach ensures that learning is both enjoyable.</p>
-        </div>
-        <div class="card">
-            <img src="img/Robotics 2.jpeg" alt="Supportive Learning Environment">
-            <h3>Supportive Learning Environment</h3>
-            <p>We prioritize a supportive learning environment where students can thrive. Our experienced instructors provide personalized guidance, nurturing each child's unique pace and style of learning. This approach not only boosts confidence but also cultivates a lifelong interest in technology and coding.</p>
-        </div>
-    </div>
-  </section>
+<section class="coding-for-beginners">
+  <h1>Coding for Beginners</h1>
+  <p class="subtitle">Unlock the world of programming!</p>
+  <div class="coding-container auto-scroll">
+      <div class="card">
+          <img src="img/kericho 2.jpeg" alt="Interactive Learning Modules">
+          <h3>Interactive Learning Modules</h3>
+          <p>Our beginner program features interactive learning modules that make coding fun and accessible. Kids will engage with hands-on projects that allow them to see the results of their code in real-time, fostering both creativity and problem-solving skills. Each module is designed to gradually introduce concepts, ensuring a solid foundation in coding fundamentals.</p>
+      </div>
+      <div class="card">
+          <img src="img/kericho 7.jpeg" alt="Creative Project Development">
+          <h3>Creative Project Development</h3>
+          <p>Students will have the opportunity to work on creative projects that encourage them to apply their coding skills. From developing simple games to creating animations, kids will learn to think like programmers while expressing their ideas. This hands-on approach ensures that learning is both enjoyable.</p>
+      </div>
+      <div class="card">
+          <img src="img/Robotics 2.jpeg" alt="Supportive Learning Environment">
+          <h3>Supportive Learning Environment</h3>
+          <p>We prioritize a supportive learning environment where students can thrive. Our experienced instructors provide personalized guidance, nurturing each child's unique pace and style of learning. This approach not only boosts confidence but also cultivates a lifelong interest in technology and coding.</p>
+      </div>
+  </div>
+</section>
 
   <!-- Robotics Workshop Section -->
 <section class="robotics-workshop-section">
