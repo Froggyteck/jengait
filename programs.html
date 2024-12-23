@@ -319,15 +319,18 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .coding-container {
-        flex-direction: column; /* Stack cards vertically for smaller screens */
-        align-items: center; /* Align cards at the center */
+        flex-wrap: nowrap; /* Prevent wrapping */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile devices */
     }
 
     .card {
-        width: 90%; /* Use most of the screen width */
-        max-width: none; /* Remove max-width restriction */
+        flex: 0 0 auto; /* Keep cards at their natural size */
+        width: 80%; /* Slightly reduce card width for better fit */
+        margin: 0 10px; /* Space between cards */
     }
 }
+
 
         /* Robotics Workshop Section */
 .robotics-workshop-section {
