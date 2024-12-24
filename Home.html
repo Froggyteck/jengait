@@ -220,7 +220,7 @@
 /* Responsive Design for Mobile Phones (480px and below) */
 @media (max-width: 480px) {
   .landing-section {
-    height: 100vh; /* Full viewport height for mobile */
+    height: 40vh; /* Full viewport height for mobile */
     background-size: cover; /* Maintain image size */
     background-position: center; /* Ensure no gaps */
   }
@@ -241,6 +241,8 @@
   }
 }
 
+
+
     /* Carousel Base Styles */
 .carousel {
   position: relative;
@@ -258,7 +260,7 @@
 .carousel-item {
   min-width: 100%;
   display: flex;
-  flex-direction: row; /* Default row layout for larger screens */
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
@@ -300,6 +302,7 @@
   background-color: #0056b3;
 }
 
+/* Carousel Controls */
 .carousel-controls {
   position: absolute;
   top: 50%;
@@ -307,6 +310,7 @@
   display: flex;
   justify-content: space-between;
   transform: translateY(-50%);
+  z-index: 10; /* Ensure it is above clickable zones */
 }
 
 .carousel-controls button {
@@ -317,6 +321,7 @@
   color: #333;
 }
 
+/* Carousel Indicators */
 .carousel-indicators {
   display: flex;
   justify-content: center;
@@ -336,86 +341,106 @@
   background-color: #007bff;
 }
 
+/* Clickable Zones for Navigation */
+.carousel-left-zone,
+.carousel-right-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  cursor: pointer;
+  z-index: 5; /* Ensure it is above the carousel-inner */
+}
+
+.carousel-left-zone {
+  left: 0;
+}
+
+.carousel-right-zone {
+  right: 0;
+}
+
 /* Responsive Design for Tablets (768px and below) */
 @media (max-width: 768px) {
   .carousel-item {
-    flex-direction: column; /* Stack image and content vertically */
+    flex-direction: column;
     padding: 10px;
   }
 
   .carousel-item img {
-    max-width: 80%; /* Adjust image size for smaller screens */
-    margin-bottom: 20px; /* Add spacing below image */
+    max-width: 80%;
+    margin-bottom: 20px;
   }
 
   .carousel-content {
-    max-width: 90%; /* Use most of the screen width */
-    text-align: center; /* Center align text */
+    max-width: 90%;
+    text-align: center;
     padding: 10px;
   }
 
   .carousel-content h2 {
-    font-size: 1.8rem; /* Slightly smaller heading */
+    font-size: 1.8rem;
   }
 
   .carousel-content p {
-    font-size: 0.9rem; /* Slightly smaller paragraph text */
+    font-size: 0.9rem;
   }
 
   .carousel-content button {
-    font-size: 14px; /* Adjust button size */
+    font-size: 14px;
     padding: 8px 16px;
   }
 
   .carousel-controls button {
-    font-size: 1.5rem; /* Smaller control icons */
+    font-size: 1.5rem;
   }
 }
 
 /* Responsive Design for Mobile Phones (480px and below) */
 @media (max-width: 480px) {
   .carousel-item {
-    flex-direction: column; /* Stack content vertically */
+    flex-direction: column;
     padding: 10px;
   }
 
   .carousel-item img {
-    max-width: 90%; /* Smaller image for mobile */
-    margin-bottom: 15px; /* Spacing below image */
+    max-width: 90%;
+    margin-bottom: 15px;
   }
 
   .carousel-content {
-    max-width: 100%; /* Take full width */
-    text-align: center; /* Center text alignment */
+    max-width: 100%;
+    text-align: center;
     padding: 5px;
   }
 
   .carousel-content h2 {
-    font-size: 1.5rem; /* Smaller heading for mobile */
+    font-size: 1.5rem;
   }
 
   .carousel-content p {
-    font-size: 0.85rem; /* Smaller text */
+    font-size: 0.85rem;
   }
 
   .carousel-content button {
-    font-size: 12px; /* Smaller button text */
-    padding: 6px 12px; /* Adjust padding */
+    font-size: 12px;
+    padding: 6px 12px;
   }
 
   .carousel-controls button {
-    font-size: 1.2rem; /* Smaller control buttons */
+    font-size: 1.2rem;
   }
 
   .carousel-indicators span {
-    width: 8px; /* Smaller indicator dots */
+    width: 8px;
     height: 8px;
-    margin: 0 3px; /* Reduce spacing between dots */
+    margin: 0 3px;
   }
 }
 
 
-    /* Programs Section */
+
+    /* General Programs Section Styles */
 #programs {
   padding: 50px;
   max-width: 1200px;
@@ -519,6 +544,11 @@
   .program-content p {
     font-size: 0.9rem; /* Slightly smaller text */
   }
+
+  /* Override intermediate layout */
+  .program.intermediate {
+    flex-direction: column; /* Stack image and content vertically */
+  }
 }
 
 /* Responsive Design for Mobile Phones (480px and below) */
@@ -551,7 +581,13 @@
   .program-content p {
     font-size: 0.85rem; /* Adjust text size */
   }
+
+  /* Override intermediate layout */
+  .program.intermediate {
+    flex-direction: column; /* Stack image and content vertically */
+  }
 }
+
 
     /* Trusted Partner Section */
 .trusted-partner-container {
