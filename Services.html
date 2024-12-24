@@ -19,98 +19,188 @@
       line-height: 1.6;
     }
 
-    /* Navigation Bar */
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: #ff8800;
-      padding: 2px 3px;
+    body {
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
     }
 
-    .navbar .logo-container {
-      display: flex;
-      align-items: center;
-    }
+    /* General Navbar Styling */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ff8800; /* Solid orange background */
+  padding: 5px 10px; /* Spacing for navbar */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
 
-    .navbar .logo-container img {
-      height: 60px;
-      width: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #fff;
-    }
+/* Navbar Links */
+.navbar ul {
+  list-style: none; /* Remove bullet points */
+  display: flex; /* Horizontal layout */
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap; /* Wrap links on smaller screens */
+    justify-content: center; /* Center links */
+}
 
-    .navbar ul {
-      list-style: none;
-      display: flex;
-    }
+.navbar ul li {
+  margin: 0 10px; /* Space between links */
+}
 
-    .navbar ul li {
-      margin: 0 15px;
-    }
+.navbar ul li a {
+  text-decoration: none; /* Remove underline */
+  color: #fff; /* White text color */
+  font-size: 14px; /* Adjust font size */
+  font-weight: bold; /* Bold links */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
 
-    .navbar ul li a {
-      text-decoration: none;
-      color: #000;
-      font-size: 16px;
-    }
+/* Hover Effect on Links */
+.navbar ul li a:hover {
+  color: #333; /* Change color on hover */
+  transform: scale(1.1); /* Slightly grow on hover */
+}
 
-    .navbar ul li a:hover {
-      text-decoration: underline;
-    }
+/* Logo Styling */
+.navbar .logo-container {
+  display: flex;
+  align-items: center; /* Vertically center the logo */
+}
 
-    /* Landing Section */
-    .landing-section {
-      position: relative;
-      width: 100%;
-      height: 60vh;
-      background: url('img/Header.jpg') no-repeat center center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.navbar .logo-container img {
+  height: 60px; /* Logo size */
+  width: 60px; /* Circular size */
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Ensures the image fits inside */
+  border: 2px solid #fff; /* Aesthetic white border */
+  animation: bounce 2s ease-in-out infinite; /* Continuous bounce animation */
+}
 
-    .landing-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
+/* Keyframes for Bouncing Logo Animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0); /* Original position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move slightly upwards */
+  }
+}
 
-    .landing-content {
-      position: relative;
-      z-index: 1;
-      color: white;
-      text-align: center;
-    }
+/* Landing Section */
+.landing-section {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  background: url('img/Header.JPG') no-repeat center center/cover;
+  animation: zoomInBackground 15s ease-in-out infinite; /* Background zoom animation */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .landing-content h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-    }
+/* Sliding Overlay */
+.landing-overlay {
+  position: absolute;
+  top: 0;
+  left: -100%; /* Start off-screen */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: slideInOverlay 1s ease-out forwards; /* Sliding overlay animation */
+}
 
-    .landing-content p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
-    }
+/* Landing Content */
+.landing-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  opacity: 0; /* Start hidden */
+  transform: translateY(30px); /* Slight downward offset */
+  animation: fadeIn 2.5s cubic-bezier(0.42, 0, 0.58, 1) forwards; /* Smooth fade-in animation */
+}
 
-    .cta-button {
-      padding: 12px 24px;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 16px;
-    }
+.landing-content h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
 
-    .cta-button:hover {
-      background-color: #0056b3;
-    }
+.landing-content p {
+  font-size: 1.2em;
+  margin-bottom: 40px; /* Adjust spacing below text */
+}
 
+/* Call-to-Action Button */
+.cta-button {
+  padding: 12px 24px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 30px; /* Push the button further down */
+  animation: pulse 2s infinite; /* Continuous pulsing effect */
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+/* Keyframes for Smoother Fade-In Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* More noticeable offset at start */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Settle back into place */
+  }
+}
+
+/* Keyframes for Sliding Overlay */
+@keyframes slideInOverlay {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+/* Keyframes for Background Zoom Animation */
+@keyframes zoomInBackground {
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 110%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+/* Keyframes for Pulsing Button */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+}
     /* Additional Section Styles */
     h2.section-title {
       text-align: center;
@@ -124,40 +214,23 @@
       margin-bottom: 40px;
       color: #555;
     }
-/* Coding Section */
-.coding-section {
-    padding: 20px; /* Padding similar to achievements section */
-    background-color: #f9f9f9; /* Optional: Set a light background */
-    text-align: center; /* Center-align text content */
-}
-
-.coding-section h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    text-align: center; /* Ensure the title is centered */
-}
-
-.coding-section .subtitle {
-    font-size: 1.2rem;
-    color: #555; /* Adjusted for better contrast */
-    margin-bottom: 30px;
-    text-align: center; /* Ensure the subtitle is centered */
-}
-
 /* Coding Container */
 .coding-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Center the cards */
+    flex-wrap: nowrap; /* No wrapping, align cards horizontally */
+    justify-content: flex-start; /* Align cards to the start */
     gap: 20px; /* Space between cards */
     margin: 0 auto; /* Center the container */
-    max-width: 1200px; /* Restrict the container width */
+    max-width: 1200px; /* Restrict container width */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 20px 0; /* Add spacing around the container */
+    scroll-snap-type: x mandatory; /* Smooth snapping effect */
 }
 
 /* Coding for Beginners Section */
 .coding-for-beginners {
     padding: 20px; /* Adjust padding for spacing */
-    background-color: #f9f9f9; /* Optional light background */
+    background-color: #ffb76b; /* Solid pink background */
     text-align: center; /* Center-align all text-based elements */
 }
 
@@ -173,16 +246,9 @@
     font-size: 1.2rem;
     color: #555; /* Contrast color for subtitle */
     margin-bottom: 30px; /* Space below subtitle */
-}
-
-/* Coding Container */
-.coding-container {
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping of cards */
-    justify-content: center; /* Center the cards */
-    gap: 20px; /* Space between cards */
-    margin: 0 auto; /* Center the container */
-    max-width: 1200px; /* Restrict the container width */
+    overflow: hidden; /* Ensure content doesn't overflow */
+    white-space: nowrap; /* Prevent line breaks */
+    display: inline-block;
 }
 
 /* Card Styling */
@@ -191,8 +257,46 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     overflow: hidden;
-    max-width: 350px; /* Limit card width */
+    width: 350px; /* Fixed width for cards */
     text-align: center; /* Center-align card content */
+    perspective: 1000px; /* Enable 3D for flipping */
+    flex-shrink: 0; /* Prevent shrinking of the card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    scroll-snap-align: start; /* Ensure cards snap into place when scrolled */
+}
+
+/* Hover Effect: Scale and Shadow */
+.card:hover {
+    transform: translateY(-10px); /* Lift the card slightly */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* Card Inner */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; /* Maintain 3D context */
+    transition: transform 0.8s;
+}
+
+/* Card Front and Back */
+.card-front,
+.card-back {
+    position: absolute;
+    backface-visibility: hidden; /* Hide back side when not flipped */
+    width: 100%;
+    height: 100%;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: #007BFF; /* Back of the card */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px; /* Match card border-radius */
 }
 
 /* Card Image Styling */
@@ -205,8 +309,8 @@
 /* Card Title Styling */
 .card h3 {
     margin: 15px 0; /* Space around the title */
-    color: #333; /* Darker text for contrast */
     font-size: 1.2em; /* Slightly larger text */
+    color: #333; /* Solid text color */
 }
 
 /* Card Text Styling */
@@ -217,69 +321,83 @@
     line-height: 1.5; /* Better line spacing */
 }
 
-/* Read More Link */
-.read-more {
-    display: block;
-    margin: 15px auto; /* Center the link */
-    font-size: 1rem;
-    color: #007BFF; /* Blue for link text */
-    text-decoration: none; /* Remove underline */
-    font-weight: bold; /* Emphasize the link */
-}
-
-.read-more:hover {
-    text-decoration: underline; /* Underline on hover */
-}
-
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .coding-container {
-        flex-direction: column; /* Stack cards vertically for smaller screens */
-        align-items: center; /* Align cards at the center */
+        padding: 10px; /* Reduce padding for smaller screens */
+        gap: 15px; /* Decrease spacing between cards */
     }
 
     .card {
-        width: 90%; /* Use most of the screen width */
-        max-width: none; /* Remove max-width restriction */
+        width: 300px; /* Adjust card width for smaller screens */
+    }
+
+    .coding-for-beginners h1 {
+        font-size: 2rem; /* Reduce title size */
+    }
+
+    .coding-for-beginners .subtitle {
+        font-size: 1rem; /* Reduce subtitle size */
     }
 }
-
 
 
 
         /* Robotics Workshop Section */
 .robotics-workshop-section {
     padding: 40px 20px;
-    background-color: #f8f8f7;
+    background-color: #FFA652;
     text-align: center;
 }
 
+/* Section Title */
 .robotics-workshop-section .section-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 10px;
     color: #333;
+    background: linear-gradient(90deg, #333, #333, #333);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
+/* Section Subtitle */
 .robotics-workshop-section .section-subtitle {
     font-size: 1.2rem;
     color: #555;
     margin-bottom: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
 }
 
 /* Robotics Workshop Container */
 .robotics-workshop-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    flex-wrap: nowrap; /* Keep all cards in a single row */
+    justify-content: flex-start; /* Align the first card to the left */
+    gap: 80px;
+    margin: 0 auto;
+    max-width: 100%; /* Full width for container */
+    animation: fadeIn 1s ease-in-out;
+    padding: 10px 0; /* Add some padding to prevent cards from touching edges */
+    scroll-snap-type: x mandatory; /* Add snapping for smooth scroll */
 }
 
 /* Robotics Card */
 .robotics-card {
-    width: 300px;
-    height: 400px;
+    width: 350px; /* Original width for larger screens */
+    height: 500px; /* Original height for larger screens */
     perspective: 1000px;
     position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; /* Prevent shrinking of the card */
+    scroll-snap-align: start; /* Ensure cards snap into place when scrolled */
+}
+
+.robotics-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 .robotics-card-front, 
@@ -298,7 +416,7 @@
     justify-content: center;
     background-color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
 }
 
 .robotics-card-front {
@@ -322,13 +440,18 @@
 /* Card Front */
 .robotics-card-front img {
     width: 100%;
-    height: 200px;
+    height: 350px;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
+    transition: transform 0.5s ease;
+}
+
+.robotics-card:hover img {
+    transform: scale(1.1);
 }
 
 .robotics-card-front h3 {
-    margin-top: 15px;
+    margin-top: 10px;
     color: #333;
     font-size: 1.2rem;
 }
@@ -336,39 +459,434 @@
 /* Card Back */
 .robotics-card-back h3 {
     color: #007BFF;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 }
 
 .robotics-card-back p {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     color: #555;
     line-height: 1.4;
+    padding: 0 10px;
 }
 
-/* Responsive Design */
+/* Mobile-specific Adjustments */
 @media (max-width: 768px) {
+    /* Adjust Section Padding for Smaller Screens */
+    .robotics-workshop-section {
+        padding: 30px 15px; /* Reduced padding for mobile */
+    }
+
+    /* Adjust Section Title for Mobile */
+    .robotics-workshop-section .section-title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    /* Adjust Section Subtitle for Mobile */
+    .robotics-workshop-section .section-subtitle {
+        font-size: 1rem; /* Smaller font for mobile */
+        margin-bottom: 30px;
+    }
+
+    /* Adjust the Container Layout for Smaller Screens */
     .robotics-workshop-container {
-        flex-direction: column;
-        align-items: center;
+        flex-wrap: nowrap; /* Keep cards horizontally aligned */
+        gap: 20px; /* Reduced gap for mobile */
+        margin: 0 10px; /* Margin adjustments for mobile */
+        overflow-x: auto; /* Enable horizontal scrolling */
     }
 
+    /* Adjust Card Size for Smaller Screens */
     .robotics-card {
-        width: 90%;
-        max-width: 400px;
-        height: auto;
+        width: 300PX; /* Cards take more space, but still maintain horizontal alignment */
+        max-width: 350px; /* Max width of each card */
+        height: 450px; /* Adjusted height for better proportions */
     }
 
+    /* Adjust Card Image for Mobile */
     .robotics-card-front img {
-        height: 150px;
+        height: 300px; /* Reduced height */
+    }
+
+    /* Font Size Adjustments for Card Front */
+    .robotics-card-front h3 {
+        font-size: 1.1rem; /* Slightly smaller font */
+    }
+
+    /* Card Back Adjustments */
+    .robotics-card-back h3 {
+        font-size: 1.2rem; /* Adjust font size for back card */
+    }
+
+    .robotics-card-back p {
+        font-size: 1rem; /* Adjust font size for mobile */
     }
 }
 
 
+    /* AI & Machine Learning Section */
+.ai-ml-section {
+    padding: 40px 20px;
+    background-color: #ff8d21; /* Solid background color */
+    text-align: center;
+    animation: gradientAnimation 5s infinite alternate; /* Animated gradient */
+}
 
-        /* Advanced Coding Techniques Section */
+/* Section Title */
+.ai-ml-section .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #FF8D21;
+    background: linear-gradient(90deg, #333, #333, #333);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Section Subtitle */
+.ai-ml-section .section-subtitle {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+/* AI & ML Container */
+.ai-ml-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 80px;
+    margin: 0 auto;
+    max-width: 100%;
+    animation: fadeIn 1s ease-in-out;
+    padding: 10px 0;
+    scroll-snap-type: x mandatory; /* Smooth snap effect when scrolling */
+}
+
+/* AI & ML Card */
+.ai-ml-card {
+    width: 350px;
+    height: 500px;
+    perspective: 1000px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; /* Prevent card from shrinking */
+    scroll-snap-align: start; /* Ensure cards snap into place when scrolled */
+}
+
+.ai-ml-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Front and Back of the Card */
+.ai-ml-card-front, 
+.ai-ml-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    text-align: center;
+    padding: 15px;
+}
+
+.ai-ml-card-front {
+    transform: rotateY(0deg);
+}
+
+.ai-ml-card-back {
+    transform: rotateY(180deg);
+    background-color: #f0f0f0;
+}
+
+/* Hover Flip Effect */
+.ai-ml-card:hover .ai-ml-card-front {
+    transform: rotateY(-180deg);
+}
+
+.ai-ml-card:hover .ai-ml-card-back {
+    transform: rotateY(0deg);
+}
+
+/* Front Image and Text */
+.ai-ml-card-front img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.5s ease;
+}
+
+.ai-ml-card:hover img {
+    transform: scale(1.1);
+}
+
+.ai-ml-card-front h3 {
+    margin-top: 10px;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+/* Back Text */
+.ai-ml-card-back h3 {
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.ai-ml-card-back p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.4;
+    padding: 0 10px;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .ai-ml-container {
+        flex-direction: row; /* Keep cards in a row */
+        gap: 20px;
+        width: 100%;
+        overflow-x: scroll; /* Enable horizontal scroll */
+        padding-top: 20px;
+    }
+
+    .ai-ml-card {
+        width: 300px; /* Adjusted for mobile screens */
+        height: 450px; /* Adjusted height for better fitting */
+    }
+
+    .ai-ml-card-front img {
+        height: 300px; /* Adjusted image height */
+    }
+
+    .ai-ml-card-front h3 {
+        font-size: 1.1rem;
+    }
+
+    .ai-ml-card-back h3 {
+        font-size: 1.1rem;
+    }
+
+    .ai-ml-card-back p {
+        font-size: 1rem;
+        padding: 0 8px;
+    }
+}
+
+/* Gradient Animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Typing and Blinking Cursor Animation */
+@keyframes shimmer {
+    0% {
+        background-position: -200%;
+    }
+    100% {
+        background-position: 200%;
+    }
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+
+/* LEGO Engineering Section */
+.lego-engineering-section {
+    padding: 40px 20px;
+    background-color: #FF7B00; /* Solid yellow background */
+    text-align: center;
+}
+
+.lego-engineering-section .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #f56404;
+    background: linear-gradient(90deg, #333, #333, #333);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Section Subtitle */
+.lego-engineering-section .section-subtitle {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+/* LEGO Engineering Container */
+.lego-engineering-container {
+    display: flex;
+    flex-wrap: nowrap; /* No wrap on larger screens */
+    justify-content: flex-start;
+    gap: 80px;
+    margin: 0 auto;
+    max-width: 100%; /* Full width for container */
+    animation: fadeIn 1s ease-in-out;
+    padding: 10px 0;
+    overflow-x: auto; /* Enable horizontal scroll for smaller screens */
+    scroll-snap-type: x mandatory; /* Ensure smooth snapping */
+    scrollbar-width: none; /* Hide scrollbar for smooth design */
+}
+
+.lego-engineering-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar on webkit browsers */
+}
+
+/* LEGO Card */
+.lego-card {
+    width: 350px;
+    height: 500px;
+    perspective: 1000px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; /* Prevent shrinking of the card */
+    scroll-snap-align: start; /* Ensure cards snap into place when scrolled */
+}
+
+.lego-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.lego-card-front, 
+.lego-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    text-align: center;
+    padding: 15px;
+}
+
+.lego-card-front {
+    transform: rotateY(0deg);
+}
+
+.lego-card-back {
+    transform: rotateY(180deg);
+    background-color: #fff5e6;
+}
+
+/* Hover Flip Effect */
+.lego-card:hover .lego-card-front {
+    transform: rotateY(-180deg);
+}
+
+.lego-card:hover .lego-card-back {
+    transform: rotateY(0deg);
+}
+
+/* Card Front */
+.lego-card-front img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.5s ease;
+}
+
+.lego-card:hover img {
+    transform: scale(1.1);
+}
+
+.lego-card-front h3 {
+    margin-top: 10px;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+/* Card Back */
+.lego-card-back h3 {
+    color: #ff6600;
+    margin-bottom: 10px;
+}
+
+.lego-card-back p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.4;
+    padding: 0 10px;
+}
+
+/* Mobile Screen Adjustments */
+@media (max-width: 768px) {
+    .lego-engineering-section .section-title {
+        font-size: 2rem; /* Smaller title font size */
+    }
+
+    .lego-engineering-section .section-subtitle {
+        font-size: 1rem; /* Smaller subtitle font size */
+    }
+
+    .lego-engineering-container {
+        flex-wrap: nowrap; /* Keep horizontal scroll */
+        gap: 20px; /* Smaller gap between cards */
+        padding: 20px 0;
+    }
+
+    .lego-card {
+        width: 300px; /* Slightly narrower cards */
+        height: 450px; /* Slightly shorter cards */
+    }
+
+    .lego-card-front img {
+        height: 300px; /* Adjust image height */
+    }
+
+    .lego-card-back p {
+        font-size: 1rem; /* Smaller text */
+    }
+}
+
+
+     /* Advanced Coding Techniques Section */
 .advanced-coding-techniques-section {
     padding: 20px;
-    background-color: #e6f4ff;
+    background-color: #FFCD90;
 }
 
 .advanced-coding-techniques-container {
@@ -405,6 +923,50 @@
     color: #666;
 }
 
+
+       /* Back to Top Button Styles */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: block; /* Visible by default */
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #c57b0d, #ff9b05);
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease, transform 0.3s ease, opacity 1s ease;
+    animation: bounce 3s infinite alternate ease-in-out;
+}
+
+#back-to-top:hover {
+    background: linear-gradient(135deg, #ff9b05, #1d1100);
+    transform: scale(1.1);
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeVisibility {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0.2;
+    }
+}
 
         /* Contact Section */
 .contact-section {
@@ -490,47 +1052,43 @@
     }
 }
 
-/* Back to Top Button Styles */
-#back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: block; /* Visible by default */
-    padding: 10px 15px;
-    background: linear-gradient(135deg, #c57b0d, #ff9b05);
-    color: white;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: 0.3s ease, transform 0.3s ease, opacity 1s ease;
-    animation: bounce 3s infinite alternate ease-in-out;
-}
-
-#back-to-top:hover {
-    background: linear-gradient(135deg, #ff9b05, #1d1100);
-    transform: scale(1.1);
-}
-
-@keyframes bounce {
+/* Bounce-In Effect for Icons */
+@keyframes bounceIn {
     0% {
-        transform: translateY(0);
+        transform: translateY(50px);
+        opacity: 0;
     }
-    50% {
+    60% {
         transform: translateY(-10px);
+        opacity: 0;
     }
     100% {
         transform: translateY(0);
     }
 }
 
-@keyframes fadeVisibility {
-    0%, 50% {
-        opacity: 1;
+/* Pulse Effect */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
     }
-    51%, 100% {
-        opacity: 0.2;
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-icon {
+        font-size: 16px; /* Slightly smaller text on smaller screens */
+    }
+
+    .contact-icon img.icon-logo {
+        width: 35px; /* Smaller icons */
+        height: 35px;
     }
 }
   </style>
@@ -585,73 +1143,139 @@
 
   <!-- Robotics Workshop Section -->
 <section class="robotics-workshop-section">
-  <h2 class="section-title">Robotics Workshop</h2>
-  <p class="section-subtitle">Explore the exciting world of robotics and AI through interactive learning!</p>
-  <div class="robotics-workshop-container">
-    <!-- Card 1: Hands-On Building Experience -->
-    <div class="robotics-card">
-      <div class="robotics-card-front">
-        <img src="img/kericho 10.jpeg" alt="Hands-On Building Experience">
-        <h3>Hands-On Building</h3>
+    <h2 class="section-title">Electronics & Robotics</h2>
+    <p class="section-subtitle">Unlock the Future of Innovation</p>
+    <div class="robotics-workshop-container">
+  
+      <!-- Card 1: Beginner Robotics -->
+      <div class="robotics-card">
+        <div class="robotics-card-front">
+          <img src="img/pass.jpeg" alt="Beginner Robotics">
+          <h3>Beginner Robotics</h3>
+        </div>
+        <div class="robotics-card-back">
+          <h3>Beginner Robotics</h3>
+          <p>Perfect for young learners just starting their robotics journey, this program introduces fundamental concepts like circuits, electronics, and programming. Children will use hands-on tools like Quarky or Arduino boards to build and control simple robots. This level focuses on understanding how electronics power everyday devices and provides a strong foundation for further exploration.</p>
+        </div>
       </div>
-      <div class="robotics-card-back">
-        <h3>Hands-On Building Experience</h3>
-        <p>Kids construct robots using practical tools, learning mechanical concepts and teamwork skills.</p>
+  
+      <!-- Card 2: Advanced Robotics & Electronics -->
+      <div class="robotics-card">
+        <div class="robotics-card-front">
+          <img src="img/adv.services.jpeg" alt="Advanced Robotics & Electronics">
+          <h3>Advanced Robotics</h3>
+        </div>
+        <div class="robotics-card-back">
+          <h3>Advanced Robotics & Electronics</h3>
+          <p>For experienced learners, this program delves into advanced microcontroller programming and the design of sophisticated robotic systems. Children will learn to integrate multiple sensors, optimize robot performance, and participate in robotics competitions to showcase their skills. This level equips students with the technical knowledge and problem-solving abilities to tackle complex engineering challenges.</p>
+        </div>
       </div>
+  
+      <!-- Card 3: STEM Integration -->
+      <div class="robotics-card">
+        <div class="robotics-card-front">
+          <img src="img/Stem.services.jpeg" alt="STEM Integration">
+          <h3>STEM Integration</h3>
+        </div>
+        <div class="robotics-card-back">
+          <h3>STEM Integration</h3>
+          <p>Our STEM Integration projects highlight the real-world applications of robotics, encouraging children to work on eco-friendly designs, such as solar-powered robots or automated recycling systems. This subcategory bridges the gap between theoretical knowledge and practical innovation, inspiring students to apply their skills to make a positive impact on the environment and society.</p>
+        </div>
+      </div>
+  
     </div>
-
-    <!-- Card 2: Programming Robots -->
-    <div class="robotics-card">
-      <div class="robotics-card-front">
-        <img src="img/Robotics A.I" alt="Programming Robots">
-        <h3>Programming Robots</h3>
+  </section>
+    
+   <!-- AI & Machine Learning for Kids Section -->
+<section class="ai-ml-section">
+    <h2 class="section-title">AI & Machine Learning for Kids</h2>
+    <p class="section-subtitle">Explore the World of Artificial Intelligence</p>
+    <div class="ai-ml-container">
+      
+      <!-- Card 1: Introduction to AI -->
+      <div class="ai-ml-card">
+        <div class="ai-ml-card-front">
+          <img src="img/machine.services.jpg" alt="Introduction to AI">
+          <h3>Introduction to AI</h3>
+        </div>
+        <div class="ai-ml-card-back">
+          <h3>Introduction to AI</h3>
+          <p>This entry-level program helps kids understand the fundamentals of Artificial Intelligence, such as how computers learn and make decisions. Through fun and interactive games, students explore concepts like pattern recognition and data processing, sparking curiosity about the potential of AI in everyday life.</p>
+        </div>
       </div>
-      <div class="robotics-card-back">
-        <h3>Programming Robots</h3>
-        <p>Students program their robots with user-friendly platforms, bringing their creations to life.</p>
+  
+      <!-- Card 2: Advanced AI & Smart Applications -->
+      <div class="ai-ml-card">
+        <div class="ai-ml-card-front">
+          <img src="img/Mach4.jpg" alt="Advanced AI & Smart Applications">
+          <h3>Advanced AI & Smart Applications</h3>
+        </div>
+        <div class="ai-ml-card-back">
+          <h3>Advanced AI & Smart Applications</h3>
+          <p>At this level, students dive deeper into AI technology by building smart applications like chatbots, image recognition systems, and voice assistants. They’ll also explore neural networks and decision-making algorithms, gaining an understanding of how these tools are used in cutting-edge industries.</p>
+        </div>
       </div>
+  
+      <!-- Card 3: AI Challenges and Projects -->
+      <div class="ai-ml-card">
+        <div class="ai-ml-card-front">
+          <img src="img/mach3.jpg" alt="AI Challenges and Projects">
+          <h3>AI Challenges & Projects</h3>
+        </div>
+        <div class="ai-ml-card-back">
+          <h3>AI Challenges and Projects</h3>
+          <p>To apply their knowledge, children participate in collaborative challenges where they design AI systems to solve real-world problems. From creating smart home assistants to AI-powered environmental monitoring tools, this subcategory emphasizes innovation, teamwork, and practical application.</p>
+        </div>
+      </div>
+  
     </div>
-
-    <!-- Card 3: Competitions and Challenges -->
-    <div class="robotics-card">
-      <div class="robotics-card-front">
-        <img src="img/continuous-learning.jpg" alt="Competitions and Challenges">
-        <h3>Competitions</h3>
+  </section>
+  
+    <!-- LEGO Engineering Section -->
+<section class="lego-engineering-section">
+    <h2 class="section-title">LEGO Engineering</h2>
+    <p class="section-subtitle">Where Creativity Meets Engineering</p>
+    <div class="lego-engineering-container">
+      
+      <!-- Card 1: Basic LEGO Building -->
+      <div class="lego-card">
+        <div class="lego-card-front">
+          <img src="img/lego.services1.jpg" alt="Basic LEGO Building">
+          <h3>Basic LEGO Building</h3>
+        </div>
+        <div class="lego-card-back">
+          <h3>Basic LEGO Building</h3>
+          <p>This introductory level encourages creativity and free play as children learn to build imaginative structures using LEGO bricks. They’ll develop spatial awareness, problem-solving skills, and a passion for designing unique creations.</p>
+        </div>
       </div>
-      <div class="robotics-card-back">
-        <h3>Competitions and Challenges</h3>
-        <p>Showcase creativity through challenges, fostering innovation and perseverance.</p>
+  
+      <!-- Card 2: LEGO Mechanics -->
+      <div class="lego-card">
+        <div class="lego-card-front">
+          <img src="img/Lego.jpeg" alt="LEGO Mechanics">
+          <h3>LEGO Mechanics</h3>
+        </div>
+        <div class="lego-card-back">
+          <h3>LEGO Mechanics</h3>
+          <p>Moving beyond basic building, this program introduces the principles of mechanics through hands-on projects with gears, levers, pulleys, and axles. Children explore how these components work together to create functional designs, fostering an understanding of engineering concepts in a fun and accessible way.</p>
+        </div>
       </div>
+  
+      <!-- Card 3: LEGO Creativity Workshops -->
+      <div class="lego-card">
+        <div class="lego-card-front">
+          <img src="img/Lego33.jpg" alt="LEGO Creativity Workshops">
+          <h3>LEGO Creativity Workshops</h3>
+        </div>
+        <div class="lego-card-back">
+          <h3>LEGO Creativity Workshops</h3>
+          <p>These workshops focus on storytelling and design challenges, inspiring kids to think outside the box. Participants use LEGO bricks to bring their ideas to life, whether creating a vibrant cityscape, reimagining famous landmarks, or solving real-world problems with creative models.</p>
+        </div>
+      </div>
+  
     </div>
-
-    <!-- Card 4: AI & Machine Learning for Kids -->
-    <div class="robotics-card">
-      <div class="robotics-card-front">
-        <img src="img/A.I learning.jpeg" alt="AI & Machine Learning for Kids">
-        <h3>AI for Kids</h3>
-      </div>
-      <div class="robotics-card-back">
-        <h3>AI & Machine Learning for Kids</h3>
-        <p>Explore AI concepts like neural networks and build fun AI projects such as chatbots and image recognition systems.</p>
-      </div>
-    </div>
-
-    <!-- Card 5: LEGO Engineering -->
-    <div class="robotics-card">
-      <div class="robotics-card-front">
-        <img src="img/Lego.jpeg" alt="LEGO Engineering">
-        <h3>LEGO Engineering</h3>
-      </div>
-      <div class="robotics-card-back">
-        <h3>LEGO Engineering</h3>
-        <p>Build and program LEGO robots to perform tasks while exploring gears, levers, and motors.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
+  </section>
+  
 
   <!-- Advanced Coding Techniques -->
 <section class="advanced-coding-techniques-section">
@@ -704,21 +1328,44 @@
         <span></span>
     </a>
     <!-- WhatsApp Logo -->
-    <a href="https://web.whatsapp.com/" target="_blank" class="contact-icon">
-        <img src="img/whatsapp.png" alt="WhatsApp Logo" class="icon-logo">
-        <span></span>
-    </a>
+    <a href="https://wa.me/+254111777512?text=Hello!%20I%20would%20like%20to%20contact%20you" target="_blank" class="contact-icon">
+      <img src="img/whatsapp.png" alt="WhatsApp Logo" class="icon-logo">
+  </a>
     <!-- Email Logo -->
     <a href="mailto:jengaithubafrica@gmail.com" class="contact-icon">
         <img src="img/gmail (1).png" alt="Email Logo" class="icon-logo">
         <span></span>
     </a>
     <!-- Instagram Logo -->
-    <a href="https://instagram.com/" target="_blank" class="contact-icon">
+    <a href="https://www.instagram.com/jengaitafrica?igsh=bGR4MHRvM2t2ajcx" target="_blank" class="contact-icon">
         <img src="img/instagram.png" alt="Instagram Logo" class="icon-logo">
         <span></span>
     </a>
 </div>
+<!-- Back to Top Button -->
+<button id="back-to-top">↑ Back to Top</button>
+
+<script>
+  // Select the button
+  const backToTopButton = document.getElementById("back-to-top");
+
+  // Show the button when the user scrolls down 300px
+  window.onscroll = function () {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      backToTopButton.style.display = "block";
+    } else {
+      backToTopButton.style.display = "none";
+    }
+  };
+
+  // Smooth scroll back to the top
+  backToTopButton.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+</script>
     </div>
   </div>
 </body>
