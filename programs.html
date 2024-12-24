@@ -217,11 +217,22 @@
 /* Coding Container */
 .coding-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Center the cards */
+    flex-wrap: nowrap; /* No wrapping, align cards horizontally */
+    justify-content: flex-start; /* Align cards to the start */
     gap: 20px; /* Space between cards */
     margin: 0 auto; /* Center the container */
-    max-width: 1200px; /* Restrict the container width */
+    max-width: 1200px; /* Restrict container width */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 20px 0; /* Add spacing around the container */
+    scroll-snap-type: x mandatory; /* Smooth snapping effect */
+}
+
+/* Hide Scrollbar for Cleaner Look */
+.coding-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar on webkit browsers */
+}
+.coding-container {
+    scrollbar-width: none; /* Hide scrollbar for other browsers */
 }
 
 /* Coding for Beginners Section */
@@ -244,9 +255,8 @@
     color: #555; /* Contrast color for subtitle */
     margin-bottom: 30px; /* Space below subtitle */
     overflow: hidden; /* Ensure content doesn't overflow */
-    white-space: nowrap;
+    white-space: nowrap; /* Prevent line breaks */
     display: inline-block;
-    border-right: none; /* Remove blinking cursor */
 }
 
 /* Card Styling */
@@ -255,10 +265,12 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     overflow: hidden;
-    max-width: 350px; /* Limit card width */
+    width: 350px; /* Fixed width for cards */
     text-align: center; /* Center-align card content */
     perspective: 1000px; /* Enable 3D for flipping */
+    flex-shrink: 0; /* Prevent shrinking of the card */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    scroll-snap-align: start; /* Ensure cards snap into place when scrolled */
 }
 
 /* Hover Effect: Scale and Shadow */
@@ -292,6 +304,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 8px; /* Match card border-radius */
 }
 
 /* Card Image Styling */
@@ -315,41 +328,34 @@
     font-size: 1rem; /* Standard paragraph size */
     line-height: 1.5; /* Better line spacing */
 }
- 
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .coding-container {
-        display: flex;
-        flex-wrap: nowrap; /* Prevent wrapping of cards */
-        overflow-x: scroll; /* Enable horizontal scrolling */
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
-        gap: 10px; /* Adjust spacing between cards */
-        padding: 10px; /* Add some padding for better aesthetics */
-    }
-
-    .coding-container::-webkit-scrollbar {
-        display: none; /* Hide the scrollbar */
+        padding: 10px; /* Reduce padding for smaller screens */
+        gap: 15px; /* Decrease spacing between cards */
     }
 
     .card {
-        flex: 0 0 auto; /* Prevent cards from shrinking or wrapping */
-        width: 80%; /* Set card width for mobile screens */
-        max-width: 300px; /* Ensure cards don't become too large */
-        margin: 0 10px; /* Add space between cards */
+        width: 300px; /* Adjust card width for smaller screens */
+    }
+
+    .coding-for-beginners h1 {
+        font-size: 2rem; /* Reduce title size */
+    }
+
+    .coding-for-beginners .subtitle {
+        font-size: 1rem; /* Reduce subtitle size */
     }
 }
 
-    .parent-container {
-    overflow-x: visible; /* Allow overflow from child elements */
-}
 
 
         /* Robotics Workshop Section */
 .robotics-workshop-section {
     padding: 40px 20px;
-    background-color: #ffa652;
+    background-color: #FFA652;
     text-align: center;
-    animation: gradientAnimation 5s infinite alternate; /* Animated gradient */
 }
 
 /* Section Title */
@@ -357,11 +363,10 @@
     font-size: 2.5rem;
     margin-bottom: 10px;
     color: #333;
-    background: linear-gradient(90deg, #333, #007BFF, #333);
+    background: linear-gradient(90deg, #333, #333, #333);
     background-size: 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shimmer 2s infinite;
 }
 
 /* Section Subtitle */
@@ -379,11 +384,10 @@
     display: flex;
     flex-wrap: nowrap; /* Keep all cards in a single row */
     justify-content: flex-start; /* Align the first card to the left */
-    gap: 20px;
+    gap: 80px;
     margin: 0 auto;
     max-width: 100%; /* Full width for container */
     animation: fadeIn 1s ease-in-out;
-    overflow-x: auto; /* Enable horizontal scrolling */
     padding: 10px 0; /* Add some padding to prevent cards from touching edges */
     scroll-snap-type: x mandatory; /* Add snapping for smooth scroll */
 }
@@ -482,13 +486,13 @@
 
     /* Adjust Section Title for Mobile */
     .robotics-workshop-section .section-title {
-        font-size: 1.8rem; /* Smaller font for mobile */
+        font-size: 1.4rem; /* Smaller font for mobile */
         margin-bottom: 10px;
     }
 
     /* Adjust Section Subtitle for Mobile */
     .robotics-workshop-section .section-subtitle {
-        font-size: 1rem; /* Smaller font for mobile */
+        font-size: 0.9rem; /* Smaller font for mobile */
         margin-bottom: 30px;
     }
 
@@ -528,7 +532,7 @@
 }
 
 
-/* AI & Machine Learning Section */
+    /* AI & Machine Learning Section */
 .ai-ml-section {
     padding: 40px 20px;
     background-color: #ff8d21; /* Solid background color */
@@ -540,24 +544,21 @@
 .ai-ml-section .section-title {
     font-size: 2.5rem;
     margin-bottom: 10px;
-    color: #f39406;
-    background: linear-gradient(90deg, #fff, #e7e4e2, #fff);
+    color: #FF8D21;
+    background: linear-gradient(90deg, #333, #333, #333);
     background-size: 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shimmer 2s infinite;
 }
 
 /* Section Subtitle */
 .ai-ml-section .section-subtitle {
     font-size: 1.2rem;
-    color: #f5f5f5;
+    color: #333;
     margin-bottom: 40px;
     overflow: hidden;
     white-space: nowrap;
     display: inline-block;
-    border-right: 2px solid #555; /* Blinking cursor */
-    animation: typing 3s steps(30, end), blink 0.5s step-end infinite;
 }
 
 /* AI & ML Container */
@@ -565,11 +566,10 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    gap: 20px;
+    gap: 80px;
     margin: 0 auto;
     max-width: 100%;
     animation: fadeIn 1s ease-in-out;
-    overflow-x: auto; /* Enable horizontal scrolling */
     padding: 10px 0;
     scroll-snap-type: x mandatory; /* Smooth snap effect when scrolling */
 }
@@ -729,93 +729,50 @@
 }
 
 
-       /* LEGO Engineering Section */
-.lego-engineering-section {
-    padding: 40px 20px;
-    background-color: #ffcc33; /* Solid yellow background */
-    animation: none; /* Remove gradient animation */
-    text-align: center;
-}
-
-.lego-engineering-section .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #f56404;
-    background: linear-gradient(90deg, #fff, #e7e4e2, #fff);
-    background-size: 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shimmer 2s infinite;
-}
-
-
-.lego-engineering-section .section-subtitle {
-    font-size: 1.2rem;
-    color: #f5f5f5;
-    margin-bottom: 40px;
-    overflow: hidden;
-    white-space: nowrap;
-    display: inline-block;
-}
-
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-@keyframes blink {
-    50% {
-        border-color: transparent;
-    }
-}
-
 /* LEGO Engineering Section */
 .lego-engineering-section {
     padding: 40px 20px;
-    background-color: #ffcc33; /* Solid yellow background */
+    background-color: #FF7B00; /* Solid yellow background */
     text-align: center;
-    animation: gradientAnimation 5s infinite alternate; /* Animated gradient */
 }
 
 .lego-engineering-section .section-title {
     font-size: 2.5rem;
     margin-bottom: 10px;
     color: #f56404;
-    background: linear-gradient(90deg, #fff, #e7e4e2, #fff);
+    background: linear-gradient(90deg, #333, #333, #333);
     background-size: 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shimmer 2s infinite;
 }
 
 /* Section Subtitle */
 .lego-engineering-section .section-subtitle {
     font-size: 1.2rem;
-    color: #f5f5f5;
+    color: #333;
     margin-bottom: 40px;
     overflow: hidden;
     white-space: nowrap;
     display: inline-block;
-    border-right: 2px solid #555; /* Blinking cursor */
-    animation: typing 3s steps(30, end), blink 0.5s step-end infinite;
 }
 
 /* LEGO Engineering Container */
 .lego-engineering-container {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; /* No wrap on larger screens */
     justify-content: flex-start;
-    gap: 20px;
+    gap: 80px;
     margin: 0 auto;
     max-width: 100%; /* Full width for container */
     animation: fadeIn 1s ease-in-out;
-    overflow-x: auto; /* Enable horizontal scrolling */
     padding: 10px 0;
-    scroll-snap-type: x mandatory;
+    overflow-x: auto; /* Enable horizontal scroll for smaller screens */
+    scroll-snap-type: x mandatory; /* Ensure smooth snapping */
+    scrollbar-width: none; /* Hide scrollbar for smooth design */
+}
+
+.lego-engineering-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar on webkit browsers */
 }
 
 /* LEGO Card */
@@ -903,12 +860,41 @@
     padding: 0 10px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px)
-        /* Advanced Coding Techniques Section */
+/* Mobile Screen Adjustments */
+@media (max-width: 768px) {
+    .lego-engineering-section .section-title {
+        font-size: 2rem; /* Smaller title font size */
+    }
+
+    .lego-engineering-section .section-subtitle {
+        font-size: 1rem; /* Smaller subtitle font size */
+    }
+
+    .lego-engineering-container {
+        flex-wrap: nowrap; /* Keep horizontal scroll */
+        gap: 20px; /* Smaller gap between cards */
+        padding: 20px 0;
+    }
+
+    .lego-card {
+        width: 300px; /* Slightly narrower cards */
+        height: 450px; /* Slightly shorter cards */
+    }
+
+    .lego-card-front img {
+        height: 300px; /* Adjust image height */
+    }
+
+    .lego-card-back p {
+        font-size: 1rem; /* Smaller text */
+    }
+}
+
+
+     /* Advanced Coding Techniques Section */
 .advanced-coding-techniques-section {
     padding: 20px;
-    background-color: #e6f4ff;
+    background-color: #FFCD90;
 }
 
 .advanced-coding-techniques-container {
@@ -945,27 +931,50 @@
     color: #666;
 }
 
-       /* Back to Top Button Styles */
-    #back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: none; /* Hidden by default */
-      padding: 10px 15px;
-      background-color: #007BFF;
-      color: white;
-      font-size: 14px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
 
-    #back-to-top:hover {
-      background-color: #0056b3;
-      transform: scale(1.1);
+       /* Back to Top Button Styles */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: block; /* Visible by default */
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #c57b0d, #ff9b05);
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease, transform 0.3s ease, opacity 1s ease;
+    animation: bounce 3s infinite alternate ease-in-out;
+}
+
+#back-to-top:hover {
+    background: linear-gradient(135deg, #ff9b05, #1d1100);
+    transform: scale(1.1);
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
     }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeVisibility {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0.2;
+    }
+}
 
         /* Contact Section */
 .contact-section {
@@ -1051,47 +1060,31 @@
     }
 }
 
-/* Back to Top Button Styles */
-#back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: block; /* Visible by default */
-    padding: 10px 15px;
-    background: linear-gradient(135deg, #c57b0d, #ff9b05);
-    color: white;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: 0.3s ease, transform 0.3s ease, opacity 1s ease;
-    animation: bounce 3s infinite alternate ease-in-out;
-}
-
-#back-to-top:hover {
-    background: linear-gradient(135deg, #ff9b05, #1d1100);
-    transform: scale(1.1);
-}
-
-@keyframes bounce {
+/* Bounce-In Effect for Icons */
+@keyframes bounceIn {
     0% {
-        transform: translateY(0);
+        transform: translateY(50px);
+        opacity: 0;
     }
-    50% {
+    60% {
         transform: translateY(-10px);
+        opacity: 0;
     }
     100% {
         transform: translateY(0);
     }
 }
 
-@keyframes fadeVisibility {
-    0%, 50% {
-        opacity: 1;
+/* Pulse Effect */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
     }
-    51%, 100% {
-        opacity: 0.2;
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
     }
 }
 
