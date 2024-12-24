@@ -199,7 +199,10 @@
       margin-bottom: 40px;
       color: #555;
     }
-    .journey-section {
+
+    
+/* Journey Section */
+.journey-section {
     text-align: center;
     padding: 50px 20px;
 }
@@ -216,66 +219,102 @@
     text-align: center;
 }
 
+/* Journey Cards Container */
 .journey-cards {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px; /* Increased spacing between cards */
+    flex-wrap: nowrap; /* Arrange cards horizontally */
+    justify-content: flex-start; /* Align cards to the left */
+    gap: 80px; /* Space between cards */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 20px 0; /* Space around the container */
+    scroll-snap-type: x mandatory; /* Snap cards into place when scrolling */
 }
 
+/* Hide Scrollbar for Cleaner Look */
+.journey-cards::-webkit-scrollbar {
+    display: none; /* Hide scrollbar on webkit browsers */
+}
+
+.journey-cards {
+    scrollbar-width: none; /* Hide scrollbar for other browsers */
+}
+
+/* Individual Card */
 .card {
     background-color: #fff;
-    border: 2px solid #ddd; /* Added border */
+    border: 2px solid #ddd; /* Border for clarity */
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
+    width: 300px; /* Fixed card width */
     text-align: left;
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    flex-shrink: 0; /* Prevent shrinking of cards */
+    scroll-snap-align: start; /* Ensure cards snap into place when scrolled */
 }
 
 .card:hover {
-    transform: scale(1.05); /* Smooth zoom-in effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
-    border-color: #1a1b1b; /* Border changes color on hover */
+    transform: scale(1.05); /* Smooth zoom effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    border-color: #1a1b1b; /* Darker border on hover */
 }
 
+/* Card Image */
 .card img {
     width: 100%;
-    height: 200px; /* Set uniform height for all images */
-    object-fit: cover; /* Ensures images are scaled uniformly */
+    height: 200px; /* Uniform image height */
+    object-fit: cover; /* Ensure images scale uniformly */
     display: block;
     border-bottom: 2px solid #ddd; /* Seamless integration with card border */
 }
 
+/* Card Title */
 .card h3 {
     font-size: 1.5rem;
     margin: 15px;
     color: #000;
 }
 
+/* Card Text */
 .card p {
     font-size: 1rem;
     margin: 15px;
     color: #555;
 }
 
-/* Additional Section Styles */
-h2.section-title {
-    text-align: center;
-    margin: 20px 0;
-    font-size: 2em;
-    color: #333;
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .journey-cards {
+        padding: 10px; /* Reduce padding for smaller screens */
+        gap: 15px; /* Decrease spacing between cards */
+    }
+
+    .card {
+        width: 250px; /* Adjust card width for smaller screens */
+    }
+
+    .journey-section h1 {
+        font-size: 2rem; /* Reduce title size */
+    }
+
+    .journey-section .subtitle {
+        font-size: 1rem; /* Reduce subtitle size */
+    }
+
+    .card img {
+        height: 180px; /* Reduce image height */
+    }
+
+    .card h3 {
+        font-size: 1.3rem; /* Slightly smaller titles */
+    }
+
+    .card p {
+        font-size: 0.9rem; /* Slightly smaller text */
+    }
 }
 
-p.section-subtitle {
-    text-align: center;
-    margin-bottom: 40px;
-    color: #555;
-}
-
-
-        
+ 
 
   /* Our Instructors Section */
 .instructors-section {
@@ -356,7 +395,51 @@ p.section-subtitle {
     line-height: 1.6;
 }
 
-    /* Student Achievements Section */
+/* Mobile-Specific Styles */
+@media (max-width: 480px) {
+    .instructors-section {
+        padding: 30px 10px; /* Reduce padding for smaller screens */
+    }
+
+    .instructors-container {
+        flex-direction: column; /* Stack items vertically */
+        gap: 15px; /* Reduce gap for compact layout */
+    }
+
+    .instructor-item {
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: center; /* Center-align content */
+        padding: 15px; /* Adjust padding */
+        width: 100%; /* Full width for mobile screens */
+        max-width: 400px; /* Limit maximum width */
+    }
+
+    .instructor-item:nth-child(even) {
+        flex-direction: column; /* Remove row-reverse for consistency */
+    }
+
+    .instructor-item img {
+        width: 80%; /* Adjust image size for mobile */
+        max-width: 200px; /* Cap maximum width */
+        margin: 0 0 15px 0; /* Add space below the image */
+    }
+
+    .instructor-item h3 {
+        font-size: 1.4rem; /* Reduce heading size */
+        text-align: center; /* Center-align heading */
+        margin-bottom: 10px;
+    }
+
+    .instructor-item p {
+        font-size: 0.9rem; /* Reduce text size */
+        line-height: 1.4; /* Adjust line height */
+        text-align: center; /* Center-align text */
+    }
+}
+
+
+    /* Original Styles for Larger Screens */
+/* Student Achievements Section */
 .achievements-section {
     padding: 60px 10px;
     background-color: #008ffd00;
@@ -425,14 +508,55 @@ p.section-subtitle {
 /* Achievement Card Heading */
 .achievement-card h3 {
     margin: 15px 0;
-    color: #ff8c00; /* Updated color for the heading */
+    color: #f5880c; /* Updated color for the heading */
     font-size: 1.2em;
 }
 
 /* Achievement Card Paragraph */
 .achievement-card p {
     padding: 0 15px 20px;
-    color: #555555; /* Updated subtitle text color */
+    color: #050505;
+}
+
+/* Mobile-Specific Styles (max-width: 600px) */
+@media (max-width: 600px) {
+    .achievements-section {
+        padding: 30px 10px; /* Reduce padding for smaller screens */
+        background-size: 120%; /* Slightly zoomed-in background for small screens */
+    }
+
+    .section-title {
+        font-size: 1.8em; /* Reduce title font size */
+        margin-bottom: 10px; /* Adjust spacing below the title */
+    }
+
+    .section-subtitle {
+        font-size: 1em; /* Smaller subtitle font */
+        margin-bottom: 20px; /* Adjust spacing below the subtitle */
+    }
+
+    .achievements-container {
+        flex-direction: column; /* Stack cards vertically */
+        gap: 15px; /* Reduce gap between cards */
+        width: 100%; /* Full-width container */
+        margin: 0 auto; /* Center the container */
+    }
+
+    .achievement-card {
+        max-width: 90%; /* Adjust card width for smaller screens */
+        padding: 15px; /* Reduce padding inside the card */
+        margin: 0 auto; /* Center each card */
+    }
+
+    .achievement-card h3 {
+        font-size: 1rem; /* Reduce heading font size */
+        margin: 10px 0; /* Adjust spacing around the heading */
+    }
+
+    .achievement-card p {
+        font-size: 0.9rem; /* Reduce paragraph font size */
+        padding: 0 10px 15px; /* Adjust spacing inside the card */
+    }
 }
 
 
@@ -803,7 +927,7 @@ p.section-subtitle {
         <p>
           "Students often express their excitement about the hands-on learning experiences they encounter at Jenga IT Hub. Many have shared how the engaging curriculum has sparked their interest in technology, leading them to pursue further studies in coding and robotics."
         </p>
-        <p class="author">– Evans Okoth, Parent</p>
+        <p class="author">– Jane Doe, Parent</p>
       </div>
     </div>
 
@@ -814,7 +938,7 @@ p.section-subtitle {
         <p>
           "Parents appreciate the supportive environment we have created at Jenga IT Hub. They frequently mention the growth they observe in their children's confidence and skills, highlighting how our programs have positively impacted their children's futures."
         </p>
-        <p class="author">– Megan Wangari, Parent</p>
+        <p class="author">– John Smith, Parent</p>
       </div>
     </div>
 
@@ -825,7 +949,7 @@ p.section-subtitle {
         <p>
           "We are proud to feature success stories from our alumni who have gone on to pursue careers in tech-related fields. Their testimonials serve as inspiration for current students and a testament to the effectiveness of our training programs."
         </p>
-        <p class="author">– Brian Kimani, Parent</p>
+        <p class="author">– Emily Brown, Parent</p>
       </div>
     </div>
   </div>
