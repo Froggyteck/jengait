@@ -227,14 +227,6 @@
     scroll-snap-type: x mandatory; /* Smooth snapping effect */
 }
 
-/* Hide Scrollbar for Cleaner Look */
-.coding-container::-webkit-scrollbar {
-    display: none; /* Hide scrollbar on webkit browsers */
-}
-.coding-container {
-    scrollbar-width: none; /* Hide scrollbar for other browsers */
-}
-
 /* Coding for Beginners Section */
 .coding-for-beginners {
     padding: 20px; /* Adjust padding for spacing */
@@ -471,7 +463,7 @@
 }
 
 .robotics-card-back p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #555;
     line-height: 1.4;
     padding: 0 10px;
@@ -486,34 +478,34 @@
 
     /* Adjust Section Title for Mobile */
     .robotics-workshop-section .section-title {
-        font-size: 1.4rem; /* Smaller font for mobile */
+        font-size: 2rem;
         margin-bottom: 10px;
     }
 
     /* Adjust Section Subtitle for Mobile */
     .robotics-workshop-section .section-subtitle {
-        font-size: 0.9rem; /* Smaller font for mobile */
+        font-size: 1rem; /* Smaller font for mobile */
         margin-bottom: 30px;
     }
 
     /* Adjust the Container Layout for Smaller Screens */
     .robotics-workshop-container {
         flex-wrap: nowrap; /* Keep cards horizontally aligned */
-        gap: 10px; /* Reduced gap for mobile */
+        gap: 20px; /* Reduced gap for mobile */
         margin: 0 10px; /* Margin adjustments for mobile */
         overflow-x: auto; /* Enable horizontal scrolling */
     }
 
     /* Adjust Card Size for Smaller Screens */
     .robotics-card {
-        width: 80%; /* Cards take more space, but still maintain horizontal alignment */
+        width: 300PX; /* Cards take more space, but still maintain horizontal alignment */
         max-width: 350px; /* Max width of each card */
         height: 450px; /* Adjusted height for better proportions */
     }
 
     /* Adjust Card Image for Mobile */
     .robotics-card-front img {
-        height: 200px; /* Reduced height */
+        height: 300px; /* Reduced height */
     }
 
     /* Font Size Adjustments for Card Front */
@@ -664,19 +656,19 @@
 @media (max-width: 768px) {
     .ai-ml-container {
         flex-direction: row; /* Keep cards in a row */
-        gap: 10px;
+        gap: 20px;
         width: 100%;
         overflow-x: scroll; /* Enable horizontal scroll */
         padding-top: 20px;
     }
 
     .ai-ml-card {
-        width: 250px; /* Adjusted for mobile screens */
-        height: 400px; /* Adjusted height for better fitting */
+        width: 300px; /* Adjusted for mobile screens */
+        height: 450px; /* Adjusted height for better fitting */
     }
 
     .ai-ml-card-front img {
-        height: 180px; /* Adjusted image height */
+        height: 300px; /* Adjusted image height */
     }
 
     .ai-ml-card-front h3 {
@@ -979,9 +971,9 @@
         /* Contact Section */
 .contact-section {
     text-align: center;
-    padding: 20px;
+    padding:5px;
     background: linear-gradient(45deg, #ff8800, #6d6c6c); /* Initial gradient */
-    background-size: 200% 200%;
+    background-size: 100% 100%;
     animation: gradientShift 6s ease infinite; /* Gradient animation */
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -991,7 +983,7 @@
 /* Section Heading */
 .contact-section h2 {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 /* Icons Container */
