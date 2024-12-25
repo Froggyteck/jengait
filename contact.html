@@ -197,7 +197,7 @@
 /* Responsive Design for Phones */
 @media (max-width: 600px) {
   .landing-section {
-    height: 33vh; /* Increase height for better layout on smaller screens */
+    height: 30vh; /* Increase height for better layout on smaller screens */
   }
 
   .landing-content h1 {
@@ -212,52 +212,94 @@
 }
 
 
+
     /* Contact Section */
 .contact-section {
-  padding: 40px;
-  background-color: #e7e2dc; /* Updated background color */
+  padding: 50px;
+  background-color: #f4f4f9; /* Softer and lighter background */
   text-align: center;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 10px; /* Rounded corners */
 }
 
 .contact-section h2 {
-  font-size: 2em;
+  font-size: 2.5em;
   margin-bottom: 20px;
-  color: #333;
+  color: #2c3e50; /* Darker and modern heading color */
+  text-transform: uppercase; /* Style enhancement for heading */
+  letter-spacing: 2px;
 }
 
 .contact-section p {
-  font-size: 1em;
-  margin-bottom: 20px;
-  color: #666;
+  font-size: 1.1em;
+  margin-bottom: 30px;
+  color: #7f8c8d; /* Lighter text for paragraph */
+  line-height: 1.6;
 }
 
 .contact-section form {
   max-width: 600px;
   margin: 0 auto;
+  text-align: left; /* Align form elements to the left */
+}
+
+.contact-section form label {
+  display: block; /* Ensure labels appear on a new line */
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #34495e; /* Dark label color for readability */
+  font-size: 0.9em;
 }
 
 .contact-section form input,
 .contact-section form textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #dcdcdc; /* Subtle border for input fields */
   border-radius: 5px;
+  font-size: 1em;
+  background-color: #fff; /* White input fields for contrast */
+  color: #2c3e50;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for input fields */
+  transition: border-color 0.3s ease; /* Smooth transition on focus */
+}
+
+.contact-section form input:focus,
+.contact-section form textarea:focus {
+  border-color: #007BFF; /* Highlight input fields on focus */
+  outline: none;
+}
+
+.contact-section form textarea {
+  resize: none; /* Prevent manual resizing */
+  height: 120px; /* Default height for textarea */
 }
 
 .contact-section form button {
-  padding: 10px 20px;
+  padding: 12px 25px;
   background-color: #007BFF;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth transition for hover */
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease; /* Smooth transition for hover */
 }
 
 .contact-section form button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Darker shade on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
 }
+
+.contact-section form button:active {
+  transform: translateY(0); /* Reset lift effect on click */
+  background-color: #004080; /* Even darker shade on click */
+}
+
 
 /* Contact Icons */
 .contact-icons {
@@ -293,6 +335,43 @@
   margin-top: 5px; /* Space between logo and text */
 }
 
+/* Media Query for Mobile Phones */
+@media screen and (max-width: 768px) {
+  .contact-section {
+    padding: 30px; /* Reduced padding for smaller screens */
+    border-radius: 5px; /* Smaller border radius */
+  }
+
+  .contact-section h2 {
+    font-size: 2em; /* Smaller font size for heading */
+  }
+
+  .contact-section p {
+    font-size: 1em; /* Slightly smaller font size for text */
+    margin-bottom: 20px;
+  }
+
+  .contact-section form {
+    width: 90%; /* Use most of the screen width */
+    margin: 0 auto;
+  }
+
+  .contact-section form label {
+    font-size: 0.85em; /* Slightly smaller labels */
+  }
+
+  .contact-section form input,
+  .contact-section form textarea {
+    padding: 10px; /* Adjust padding for smaller inputs */
+    font-size: 0.9em; /* Smaller input font size */
+  }
+
+  .contact-section form button {
+    padding: 10px 20px; /* Adjust button padding */
+    font-size: 0.9em; /* Smaller button font size */
+  }
+}
+
   </style>
 </head>
 <body>
@@ -318,48 +397,63 @@
     </div>
   </div>
 
-  <!-- Contact Section -->
+ <!-- Contact Section -->
 <div class="contact-section" id="contact">
   <h2>Contact Us</h2>
   <p>We'd love to hear from you! Feel free to reach out with any questions or inquiries.</p>
-  <form action="mailto:currygeorge04@gmail.com" method="post" enctype="text/plain">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+  <form action="https://your-secure-server.com/submit-form" method="POST">
+    <!-- Name Field -->
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" autocomplete="name" required>
+
+    <!-- Email Field -->
+    <label for="email">Your Email</label>
+    <input type="email" id="email" name="email" autocomplete="email" required>
+
+    <!-- Message Field -->
+    <label for="message">Your Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <!-- CSRF Token -->
+    <input type="hidden" name="csrf_token" value="your-generated-token">
+
+    <!-- CAPTCHA Section (Optional) -->
+    <div class="captcha">
+      <!-- Insert CAPTCHA widget here, e.g., reCAPTCHA -->
+    </div>
+
+    <!-- Submit Button -->
     <button type="submit">Send Message</button>
   </form>
 </div>
 
-  
-  <!-- Contact Section -->
+
+<!-- Social Media Links -->
 <div class="contact-section">
   <div class="contact-icons">
-      <!-- X Logo -->
-      <a href="https://x.com/7_muhindi" target="_blank" class="contact-icon">
-          <img src="img/twitter.png" alt="X Logo" class="icon-logo">
-      </a>
+    <!-- X Logo -->
+    <a href="https://x.com/7_muhindi" target="_blank" class="contact-icon">
+      <img src="img/twitter.png" alt="X Logo" class="icon-logo">
+    </a>
 
-      <!-- Facebook Logo -->
-      <a href="https://facebook.com/" target="_blank" class="contact-icon">
-          <img src="img/facebook.png" alt="Facebook Logo" class="icon-logo">
-      </a>
+    <!-- Facebook Logo -->
+    <a href="https://facebook.com/" target="_blank" class="contact-icon">
+      <img src="img/facebook.png" alt="Facebook Logo" class="icon-logo">
+    </a>
 
-      <!-- WhatsApp Logo -->
-      <a href="https://wa.me/+254111777512?text=Hello!%20I%20would%20like%20to%20contact%20you" target="_blank" class="contact-icon">
-          <img src="img/whatsapp.png" alt="WhatsApp Logo" class="icon-logo">
-      </a>
+    <!-- WhatsApp Logo -->
+    <a href="https://wa.me/+254111777512?text=Hello!%20I%20would%20like%20to%20contact%20you" target="_blank" class="contact-icon">
+      <img src="img/whatsapp.png" alt="WhatsApp Logo" class="icon-logo">
+    </a>
 
-      <!-- Email Logo -->
-      <a href="mailto:jengaithubafrica@gmail.com" class="contact-icon">
-          <img src="img/gmail (1).png" alt="Email Logo" class="icon-logo">
-      </a>
+    <!-- Email Logo -->
+    <a href="mailto:jengaithubafrica@gmail.com" class="contact-icon">
+      <img src="img/gmail (1).png" alt="Email Logo" class="icon-logo">
+    </a>
 
-      <!-- Instagram Logo -->
-      <a href="https://www.instagram.com/jengaitafrica?igsh=bGR4MHRvM2t2ajcx" target="_blank" class="contact-icon">
-          <img src="img/instagram.png" alt="Instagram Logo" class="icon-logo">
-      </a>
+    <!-- Instagram Logo -->
+    <a href="https://www.instagram.com/jengaitafrica?igsh=bGR4MHRvM2t2ajcx" target="_blank" class="contact-icon">
+      <img src="img/instagram.png" alt="Instagram Logo" class="icon-logo">
+    </a>
   </div>
 </div>
-
-</body>
-</html>
