@@ -96,7 +96,7 @@
   width: 100%;
   height: 60vh;
   background: url('img/Header.JPG') no-repeat center center/cover;
-  animation: zoomInBackground 15s ease-in-out infinite; /* Background zoom animation */
+  animation: zoomInBackground 15s ease-in-out infinite, fadeAndScale 1.5s ease-out; /* Add fade-and-scale animation */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,19 +151,7 @@
   background-color: #0056b3;
 }
 
-/* Keyframes for Smoother Fade-In Animation */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(30px); /* More noticeable offset at start */
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0); /* Settle back into place */
-  }
-}
-
-/* Keyframes for Sliding Overlay */
+/* Animations */
 @keyframes slideInOverlay {
   0% {
     left: -100%;
@@ -173,7 +161,29 @@
   }
 }
 
-/* Keyframes for Background Zoom Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @keyframes zoomInBackground {
   0% {
     background-size: 100%;
@@ -186,19 +196,38 @@
   }
 }
 
-/* Keyframes for Pulsing Button */
-@keyframes pulse {
+/* New Fade-and-Scale Animation */
+@keyframes fadeAndScale {
   0% {
+    opacity: 0;
     transform: scale(1);
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
   }
   100% {
+    opacity: 1;
     transform: scale(1);
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+}
+
+/* Responsive Design for Phones */
+@media (max-width: 600px) {
+  .landing-section {
+    height: 30vh; /* Adjust height for smaller screens */
+    animation: zoomInBackground 15s ease-in-out infinite, fadeAndScale 1.5s ease-out; /* Apply fade-and-scale animation */
+  }
+
+  .landing-content h1 {
+    font-size: 2em; /* Adjust font size for smaller screens */
+    margin-bottom: 15px;
+  }
+
+  .landing-content p {
+    font-size: 1em; /* Adjust font size for smaller screens */
+    margin-bottom: 30px;
+  }
+
+  .cta-button {
+    padding: 10px 20px; /* Adjust button size for smaller screens */
+    font-size: 14px; /* Adjust font size for button */
   }
 }
     /* Additional Section Styles */
