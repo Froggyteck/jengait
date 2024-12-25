@@ -90,17 +90,19 @@
   }
 }
 
+/* Landing Section */
 .landing-section {
   position: relative;
   width: 100%;
   height: 40vh;
-  background: url('img/kericho\ 4.jpeg') no-repeat center center/cover;
+  background: url('img/kericho 4.jpeg') no-repeat center center/cover;
   animation: zoomInBackground 15s ease-in-out infinite;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Sliding Overlay */
 .landing-overlay {
   position: absolute;
   top: 0;
@@ -111,6 +113,7 @@
   animation: slideInOverlay 1s ease-out forwards;
 }
 
+/* Landing Content */
 .landing-content {
   position: relative;
   z-index: 1;
@@ -126,6 +129,7 @@
   margin-bottom: 20px;
 }
 
+/* Call-to-Action Button */
 .cta-button {
   padding: 12px 24px;
   background-color: #007BFF;
@@ -135,12 +139,14 @@
   text-decoration: none;
   font-size: 16px;
   animation: pulse 2s infinite;
+  cursor: pointer;
 }
 
 .cta-button:hover {
   background-color: #0056b3;
 }
 
+/* Animations */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -185,6 +191,23 @@
   100% {
     transform: scale(1);
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+}
+
+/* Responsive Design for Phones */
+@media (max-width: 600px) {
+  .landing-section {
+    height: 33vh; /* Increase height for better layout on smaller screens */
+  }
+
+  .landing-content h1 {
+    font-size: 2em; /* Adjust heading font size */
+    margin-bottom: 15px;
+  }
+
+  .cta-button {
+    padding: 10px 20px; /* Adjust button size for smaller screens */
+    font-size: 14px; /* Adjust font size for button text */
   }
 }
 
