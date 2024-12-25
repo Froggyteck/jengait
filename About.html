@@ -134,19 +134,19 @@
   margin-bottom: 20px; /* Adjust spacing below text */
 }
 
-/* Keyframes for Smoother Fade-In Animation */
-@keyframes fadeIn {
+/* Animations */
+@keyframes zoomInBackground {
   0% {
-    opacity: 0;
-    transform: translateY(30px); /* More noticeable offset at start */
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
   }
   100% {
-    opacity: 1;
-    transform: translateY(0); /* Settle back into place */
+    transform: scale(1);
   }
 }
 
-/* Keyframes for Sliding Overlay */
 @keyframes slideInOverlay {
   0% {
     left: -100%;
@@ -156,34 +156,38 @@
   }
 }
 
-/* Keyframes for Background Zoom Animation */
-@keyframes zoomInBackground {
+@keyframes fadeIn {
   0% {
-    background-size: 100%;
-  }
-  50% {
-    background-size: 110%;
+    opacity: 0;
+    transform: translateY(30px);
   }
   100% {
-    background-size: 100%;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Keyframes for Pulsing Button */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+/* Responsive Design for Phones */
+@media (max-width: 600px) {
+  .landing-section {
+    height: 50vh; /* Increase height for smaller screens */
   }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
+
+  .landing-content h1 {
+    font-size: 1.8em; /* Adjust font size for smaller screens */
+    margin-bottom: 15px;
   }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+
+  .landing-content p {
+    font-size: 1em; /* Adjust font size for smaller screens */
+    margin-bottom: 15px;
+  }
+
+  .landing-overlay {
+    animation: slideInOverlay 0.8s ease-out forwards; /* Adjust animation duration */
   }
 }
+
 
 
     /* Additional Section Styles */
