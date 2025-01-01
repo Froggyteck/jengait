@@ -154,7 +154,7 @@
     left: 0;
     width: 100%;
     height: 38%; /* Full-screen height for the menu */
-    background-color: rgba(255, 136, 0, 0.726); /* Semi-transparent overlay */
+    background-color: rgba(255, 136, 0, 0.95); /* Semi-transparent overlay */
     padding: 20px;
     justify-content: flex-start;
     align-items: flex-start;
@@ -166,9 +166,16 @@
     display: flex; /* Ensure links are visible */
   }
 
+  /* Separator for Links */
   .navbar ul li {
     text-align: left;
     margin: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Add separator line */
+    width: 100%; /* Ensure line spans full width */
+  }
+
+  .navbar ul li:last-child {
+    border-bottom: none; /* Remove border for the last item */
   }
 
   /* Close Button */
