@@ -14,14 +14,14 @@
 
     body {
       font-family: sans-serif;
-      background-color: #f5f5f5;
+      background-color: #3b3838;
       color: #333;
       line-height: 1.6;
     }
 
     body {
       font-family: sans-serif;
-      background-color: #f5f5f5;
+      background-color: #5f5d5d;
       color: #333;
       line-height: 1.6;
     }
@@ -78,14 +78,14 @@
 /* Company Name Styling */
 .navbar .company-name {
   position: absolute;
-  left: 50%;
+  left: 20%;
   transform: translateX(-50%);
-  text-align: center;
+  text-align: left;
 }
 
 .navbar .company-name h1 {
   color: #fff;
-  font-size: 32px;
+  font-size: 22px;
   font-weight: bold;
   margin: 0;
   letter-spacing: 1px;
@@ -115,7 +115,7 @@
   display: none;
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -126,22 +126,26 @@
   .navbar {
     flex-direction: row;
   }
-
+/* Company Name Styling */
+.navbar .company-name {
+  position: absolute;
+  left: 50%;
+}
   /* Adjust Company Name Font Size */
   .navbar .company-name h1 {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   /* Hamburger Menu Visibility */
   .hamburger-menu {
     display: block;
-    order: 1;
-    margin-right: auto;
+    order: 2;
+    margin-left: auto;
   }
 
   .navbar .logo-container {
-    order: 2;
-    margin-left: auto;
+    order: 1;
+    margin-right: auto;
   }
 
   /* Navbar Links - Hidden Initially */
@@ -150,12 +154,13 @@
     flex-direction: column;
     position: fixed;
     top: 0;
-    left: -100%; /* Off-screen initially */
-    width: 30%;
-    height: 50%;
-    background-color: #fff;
+    right: -100%; /* Off-screen initially */
+    width: 100%;
+    height: 40%;
+    background-color: #ee6205b0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     padding: 20px;
+    
     justify-content: flex-start;
     align-items: flex-start;
     border-right: 2px solid #242322;
@@ -163,7 +168,7 @@
 
   /* Navbar Links - Visible When Toggled */
   .navbar ul.show-menu {
-    left: 0; /* Slide in from off-screen */
+    right: 0; /* Slide in from off-screen */
     display: flex; /* Ensure links are visible */
   }
 
@@ -188,8 +193,7 @@
 }
 
 
-
-
+/* landing section */
 .landing-section {
   position: relative;
   width: 100%;
@@ -287,6 +291,7 @@
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   }
 }
+
 /* Responsive Design for Mobile Screens (Max Width: 600px) */
 @media (max-width: 600px) {
   .landing-section {
@@ -309,6 +314,8 @@
   }
 }
 
+
+
 /* Contact Container */
 .contact-container {
   display: flex;
@@ -325,7 +332,7 @@
 }
 
 .contact-form h2 {
-  color: #27ae60;
+  color: #d47c08;
 }
 
 .contact-form p {
@@ -361,7 +368,7 @@
 }
 
 .contact-form form button {
-  background-color: #27ae60;
+  background-color: #dd7a09;
   color: white;
   padding: 10px 20px;
   margin-top: 20px;
@@ -371,7 +378,7 @@
 }
 
 .contact-form form button:hover {
-  background-color: #219150;
+  background-color: #f09205;
 }
 
 /* Contact Details Section */
@@ -458,7 +465,7 @@
     <img src="img/robotics header.jpeg" alt="Logo">
   </div>
   <div class="company-name">
-    <h1>Jenga IT Hub Africa</h1>
+    <h1>JENGA IT HUB AFRICA</h1>
   </div>
   <div class="hamburger-menu" onclick="toggleMenu()">
     &#9776; <!-- Unicode for the hamburger icon -->
@@ -513,7 +520,7 @@
   <div class="contact-form">
     <h2>Get in Touch</h2>
     <p>We're here to help you learn!</p>
-    <form action="mailto:kalvinmaina678@gmail.com" method="post" enctype="text/plain">
+    <form action="mailto:jengaithubafrica@gmail.com" method="post" enctype="text/plain">
       <label for="name">Name *</label>
       <input type="text" id="name" name="name" placeholder="Jane Smith" required>
       
