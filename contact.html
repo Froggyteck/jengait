@@ -73,6 +73,7 @@
   object-fit: cover;
   border: 2px solid #fff;
   animation: bounce 2s ease-in-out infinite;
+  z-index: 50; /* Ensure logo is above background elements */
 }
 
 /* Company Name Styling */
@@ -115,7 +116,7 @@
   display: none;
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -126,11 +127,13 @@
   .navbar {
     flex-direction: row;
   }
-/* Company Name Styling */
-.navbar .company-name {
-  position: absolute;
-  left: 50%;
-}
+
+  /* Adjust Company Name Positioning */
+  .navbar .company-name {
+    position: absolute;
+    left: 50%;
+  }
+
   /* Adjust Company Name Font Size */
   .navbar .company-name h1 {
     font-size: 15px;
@@ -141,6 +144,7 @@
     display: block;
     order: 2;
     margin-left: auto;
+    z-index: 101;
   }
 
   .navbar .logo-container {
@@ -152,23 +156,20 @@
   .navbar ul {
     display: none; /* Initially hidden */
     flex-direction: column;
-    position: fixed;
+    position: fixed; /* Ensure it overlays the logo and other elements */
     top: 0;
-    right: -100%; /* Off-screen initially */
+    left: 0;
     width: 100%;
-    height: 40%;
-    background-color: #ee6205b0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    height: 38%; /* Full-screen height for the menu */
+    background-color: rgba(255, 136, 0, 0.726); /* Semi-transparent overlay */
     padding: 20px;
-    
     justify-content: flex-start;
     align-items: flex-start;
-    border-right: 2px solid #242322;
+    z-index: 102; /* Ensure links are above everything */
   }
 
   /* Navbar Links - Visible When Toggled */
   .navbar ul.show-menu {
-    right: 0; /* Slide in from off-screen */
     display: flex; /* Ensure links are visible */
   }
 
@@ -181,7 +182,7 @@
   .close-menu {
     display: block;
     font-size: 24px;
-    color: #ff8800;
+    color: #fff;
     cursor: pointer;
     margin-bottom: 20px;
   }
