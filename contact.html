@@ -26,58 +26,69 @@
       line-height: 1.6;
     }
 
-    /* General Navbar Styling */
+/* General Navbar Styling */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #ff8800; /* Solid orange background */
-  padding: 5px 10px; /* Spacing for navbar */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  background-color: #ff8800;
+  padding: 5px 10px;
+  box-shadow: 0 2px 5px rgba(197, 8, 8, 0.2);
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 100; /* Ensure navbar stays above other elements */
 }
 
 /* Navbar Links */
 .navbar ul {
-  list-style: none; /* Remove bullet points */
-  display: flex; /* Horizontal layout */
+  list-style: none;
+  display: flex;
   margin: 0;
   padding: 0;
-  flex-wrap: wrap; /* Wrap links on smaller screens */
-    justify-content: center; /* Center links */
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Align items to the left */
 }
 
 .navbar ul li {
-  margin: 0 10px; /* Space between links */
+  margin: 0 10px;
 }
 
 .navbar ul li a {
-  text-decoration: none; /* Remove underline */
-  color: #fff; /* White text color */
-  font-size: 14px; /* Adjust font size */
-  font-weight: bold; /* Bold links */
-  transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-/* Hover Effect on Links */
 .navbar ul li a:hover {
-  color: #333; /* Change color on hover */
-  transform: scale(1.1); /* Slightly grow on hover */
+  color: #d1d1d1;
+  transform: scale(1.1);
 }
 
 /* Logo Styling */
-.navbar .logo-container {
-  display: flex;
-  align-items: center; /* Vertically center the logo */
+.navbar .logo-container img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  animation: bounce 2s ease-in-out infinite;
 }
 
-.navbar .logo-container img {
-  height: 60px; /* Logo size */
-  width: 60px; /* Circular size */
-  border-radius: 50%; /* Makes the image circular */
-  object-fit: cover; /* Ensures the image fits inside */
-  border: 2px solid #fff; /* Aesthetic white border */
-  animation: bounce 2s ease-in-out infinite; /* Continuous bounce animation */
+/* Company Name Styling */
+.navbar .company-name {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.navbar .company-name h1 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 1px;
 }
 
 /* Keyframes for Bouncing Logo Animation */
@@ -90,19 +101,106 @@
   }
 }
 
-/* Landing Section */
+/* Responsive Design for Smaller Screens */
+/* Hamburger Menu Styling */
+.hamburger-menu {
+  display: none;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+  }
+
+  /* Adjust Company Name Font Size */
+  .navbar .company-name h1 {
+    font-size: 20px;
+  }
+
+  /* Hamburger Menu Visibility */
+  .hamburger-menu {
+    display: block;
+    order: 1;
+    margin-right: auto;
+  }
+
+  .navbar .logo-container {
+    order: 2;
+    margin-left: auto;
+  }
+
+  /* Navbar Links - Hidden Initially */
+  .navbar ul {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -100%; /* Off-screen initially */
+    width: 30%;
+    height: 50%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-right: 2px solid #242322;
+  }
+
+  /* Navbar Links - Visible When Toggled */
+  .navbar ul.show-menu {
+    left: 0; /* Slide in from off-screen */
+    display: flex; /* Ensure links are visible */
+  }
+
+  .navbar ul li {
+    text-align: left;
+    margin: 15px 0;
+  }
+
+  /* Close Button */
+  .close-menu {
+    display: block;
+    font-size: 24px;
+    color: #ff8800;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  /* Overlay Visibility */
+  .overlay.show-overlay {
+    display: block;
+  }
+}
+
+
+
+
 .landing-section {
   position: relative;
   width: 100%;
   height: 40vh;
-  background: url('img/kericho 4.jpeg') no-repeat center center/cover;
+  background: url('img/kericho\ 4.jpeg') no-repeat center center/cover;
   animation: zoomInBackground 15s ease-in-out infinite;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Sliding Overlay */
 .landing-overlay {
   position: absolute;
   top: 0;
@@ -113,7 +211,6 @@
   animation: slideInOverlay 1s ease-out forwards;
 }
 
-/* Landing Content */
 .landing-content {
   position: relative;
   z-index: 1;
@@ -129,7 +226,6 @@
   margin-bottom: 20px;
 }
 
-/* Call-to-Action Button */
 .cta-button {
   padding: 12px 24px;
   background-color: #007BFF;
@@ -139,14 +235,12 @@
   text-decoration: none;
   font-size: 16px;
   animation: pulse 2s infinite;
-  cursor: pointer;
 }
 
 .cta-button:hover {
   background-color: #0056b3;
 }
 
-/* Animations */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -194,199 +288,196 @@
   }
 }
 
-/* Responsive Design for Phones */
-@media (max-width: 600px) {
-  .landing-section {
-    height: 30vh; /* Increase height for better layout on smaller screens */
-  }
 
-  .landing-content h1 {
-    font-size: 2em; /* Adjust heading font size */
-    margin-bottom: 15px;
-  }
-
-  .cta-button {
-    padding: 10px 20px; /* Adjust button size for smaller screens */
-    font-size: 14px; /* Adjust font size for button text */
-  }
+/* Contact Container */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px;
+  background-color: #f9f9f9;
 }
 
-
-
-    /* Contact Section */
-.contact-section {
-  padding: 50px;
-  background-color: #f4f4f9; /* Softer and lighter background */
-  text-align: center;
-  font-family: 'Arial', sans-serif;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  border-radius: 10px; /* Rounded corners */
+.contact-form {
+  flex: 1;
+  max-width: 50%;
+  margin-right: 20px;
 }
 
-.contact-section h2 {
-  font-size: 2.5em;
+.contact-form h2 {
+  color: #27ae60;
+}
+
+.contact-form p {
+  font-size: 18px;
   margin-bottom: 20px;
-  color: #2c3e50; /* Darker and modern heading color */
-  text-transform: uppercase; /* Style enhancement for heading */
-  letter-spacing: 2px;
-}
-
-.contact-section p {
-  font-size: 1.1em;
-  margin-bottom: 30px;
-  color: #7f8c8d; /* Lighter text for paragraph */
-  line-height: 1.6;
-}
-
-.contact-section form {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: left; /* Align form elements to the left */
-}
-
-.contact-section form label {
-  display: block; /* Ensure labels appear on a new line */
-  margin-bottom: 5px;
   font-weight: bold;
-  color: #34495e; /* Dark label color for readability */
-  font-size: 0.9em;
 }
 
-.contact-section form input,
-.contact-section form textarea {
+.contact-form form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.contact-form form input,
+.contact-form form textarea {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 20px;
-  border: 1px solid #dcdcdc; /* Subtle border for input fields */
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 1em;
-  background-color: #fff; /* White input fields for contrast */
-  color: #2c3e50;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for input fields */
-  transition: border-color 0.3s ease; /* Smooth transition on focus */
 }
 
-.contact-section form input:focus,
-.contact-section form textarea:focus {
-  border-color: #007BFF; /* Highlight input fields on focus */
-  outline: none;
+.contact-form form .checkbox {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
 }
 
-.contact-section form textarea {
-  resize: none; /* Prevent manual resizing */
-  height: 120px; /* Default height for textarea */
+.contact-form form .checkbox label {
+  margin-left: 10px;
+  font-size: 14px;
 }
 
-.contact-section form button {
-  padding: 12px 25px;
-  background-color: #007BFF;
+.contact-form form button {
+  background-color: #27ae60;
   color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1em;
+}
+
+.contact-form form button:hover {
+  background-color: #219150;
+}
+
+/* Contact Details Section */
+.contact-details {
+  flex: 1;
+  max-width: 40%;
+  background-color: #505050;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-left: 30px; /* Move the container slightly to the right */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for better effect */
+}
+
+.contact-details h2,
+.contact-details h3 {
   font-weight: bold;
-  text-transform: uppercase;
-  transition: all 0.3s ease; /* Smooth transition for hover */
+  margin-top: 10px;
 }
 
-.contact-section form button:hover {
-  background-color: #0056b3; /* Darker shade on hover */
-  transform: translateY(-2px); /* Slight lift on hover */
+.contact-details p,
+.contact-details ul {
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
-.contact-section form button:active {
-  transform: translateY(0); /* Reset lift effect on click */
-  background-color: #004080; /* Even darker shade on click */
+.contact-details ul li {
+  margin-bottom: 5px;
 }
 
-
-/* Contact Icons */
-.contact-icons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap; 
+.contact-details a {
+  color: white;
+  text-decoration: underline;
 }
 
-.contact-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.contact-details a:hover {
   text-decoration: none;
-  color: black;
-  font-size: 18px;
-  gap: 8px;
-  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.contact-icon img.icon-logo {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
-
-.contact-icon:hover {
-  transform: scale(1.1); /* Hover effect */
-  color: #0073e6; /* Updated hover color */
-}
-
-.contact-icon span {
-  margin-top: 5px; /* Space between logo and text */
-}
-
-/* Media Query for Mobile Phones */
-@media screen and (max-width: 768px) {
-  .contact-section {
-    padding: 30px; /* Reduced padding for smaller screens */
-    border-radius: 5px; /* Smaller border radius */
+/* Media Queries for Smaller Screens */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column; /* Stack elements vertically */
+    padding: 20px; /* Reduce padding for smaller screens */
   }
 
-  .contact-section h2 {
-    font-size: 2em; /* Smaller font size for heading */
+  .contact-form {
+    max-width: 100%; /* Full-width form */
+    margin-right: 0; /* Remove right margin */
   }
 
-  .contact-section p {
-    font-size: 1em; /* Slightly smaller font size for text */
-    margin-bottom: 20px;
-  }
-
-  .contact-section form {
-    width: 90%; /* Use most of the screen width */
-    margin: 0 auto;
-  }
-
-  .contact-section form label {
-    font-size: 0.85em; /* Slightly smaller labels */
-  }
-
-  .contact-section form input,
-  .contact-section form textarea {
-    padding: 10px; /* Adjust padding for smaller inputs */
-    font-size: 0.9em; /* Smaller input font size */
-  }
-
-  .contact-section form button {
-    padding: 10px 20px; /* Adjust button padding */
-    font-size: 0.9em; /* Smaller button font size */
+  .contact-details {
+    max-width: 100%; /* Full-width contact details */
+    margin-left: 0; /* Remove left margin */
+    margin-top: 20px; /* Add some spacing between the form and details */
   }
 }
+
+@media (max-width: 480px) {
+  .contact-form p,
+  .contact-details p {
+    font-size: 14px; /* Reduce font size for better fit */
+  }
+
+  .contact-form form button {
+    width: 100%; /* Full-width button for mobile */
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  .contact-details {
+    padding: 15px; /* Reduce padding inside contact details */
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}
+
+
 
   </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <div class="navbar">
-    <div class="logo-container">
-      <img src="img/robotics header.jpeg" alt="Logo">
-    </div>
-    <ul>
-      <li><a href="Home.html">Home</a></li>
-      <li><a href="About.html">About</a></li>
-      <li><a href="programs.html">Services</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+ <!-- Navbar -->
+<div class="navbar">
+  <div class="logo-container">
+    <img src="img/robotics header.jpeg" alt="Logo">
   </div>
+  <div class="company-name">
+    <h1>Jenga IT Hub Africa</h1>
+  </div>
+  <div class="hamburger-menu" onclick="toggleMenu()">
+    &#9776; <!-- Unicode for the hamburger icon -->
+  </div>
+  <ul id="navbar-links">
+    <li><a href="Home.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="programs.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+<div id="overlay" class="overlay"></div>
+
+<script>
+  function toggleMenu() {
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    navbarLinks.classList.toggle('show-menu'); // Toggle the class to show/hide the menu
+    overlay.classList.toggle('show-overlay'); // Toggle the overlay visibility
+  }
+  document.addEventListener('click', function (event) {
+    const navbar = document.querySelector('.navbar');
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    if (!navbar.contains(event.target) && navbarLinks.classList.contains('show-menu')) {
+      navbarLinks.classList.remove('show-menu'); // Close the menu when clicking outside
+      overlay.classList.remove('show-overlay'); // Hide the overlay
+    }
+  });
+  window.addEventListener('scroll', function () {
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    if (navbarLinks.classList.contains('show-menu')) {
+      navbarLinks.classList.remove('show-menu'); // Close the menu on scroll
+      overlay.classList.remove('show-overlay'); // Hide the overlay
+    }
+  });
+</script>
+
 
   <!-- Landing Section -->
   <div class="landing-section">
@@ -398,62 +489,46 @@
   </div>
 
  <!-- Contact Section -->
-<div class="contact-section" id="contact">
-  <h2>Contact Us</h2>
-  <p>We'd love to hear from you! Feel free to reach out with any questions or inquiries.</p>
-  <form action="https://your-secure-server.com/submit-form" method="POST">
-    <!-- Name Field -->
-    <label for="name">Your Name</label>
-    <input type="text" id="name" name="name" autocomplete="name" required>
+<div class="contact-container">
+  <div class="contact-form">
+    <h2>Get in Touch</h2>
+    <p>We're here to help you learn!</p>
+    <form action="mailto:kalvinmaina678@gmail.com" method="post" enctype="text/plain">
+      <label for="name">Name *</label>
+      <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+      
+      <label for="email">Email address *</label>
+      <input type="email" id="email" name="email" placeholder="email@website.com" required>
+      
+      <label for="phone">Phone number *</label>
+      <input type="tel" id="phone" name="phone" placeholder="555-555-5555" required>
+      
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder=""></textarea>
+      
+      <div class="checkbox">
+        <input type="checkbox" id="consent" name="consent" required>
+        <label for="consent">I allow this website to store my submission so they can respond to my inquiry. *</label>
+      </div>
+      
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 
-    <!-- Email Field -->
-    <label for="email">Your Email</label>
-    <input type="email" id="email" name="email" autocomplete="email" required>
-
-    <!-- Message Field -->
-    <label for="message">Your Message</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
-
-    <!-- CSRF Token -->
-    <input type="hidden" name="csrf_token" value="your-generated-token">
-
-    <!-- CAPTCHA Section (Optional) -->
-    <div class="captcha">
-      <!-- Insert CAPTCHA widget here, e.g., reCAPTCHA -->
-    </div>
-
-    <!-- Submit Button -->
-    <button type="submit">Send Message</button>
-  </form>
-</div>
-
-
-<!-- Social Media Links -->
-<div class="contact-section">
-  <div class="contact-icons">
-    <!-- X Logo -->
-    <a href="https://x.com/7_muhindi" target="_blank" class="contact-icon">
-      <img src="img/twitter.png" alt="X Logo" class="icon-logo">
-    </a>
-
-    <!-- Facebook Logo -->
-    <a href="https://facebook.com/" target="_blank" class="contact-icon">
-      <img src="img/facebook.png" alt="Facebook Logo" class="icon-logo">
-    </a>
-
-    <!-- WhatsApp Logo -->
-    <a href="https://wa.me/+254111777512?text=Hello!%20I%20would%20like%20to%20contact%20you" target="_blank" class="contact-icon">
-      <img src="img/whatsapp.png" alt="WhatsApp Logo" class="icon-logo">
-    </a>
-
-    <!-- Email Logo -->
-    <a href="mailto:jengaithubafrica@gmail.com" class="contact-icon">
-      <img src="img/gmail (1).png" alt="Email Logo" class="icon-logo">
-    </a>
-
-    <!-- Instagram Logo -->
-    <a href="https://www.instagram.com/jengaitafrica?igsh=bGR4MHRvM2t2ajcx" target="_blank" class="contact-icon">
-      <img src="img/instagram.png" alt="Instagram Logo" class="icon-logo">
-    </a>
+  <div class="contact-details">
+    <h2>Get in touch</h2>
+    <p><a href="mailto:felixbraido@gmail.com">felixbraido@gmail.com</a></p>
+    <p>Location: Nairobi, 30 KE</p>
+    <h3>Hours</h3>
+    <ul>
+      <li>Monday: 9:00am – 10:00pm</li>
+      <li>Tuesday: 9:00am – 10:00pm</li>
+      <li>Wednesday: 9:00am – 10:00pm</li>
+      <li>Thursday: 9:00am – 10:00pm</li>
+      <li>Friday: 9:00am – 10:00pm</li>
+      <li>Saturday: 9:00am – 6:00pm</li>
+      <li>Sunday: 9:00am – 12:00pm</li>
+    </ul>
   </div>
 </div>
+
