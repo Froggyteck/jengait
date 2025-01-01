@@ -31,53 +31,64 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #ff8800; /* Solid orange background */
-  padding: 5px 10px; /* Spacing for navbar */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  background-color: #ff8800;
+  padding: 5px 10px;
+  box-shadow: 0 2px 5px rgba(197, 8, 8, 0.2);
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 100; /* Ensure navbar stays above other elements */
 }
 
 /* Navbar Links */
 .navbar ul {
-  list-style: none; /* Remove bullet points */
-  display: flex; /* Horizontal layout */
+  list-style: none;
+  display: flex;
   margin: 0;
   padding: 0;
-  flex-wrap: wrap; /* Wrap links on smaller screens */
-    justify-content: center; /* Center links */
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Align items to the left */
 }
 
 .navbar ul li {
-  margin: 0 10px; /* Space between links */
+  margin: 0 10px;
 }
 
 .navbar ul li a {
-  text-decoration: none; /* Remove underline */
-  color: #fff; /* White text color */
-  font-size: 14px; /* Adjust font size */
-  font-weight: bold; /* Bold links */
-  transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-/* Hover Effect on Links */
 .navbar ul li a:hover {
-  color: #333; /* Change color on hover */
-  transform: scale(1.1); /* Slightly grow on hover */
+  color: #d1d1d1;
+  transform: scale(1.1);
 }
 
 /* Logo Styling */
-.navbar .logo-container {
-  display: flex;
-  align-items: center; /* Vertically center the logo */
+.navbar .logo-container img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  animation: bounce 2s ease-in-out infinite;
 }
 
-.navbar .logo-container img {
-  height: 60px; /* Logo size */
-  width: 60px; /* Circular size */
-  border-radius: 50%; /* Makes the image circular */
-  object-fit: cover; /* Ensures the image fits inside */
-  border: 2px solid #fff; /* Aesthetic white border */
-  animation: bounce 2s ease-in-out infinite; /* Continuous bounce animation */
+/* Company Name Styling */
+.navbar .company-name {
+  position: absolute;
+  left: 20%;
+  transform: translateX(-50%);
+  text-align: left;
+}
+
+.navbar .company-name h1 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 1px;
 }
 
 /* Keyframes for Bouncing Logo Animation */
@@ -87,6 +98,97 @@
   }
   50% {
     transform: translateY(-10px); /* Move slightly upwards */
+  }
+}
+
+/* Responsive Design for Smaller Screens */
+/* Hamburger Menu Styling */
+.hamburger-menu {
+  display: none;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+  }
+/* Company Name Styling */
+.navbar .company-name {
+  position: absolute;
+  left: 50%;
+}
+  /* Adjust Company Name Font Size */
+  .navbar .company-name h1 {
+    font-size: 15px;
+  }
+
+  /* Hamburger Menu Visibility */
+  .hamburger-menu {
+    display: block;
+    order: 2;
+    margin-left: auto;
+  }
+
+  .navbar .logo-container {
+    order: 1;
+    margin-right: auto;
+  }
+
+  /* Navbar Links - Hidden Initially */
+  .navbar ul {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%; /* Off-screen initially */
+    width: 100%;
+    height: 40%;
+    background-color: #ee6205b0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-right: 2px solid #242322;
+  }
+
+  /* Navbar Links - Visible When Toggled */
+  .navbar ul.show-menu {
+    right: 0; /* Slide in from off-screen */
+    display: flex; /* Ensure links are visible */
+  }
+
+  .navbar ul li {
+    text-align: left;
+    margin: 15px 0;
+  }
+
+  /* Close Button */
+  .close-menu {
+    display: block;
+    font-size: 24px;
+    color: #ff8800;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  /* Overlay Visibility */
+  .overlay.show-overlay {
+    display: block;
   }
 }
 
@@ -170,7 +272,7 @@
 /* Responsive Design for Phones */
 @media (max-width: 600px) {
   .landing-section {
-    height: 32vh; /* Increase height for smaller screens */
+    height: 33vh; /* Increase height for smaller screens */
   }
 
   .landing-content h1 {
@@ -187,7 +289,6 @@
     animation: slideInOverlay 0.8s ease-out forwards; /* Adjust animation duration */
   }
 }
-
 
 
     /* Additional Section Styles */
@@ -227,8 +328,8 @@
 .journey-cards {
     display: flex;
     flex-wrap: nowrap; /* Arrange cards horizontally */
-    justify-content: flex-start; /* Align cards to the left */
-    gap: 80px; /* Space between cards */
+    justify-content: center; /* Center-align cards for larger screens */
+    gap: 100px; /* Space between cards */
     overflow-x: auto; /* Enable horizontal scrolling */
     padding: 20px 0; /* Space around the container */
     scroll-snap-type: x mandatory; /* Snap cards into place when scrolling */
@@ -280,6 +381,7 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .journey-cards {
+        justify-content: flex-start; /* Align cards to the left for smaller screens */
         padding: 10px; /* Reduce padding for smaller screens */
         gap: 15px; /* Decrease spacing between cards */
     }
@@ -308,6 +410,7 @@
         font-size: 0.9rem; /* Slightly smaller text */
     }
 }
+
 
  
 
@@ -556,89 +659,104 @@
 
 
 
-/* What They Say Section */
-.what-they-say-section {
-    background-color: #f8f8f7;
-    padding: 40px 20px;
+/* Gallery container styling */
+.gallery-container {
     text-align: center;
+    margin: 20px auto;
+    max-width: 90%;
 }
 
-.what-they-say-section .section-title {
+/* Title styling */
+.gallery-title {
+    font-family: Arial, sans-serif;
     font-size: 2rem;
-    margin-bottom: 10px;
+    font-weight: bold;
     color: #333;
+    margin-bottom: 20px;
 }
 
-.what-they-say-section .section-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: #555;
-}
-
-/* Testimonial Cards */
-.what-they-say-container {
+/* Main gallery container */
+.gallery {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 300px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    perspective: 1000px;
+    transition: width 0.3s ease;
 }
 
-.what-they-say-item {
-    background-color: #ffffff;
+/* Individual imgcards */
+.imgcard {
+    flex: 0.8;
+    transition: flex 0.3s ease, transform 0.5s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 300px;
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #ddd;
+    width: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.what-they-say-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    border-color: #007BFF;
+/* Images inside imgcards */
+.imgcard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-/* Card Content */
-.what-they-say-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #007BFF;
+/* Hover effect */
+.imgcard:hover {
+    flex: 3;
 }
 
-.what-they-say-item p {
-    font-size: 1rem;
-    color: #333;
-    line-height: 1.5;
-    margin-bottom: 10px;
+/* Display full contents of the image while hovered */
+.imgcard:hover img {
+    transform: scale(1);
 }
 
-.what-they-say-item .author {
-    font-size: 0.9rem;
-    color: #555;
-    font-style: italic;
+/* Remove gaps between hovered and adjacent cards */
+.gallery:hover .imgcard:not(:hover) {
+    flex: 0.9;
+    transition: flex 0.3s ease;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .what-they-say-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .what-they-say-item {
-        width: 90%;
-    }
+/* Text overlay styling */
+.imgcard::before {
+    content: attr(data-hover-text); /* Retrieves text from data-hover-text attribute */
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 2rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
+/* Show text on hover */
+.imgcard:hover::before {
+    opacity: 0;
+}
 
-        /* Contact Section */
+    /* Contact Section */
 .contact-section {
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     background: linear-gradient(45deg, #ff8800, #6d6c6c); /* Initial gradient */
-    background-size: 200% 200%;
+    background-size: 100% 00%;
     animation: gradientShift 6s ease infinite; /* Gradient animation */
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -805,17 +923,50 @@
 </head>
 <body>
   <!-- Navbar -->
-  <div class="navbar">
-    <div class="logo-container">
-      <img src="img/robotics header.jpeg" alt="Logo">
-    </div>
-    <ul>
-      <li><a href="Home.html">Home</a></li>
-      <li><a href="About.html">About</a></li>
-      <li><a href="programs.html">Services</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+<div class="navbar">
+  <div class="logo-container">
+    <img src="img/robotics header.jpeg" alt="Logo">
   </div>
+  <div class="company-name">
+    <h1>JENGA IT HUB AFRICA</h1>
+  </div>
+  <div class="hamburger-menu" onclick="toggleMenu()">
+    &#9776; <!-- Unicode for the hamburger icon -->
+  </div>
+  <ul id="navbar-links">
+    <li><a href="Home.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="programs.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+<div id="overlay" class="overlay"></div>
+
+<script>
+  function toggleMenu() {
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    navbarLinks.classList.toggle('show-menu'); // Toggle the class to show/hide the menu
+    overlay.classList.toggle('show-overlay'); // Toggle the overlay visibility
+  }
+  document.addEventListener('click', function (event) {
+    const navbar = document.querySelector('.navbar');
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    if (!navbar.contains(event.target) && navbarLinks.classList.contains('show-menu')) {
+      navbarLinks.classList.remove('show-menu'); // Close the menu when clicking outside
+      overlay.classList.remove('show-overlay'); // Hide the overlay
+    }
+  });
+  window.addEventListener('scroll', function () {
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    if (navbarLinks.classList.contains('show-menu')) {
+      navbarLinks.classList.remove('show-menu'); // Close the menu on scroll
+      overlay.classList.remove('show-overlay'); // Hide the overlay
+    }
+  });
+</script>
 
   <!-- Landing Section -->
   <div class="landing-section">
@@ -910,45 +1061,34 @@
     </div>
 </section>
 
-    <!-- What They Say -->
-<section class="what-they-say-section">
-  <h2 class="section-title">What They Say</h2>
-  <p class="section-subtitle">Real Voices, Real Experiences</p>
-  <div class="what-they-say-container">
-    <!-- Testimonial 1 -->
-    <div class="what-they-say-item">
-      <div class="what-they-say-item-content">
-        <h3>Student Feedback</h3>
-        <p>
-          "Students often express their excitement about the hands-on learning experiences they encounter at Jenga IT Hub. Many have shared how the engaging curriculum has sparked their interest in technology, leading them to pursue further studies in coding and robotics."
-        </p>
-        <p class="author">– Monicah Kariuki, Parent</p>
-      </div>
+ <!-- Main Gallery Section -->
+<div class="gallery-container">
+  <h2 class="gallery-title">Our Stunning Gallery</h2>
+  <div class="gallery">
+    <div class="imgcard" data-hover-text="Welcome to AI Home">
+      <img src="img/Ai.home.jpeg" alt="Image 1">
     </div>
-
-    <!-- Testimonial 2 -->
-    <div class="what-they-say-item">
-      <div class="what-they-say-item-content">
-        <h3>Parent Perspectives</h3>
-        <p>
-          "Parents appreciate the supportive environment we have created at Jenga IT Hub. They frequently mention the growth they observe in their children's confidence and skills, highlighting how our programs have positively impacted their children's futures."
-        </p>
-        <p class="author">– Joseph Kapalei, Parent</p>
-      </div>
+    <div class="imgcard" data-hover-text="Kericho Beauty">
+      <img src="img/kericho 10.jpeg" alt="Image 2">
     </div>
-
-    <!-- Testimonial 3 -->
-    <div class="what-they-say-item">
-      <div class="what-they-say-item-content">
-        <h3>Success Stories</h3>
-        <p>
-          "We are proud to feature success stories from our alumni who have gone on to pursue careers in tech-related fields. Their testimonials serve as inspiration for current students and a testament to the effectiveness of our training programs."
-        </p>
-        <p class="author">– Sharon Adisa, Parent</p>
-      </div>
+    <div class="imgcard" data-hover-text="Passion">
+      <img src="img/pass.jpeg" alt="Image 3">
+    </div>
+    <div class="imgcard" data-hover-text="Mach 5 Speed">
+      <img src="img/Mach5.jpg" alt="Image 4">
+    </div>
+    <div class="imgcard" data-hover-text="C2 Adventures">
+      <img src="img/C2.jpeg" alt="Image 5">
+    </div>
+    <div class="imgcard" data-hover-text="Kericho Serenity">
+      <img src="img/kericho 7.jpeg" alt="Image 6">
+    </div>
+    <div class="imgcard" data-hover-text="Commitment to Excellence">
+      <img src="img/commitment.jpeg" alt="Image 7">
     </div>
   </div>
-</section>
+</div>
+
 
 
   <!-- Contact Section -->
