@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jenga IT Hub</title>
+  <link rel="icon" type="image/png" href="img/icon.png" sizes="32*32">
+  <!-- External CSS link -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+  <div class="logo-container">
+    <img src="img/robotics header.jpeg" alt="Logo">
+  </div>
+  <div class="company-name">
+    <h1>JENGA IT HUB AFRICA</h1>
+  </div>
+  <div class="hamburger-menu" onclick="toggleMenu()">
+    &#9776; <!-- Unicode for the hamburger icon -->
+  </div>
+  <ul id="navbar-links">
+    <li><a href="Home.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="programs.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+<div id="overlay" class="overlay"></div>
+
+<script>
+  function toggleMenu() {
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    navbarLinks.classList.toggle('show-menu'); // Toggle the class to show/hide the menu
+    overlay.classList.toggle('show-overlay'); // Toggle the overlay visibility
+  }
+  document.addEventListener('click', function (event) {
+    const navbar = document.querySelector('.navbar');
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    if (!navbar.contains(event.target) && navbarLinks.classList.contains('show-menu')) {
+      navbarLinks.classList.remove('show-menu'); // Close the menu when clicking outside
+      overlay.classList.remove('show-overlay'); // Hide the overlay
+    }
+  });
+  window.addEventListener('scroll', function () {
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    if (navbarLinks.classList.contains('show-menu')) {
+      navbarLinks.classList.remove('show-menu'); // Close the menu on scroll
+      overlay.classList.remove('show-overlay'); // Hide the overlay
+    }
+  });
+</script>
+
+  <!-- Landing Section -->
+  <!-- Landing Section -->
+  <div class="landing-section" style="background: url('img/logo.jpeg') no-repeat center center/cover;">
+    <div class="landing-overlay"></div>
+    <div class="landing-content">
+      <h1>We are committed to delivering excellence in every project we do, and not only meeting but
+        exceeding the expectation of our clients.</h1>
+      
+    </div>
+  </div>
+
+ 
+  <!-- Our Journey Section -->
+  <section class="journey-section">
+    <h1>OUR JOURNEY</h1>
+    <p class="subtitle">Inspiring Young Minds</p>
+    <div class="journey-cards">
+        <div class="card">
+            <img src="img/Header.JPG" alt="Founding Vision">
+            <h3>Founding Vision</h3>
+            <p>Jenga IT Hub was established with a vision to ignite a passion for technology in children. Our founders recognized the growing importance of coding and robotics in the modern world and sought to create a nurturing environment where young learners could explore these fields. Through engaging programs, we aim to bridge the gap between curiosity and knowledge, fostering a love for STEM in our students.</p>
+        </div>
+        <div class="card">
+            <img src="img/commitment.jpeg" alt="Commitment to Education">
+            <h3>Commitment to Education</h3>
+            <p>We are dedicated to providing high-quality education that is both fun and informative. Our curriculum is designed to cater to various age groups and skill levels, ensuring that every child receives the support they need to thrive. By incorporating hands-on projects and interactive learning methods, we create a dynamic atmosphere that encourages creativity and problem-solving.</p>
+        </div>
+        <div class="card">
+            <img src="img/giving back.jpeg" alt="Community Impact">
+            <h3>Community Impact</h3>
+            <p>At Jenga IT Hub, we believe in giving back to the community. We actively participate in local events and workshops, sharing our knowledge and resources with families and schools. Our aim is not only to educate but also to inspire other organizations to prioritize technology education for children, ensuring that future generations are equipped with the skills they need to succeed.</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- Our Instructors Section -->
+  <section class="instructors-section">
+    <h2 class="section-title">Our Instructors</h2>
+    <p class="section-subtitle">Experts in Technology Education</p>
+    <div class="instructors-container">
+        <div class="instructor-item">
+            <img src="img/Header.JPG" alt="Experienced Educators">
+            <div class="instructor-item-content">
+                <h3>Experienced Educators</h3>
+                <p>Our team comprises experienced educators with extensive backgrounds in coding, robotics, and child development. Each instructor brings a unique set of skills and perspectives, ensuring a well-rounded learning experience for our students.</p>
+            </div>
+        </div>
+        <div class="instructor-item">
+            <img src="img/pass.jpeg" alt="Passionate Mentors">
+            <div class="instructor-item-content">
+              <h3>Passionate Mentors</h3>
+              <p>
+                We pride ourselves on having passionate mentors who are not only knowledgeable in their fields but also dedicated to nurturing young talent. Our instructors take the time to understand each student's needs, helping them grow and develop their skills at their own pace.
+              </p>
+            </div>
+          </div>
+          <div class="instructor-item">
+            <img src="img/cont.jpeg" alt="Continuous Learning">
+            <div class="instructor-item-content">
+              <h3>Continuous Learning</h3>
+              <p>
+                Our team members are committed to their own professional development, regularly attending workshops and training sessions. This ensures that they are up-to-date with the latest trends in technology and education, allowing them to provide the best possible learning experience for our students.
+              </p>
+            </div>
+          </div>
+    </div>
+  </section>
+
+  <!-- Student Achievements Section -->
+<section class="achievements-section">
+    <h1 class="section-title">Student Achievements</h1>
+    <h2 class="section-subtitle">Celebrating Innovation and Creativity</h2>
+    <div class="achievements-container">
+        <div class="achievement-card">
+            <h3>Robotics Competitions</h3>
+            <p>
+              Our students have participated in numerous robotics competitions, showcasing their innovative designs and programming skills. These events not only challenge their technical abilities but also enhance teamwork and collaboration, essential skills for future success.
+            </p>
+        </div>
+        <div class="achievement-card">
+            <h3>Coding Projects</h3>
+            <p>
+              From creating interactive games to developing websites, our students have completed a variety of coding projects that highlight their creativity and problem-solving skills. Each project serves as a testament to their hard work and dedication, demonstrating the impact of our training.
+            </p>
+        </div>
+        <div class="achievement-card">
+            <h3>Community Initiatives</h3>
+            <p>
+              Our students have also engaged in community initiatives, utilizing their skills to benefit local organizations. These projects not only reinforce their learning but also instill a sense of responsibility and civic engagement as they contribute to their communities.
+            </p>
+        </div>
+    </div>
+</section>
+
+ <!-- Main Gallery Section -->
+<div class="gallery-container">
+  <h2 class="gallery-title">Our Stunning Gallery</h2>
+  <div class="gallery">
+    <div class="imgcard" data-hover-text="Welcome to AI Home">
+      <img src="img/Ai.home.jpeg" alt="Image 1">
+    </div>
+    <div class="imgcard" data-hover-text="Kericho Beauty">
+      <img src="img/kericho 10.jpeg" alt="Image 2">
+    </div>
+    <div class="imgcard" data-hover-text="Passion">
+      <img src="img/pass.jpeg" alt="Image 3">
+    </div>
+    <div class="imgcard" data-hover-text="Mach 5 Speed">
+      <img src="img/Mach5.jpg" alt="Image 4">
+    </div>
+    <div class="imgcard" data-hover-text="C2 Adventures">
+      <img src="img/C2.jpeg" alt="Image 5">
+    </div>
+    <div class="imgcard" data-hover-text="Kericho Serenity">
+      <img src="img/kericho 7.jpeg" alt="Image 6">
+    </div>
+    <div class="imgcard" data-hover-text="Commitment to Excellence">
+      <img src="img/commitment.jpeg" alt="Image 7">
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- Contact Section -->
+  <div class="contact-section" id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-icons">
+      <!-- X Logo -->
+      <a href="https://x.com/7_muhindi" target="_blank" class="contact-icon">
+        <img src="img/X1.png" alt="X Logo" class="icon-logo">
+        <span></span>
+    </a>
+    <!-- Facebook Logo -->
+    <a href="https://facebook.com/" target="Facebook" class="contact-icon">
+        <img src="img/facebook.png" alt="Facebook Logo" class="icon-logo">
+        <span></span>
+    </a>
+    <!-- WhatsApp Logo -->
+    <a href="https://wa.me/+254115019909?text=Hello! 👋%0AThank you for reaching out to Jenga IT HUB—where innovation meets education!%0AHow can we assist you today?%0AAre you interested in our coding and robotics programs?%0AHave questions about workshops or collaborations?%0AWe’re here to help." 
+    target="_blank" class="contact-icon">
+    <img src="img/whatsapp.png" alt="WhatsApp Logo" class="icon-logo">
+ </a>
+    <!-- Email Logo -->
+    <a href="mailto:jengaithubafrica@gmail.com" class="contact-icon">
+        <img src="img/gmail (1).png" alt="Email Logo" class="icon-logo">
+        <span></span>
+    </a>
+    <!-- Instagram Logo -->
+    <a href="https://www.instagram.com/jengaitafrica?igsh=bGR4MHRvM2t2ajcx" target="_blank" class="contact-icon">
+        <img src="img/instagram.png" alt="Instagram Logo" class="icon-logo">
+        <span></span>
+    </a>
+</div>
+<!-- Back to Top Button -->
+<button id="back-to-top">↑ Back to Top</button>
+
+<script>
+  // Select the button
+  const backToTopButton = document.getElementById("back-to-top");
+
+  // Show the button when the user scrolls down 300px
+  window.onscroll = function () {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      backToTopButton.style.display = "block";
+    } else {
+      backToTopButton.style.display = "none";
+    }
+  };
+
+  // Smooth scroll back to the top
+  backToTopButton.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+</script>
+    </div>
+  </div>
+</body>
+</html>

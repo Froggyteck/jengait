@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jenga IT Hub</title>
+  <link rel="icon" type="image/png" href="img/icon.png" sizes="32*32">
+  <!-- External CSS link -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+  <div class="logo-container">
+    <img src="img/robotics header.jpeg" alt="Logo">
+  </div>
+  <div class="company-name">
+    <h1>JENGA IT HUB AFRICA</h1>
+  </div>
+  <div class="hamburger-menu" onclick="toggleMenu()">
+    &#9776; <!-- Unicode for the hamburger icon -->
+  </div>
+  <ul id="navbar-links">
+    <li><a href="Home.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="programs.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+<div id="overlay" class="overlay"></div>
+
+<script>
+  function toggleMenu() {
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    navbarLinks.classList.toggle('show-menu'); // Toggle the class to show/hide the menu
+    overlay.classList.toggle('show-overlay'); // Toggle the overlay visibility
+  }
+  document.addEventListener('click', function (event) {
+    const navbar = document.querySelector('.navbar');
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    if (!navbar.contains(event.target) && navbarLinks.classList.contains('show-menu')) {
+      navbarLinks.classList.remove('show-menu'); // Close the menu when clicking outside
+      overlay.classList.remove('show-overlay'); // Hide the overlay
+    }
+  });
+  window.addEventListener('scroll', function () {
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    if (navbarLinks.classList.contains('show-menu')) {
+      navbarLinks.classList.remove('show-menu'); // Close the menu on scroll
+      overlay.classList.remove('show-overlay'); // Hide the overlay
+    }
+  });
+</script>
+
+
+  <!-- Landing Section -->
+  <div class="landing-section" style="background: url('img/kericho\ 4.jpeg') no-repeat center center/cover;">
+    <div class="landing-overlay"></div>
+    <div class="landing-content">
+      <h1>Empowering Young Innovators</h1>
+      <p>At Jenga IT Hub, we ignite creativity and curiosity in children through engaging coding and robotics training.</p>
+    </div>
+  </div>
+
+ <!-- Contact Section -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+</head>
+<body>
+  <div class="contact-container">
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <p>We're here to help you learn!</p>
+      <form action="process_contact.php" method="post">
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+        
+        <label for="email">Email address *</label>
+        <input type="email" id="email" name="email" placeholder="email@website.com" required>
+        
+        <label for="phone">Phone number *</label>
+        <input type="tel" id="phone" name="phone" placeholder="555-555-5555" required>
+        
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder=""></textarea>
+        
+        <div class="checkbox">
+          <input type="checkbox" id="consent" name="consent" required>
+          <label for="consent">I allow this website to store my submission so they can respond to my inquiry. *</label>
+        </div>
+        
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div class="contact-details">
+      <h2>Get in Touch</h2>
+      <p><a href="mailto:jengaithubafrica@gmail.com">jengaithubafrica@gmail.com</a></p>
+      <p>Location: Nairobi, 30 KE</p>
+      <h3>Hours</h3>
+      <ul>
+        <li>Monday: 9:00am – 10:00pm</li>
+        <li>Tuesday: 9:00am – 10:00pm</li>
+        <li>Wednesday: 9:00am – 10:00pm</li>
+        <li>Thursday: 9:00am – 10:00pm</li>
+        <li>Friday: 9:00am – 10:00pm</li>
+        <li>Saturday: 9:00am – 6:00pm</li>
+        <li>Sunday: 9:00am – 12:00pm</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jenga IT Hub</title>
+  <link rel="icon" type="image/png" href="img/icon.png" sizes="32*32">
+  <!-- External CSS link -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+  <div class="logo-container">
+    <img src="img/robotics header.jpeg" alt="Logo">
+  </div>
+  <div class="company-name">
+    <h1>JENGA IT HUB AFRICA</h1>
+  </div>
+  <div class="hamburger-menu" onclick="toggleMenu()">
+    &#9776; <!-- Unicode for the hamburger icon -->
+  </div>
+  <ul id="navbar-links">
+    <li><a href="Home.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="programs.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+<div id="overlay" class="overlay"></div>
+
+<script>
+  function toggleMenu() {
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    navbarLinks.classList.toggle('show-menu'); // Toggle the class to show/hide the menu
+    overlay.classList.toggle('show-overlay'); // Toggle the overlay visibility
+  }
+  document.addEventListener('click', function (event) {
+    const navbar = document.querySelector('.navbar');
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    if (!navbar.contains(event.target) && navbarLinks.classList.contains('show-menu')) {
+      navbarLinks.classList.remove('show-menu'); // Close the menu when clicking outside
+      overlay.classList.remove('show-overlay'); // Hide the overlay
+    }
+  });
+  window.addEventListener('scroll', function () {
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    if (navbarLinks.classList.contains('show-menu')) {
+      navbarLinks.classList.remove('show-menu'); // Close the menu on scroll
+      overlay.classList.remove('show-overlay'); // Hide the overlay
+    }
+  });
+</script>
+  
+
+  <!-- Landing Section -->
+  <div class="landing-section" style="background: url('img/Home HH.jpeg') no-repeat center center/cover;">
+    <div class="landing-overlay"></div>
+    <div class="landing-content">
+      <h1>Empowering Young Innovators</h1>
+      <p>At Jenga IT Hub, we ignite creativity and curiosity in children through engaging coding and robotics training.</p>
+      <a href="contact.html" class="cta-button">Contact Us</a>
+    </div>
+  </div>
+
+  <!-- Carousel -->
+  <div class="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <img src="img/F.Coders.jpeg" alt="Inspiring Future Coders">
+        <div class="carousel-content">
+          <h2>Inspiring Future Coders</h2>
+          <p>Our coding programs are designed to foster critical thinking and problem-solving skills in children.</p>
+          <a href="About.html" class="cta-button">Read-more</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="img/C2.jpeg" alt="Building Robots">
+        <div class="carousel-content">
+          <h2>Building Robots for Tomorrow</h2>
+          <p>Through our robotics training, kids learn to design, build, and program robots, promoting teamwork and creativity while enhancing their technical abilities.</p>
+          <a href="About.html" class="cta-button">Read-more</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="img/C3.jpeg" alt="Hands-On Learning">
+        <div class="carousel-content">
+          <h2>Hands-On Learning Experience</h2>
+          <p>We believe in learning by doing. Our interactive sessions encourage children to explore, experiment, and innovate in a supportive environment.</p>
+          <a href="About.html" class="cta-button">Read-more</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button id="prev">&#10094;</button>
+      <button id="next">&#10095;</button>
+    </div>
+    <div class="carousel-indicators">
+      <span data-slide="0" class="active"></span>
+      <span data-slide="1"></span>
+      <span data-slide="2"></span>
+    </div>
+  </div>
+        <!-- Programs Section -->
+<section id="programs" class="programs-section">
+    <div class="programs">
+      <h1>Diverse Learning Opportunities</h1>
+      <p>Tailored programs for every age and skill level to nurture your child's interest in technology.</p>
+    </div>
+  
+    <!-- Program 1 -->
+    <div class="program">
+      <img src="img/Red sweater.jpg" alt="Introduction to Coding">
+      <div class="program-content">
+        <h3>Introduction to Coding & Advanced Coding</h3>
+        <p>
+          We introduce young learners to the exciting world of coding through age-appropriate lessons that teach foundational programming concepts.
+          From simple block-based coding to advanced languages, children develop logical thinking and problem-solving skills while fostering creativity and innovation.
+        </p>
+      </div>
+    </div>
+  
+    <!-- Program 2 -->
+    <div class="program intermediate">
+      <img src="img/Arduino1.jpg" alt="Electronics & Robotics">
+      <div class="program-content">
+        <h3>Electronics & Robotics</h3>
+        <p>
+          Children step into the exciting realm of robotics, working hands-on with Quarky or Arduino boards, depending on their age and skill level.
+          Through interactive projects, they learn how to build and program robots, gaining a deep understanding of electronics and engineering concepts in a fun and engaging way.
+        </p>
+      </div>
+    </div>
+  
+    <!-- Program 3 -->
+    <div class="program">
+      <img src="img/AI.mach.jpg" alt="AI & Machine Learning">
+      <div class="program-content">
+        <h3>AI & Machine Learning for Kids</h3>
+        <p>
+          This program introduces young minds to the incredible world of Artificial Intelligence. Kids explore how to build smart applications and understand
+          machine learning algorithms, breaking down complex ideas into manageable and enjoyable activities. They’ll gain early exposure to the technologies shaping tomorrow’s world.
+        </p>
+      </div>
+    </div>
+  
+    <!-- Program 4 -->
+    <div class="program intermediate">
+      <img src="img/kid lego.jpg" alt="LEGO Engineering">
+      <div class="program-content">
+        <h3>LEGO Engineering</h3>
+        <p>
+          Designed for younger learners, this program uses LEGO bricks to teach the basics of engineering. Children engage in playful, hands-on activities
+          where they can design, build, and problem-solve, fostering creativity, teamwork, and a love for innovation.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  
+
+  <!-- Trusted Partner Section -->
+<section>
+    <div class="trusted-partner-container">
+      <h1>Your Trusted Partner in Learning</h1>
+      <p>Committed to excellence in education and innovation.</p>
+    </div>
+    <div class="trusted-partner">
+      <div class="partner-card">
+        <img src="img/Exp.jpeg" alt="Expert Instructors">
+        <h3>Expert Instructors</h3>
+        <p>Our trainers are industry professionals with a passion for teaching. They bring real-world experience to the classroom, ensuring that students gain relevant skills and knowledge.</p>
+      </div>
+      <div class="partner-card">
+        <img src="img/pers.jpeg" alt="Personalized Learning Pathways">
+        <h3>Personalized Learning Pathways</h3>
+        <p>Our programs are designed to adapt to individual learning styles, helping students build confidence and encourage a deeper understanding of coding and robotics.</p>
+      </div>
+      <div class="partner-card">
+        <img src="img/innov.jpeg" alt="Innovative Curriculum">
+        <h3>Innovative Curriculum</h3>
+        <p>We incorporate hands-on projects, competitions, and challenges to keep learning exciting and prepare students for future opportunities in the tech industry.</p>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Testimonial Section -->
+  <div class="testimonial-section">
+    <h2>What our clients say</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">
+          "Jenga IT Hub transformed the way my child learns. The hands-on coding classes were both fun and educational!"
+        </div>
+        <div class="testimonial-author">
+          <img src="img" alt="">
+          <div class="testimonial-author-name">john ndungu</div>
+          <div class="testimonial-author-role">Satisfied Parent</div>
+        </div>
+        <div class="testimonial-controls">
+          <button id="testimonial-prev">&lt;</button>
+          <button id="testimonial-next">&gt;</button>
+        </div>
+      </div>
+      <div class="testimonial-indicators">
+        <span class="active" data-index="0"></span>
+        <span data-index="1"></span>
+        <span data-index="2"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="contact-section">
+    <h2>Contact Us</h2>
+    <div class="contact-icons">
+        <!-- X Logo -->
+        <a href="" target="_blank" class="contact-icon">
+          <img src="img/twitter.png" alt="X Logo" class="icon-logo">
+          <span></span>
+      </a>
+        
+        <!-- Facebook Logo -->
+        <a href="https://facebook.com/" target="_blank" class="contact-icon">
+            <img src="img/facebook.png" alt="Facebook Logo" class="icon-logo">
+            <span></span>
+        </a>
+        
+        <!-- WhatsApp Logo -->
+        <a href="https://wa.me/+254115019909?text=Hello! 👋%0AThank you for reaching out to Jenga IT HUB—where innovation meets education!%0AHow can we assist you today?%0AAre you interested in our coding and robotics programs?%0AHave questions about workshops or collaborations?%0AWe’re here to help." 
+   target="_blank" class="contact-icon">
+   <img src="img/whatsapp.png" alt="WhatsApp Logo" class="icon-logo">
+</a>
+        
+        <!-- Instagram Logo -->
+        <a href="https://www.instagram.com/jengaitafrica?igsh=bGR4MHRvM2t2ajcx" target="_blank" class="contact-icon">
+            <img src="img/instagram.png" alt="Instagram Logo" class="icon-logo">
+            <span></span>
+        </a>
+    </div>
+    
+  </style>
+</head>
+<body>
+  <!-- Back to Top Button -->
+  <button id="back-to-top">↑ Back to Top</button>
+
+  <script>
+    // Select the button
+    const backToTopButton = document.getElementById("back-to-top");
+
+    // Show the button when the user scrolls down 300px
+    window.onscroll = function () {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTopButton.style.display = "block";
+      } else {
+        backToTopButton.style.display = "none";
+      }
+    };
+
+    // Smooth scroll back to the top
+    backToTopButton.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  </script>
+</div>
+  <script>
+    // Carousel Script
+    const carouselInner = document.querySelector('.carousel-inner');
+    const carouselIndicators = document.querySelectorAll('.carousel-indicators span');
+    let currentSlide = 0;
+
+    document.getElementById('prev').addEventListener('click', () => {
+      currentSlide = (currentSlide > 0) ? currentSlide - 1 : carouselIndicators.length - 1;
+      updateCarousel();
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+      currentSlide = (currentSlide < carouselIndicators.length - 1) ? currentSlide + 1 : 0;
+      updateCarousel();
+    });
+
+    carouselIndicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        currentSlide = index;
+        updateCarousel();
+      });
+    });
+
+    function updateCarousel() {
+      carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+      carouselIndicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    // Testimonial Script
+    const testimonials = [
+      {
+        quote: "Jenga IT Hub transformed the way my child learns. The hands-on coding classes were both fun and educational!",
+        name: "Lucas Mwaura",
+        role: "Satisfied Parent",
+      },
+      {
+        quote: "The coding academy has been a game-changer for my child's education. Highly recommended!",
+        name: "Rashid",
+        role: "Impressed Parent",
+      },
+      {
+        quote: "Interactive and engaging environment! My child now loves coding thanks to Jenga IT Hub.",
+        name: "Vivian Mueni",
+        role: "Happy Parent",
+      }
+    ];
+
+    const prevTestimonial = document.getElementById("testimonial-prev");
+    const nextTestimonial = document.getElementById("testimonial-next");
+    const testimonialIndicators = document.querySelectorAll(".testimonial-indicators span");
+    const testimonialCard = document.querySelector(".testimonial-card");
+    const quoteElement = document.querySelector(".testimonial-quote");
+    const nameElement = document.querySelector(".testimonial-author-name");
+    const roleElement = document.querySelector(".testimonial-author-role");
+    const imageElement = document.querySelector(".testimonial-author img");
+
+    let currentTestimonialIndex = 0;
+
+    function updateTestimonial(index) {
+      const testimonial = testimonials[index];
+      quoteElement.textContent = testimonial.quote;
+      nameElement.textContent = testimonial.name;
+      roleElement.textContent = testimonial.role;
+      imageElement.src = testimonial.image;
+
+      testimonialIndicators.forEach((indicator, i) => {
+        indicator.classList.toggle("active", i === index);
+      });
+
+      testimonialCard.classList.remove("active");
+      setTimeout(() => {
+        testimonialCard.classList.add("active");
+      }, 50);
+    }
+
+    prevTestimonial.addEventListener("click", () => {
+      currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+      updateTestimonial(currentTestimonialIndex);
+    });
+
+    nextTestimonial.addEventListener("click", () => {
+      currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+      updateTestimonial(currentTestimonialIndex);
+    });
+
+    updateTestimonial(currentTestimonialIndex);
+  </script>
+</body>
+</html>

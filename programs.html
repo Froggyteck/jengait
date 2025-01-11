@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jenga IT Hub</title>
+  <link rel="icon" type="image/png" href="img/icon.png" sizes="32*32">
+  <!-- External CSS link -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+  <div class="logo-container">
+    <img src="img/robotics header.jpeg" alt="Logo">
+  </div>
+  <div class="company-name">
+    <h1>JENGA IT HUB AFRICA</h1>
+  </div>
+  <div class="hamburger-menu" onclick="toggleMenu()">
+    &#9776; <!-- Unicode for the hamburger icon -->
+  </div>
+  <ul id="navbar-links">
+    <li><a href="Home.html">Home</a></li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="programs.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+<div id="overlay" class="overlay"></div>
+
+<script>
+  function toggleMenu() {
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    navbarLinks.classList.toggle('show-menu'); // Toggle the class to show/hide the menu
+    overlay.classList.toggle('show-overlay'); // Toggle the overlay visibility
+  }
+  document.addEventListener('click', function (event) {
+    const navbar = document.querySelector('.navbar');
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    if (!navbar.contains(event.target) && navbarLinks.classList.contains('show-menu')) {
+      navbarLinks.classList.remove('show-menu'); // Close the menu when clicking outside
+      overlay.classList.remove('show-overlay'); // Hide the overlay
+    }
+  });
+  window.addEventListener('scroll', function () {
+    const navbarLinks = document.getElementById('navbar-links');
+    const overlay = document.getElementById('overlay');
+    if (navbarLinks.classList.contains('show-menu')) {
+      navbarLinks.classList.remove('show-menu'); // Close the menu on scroll
+      overlay.classList.remove('show-overlay'); // Hide the overlay
+    }
+  });
+</script>
+
+  <!-- Landing Section -->
+  <!-- Landing Section -->
+  <div class="landing-section" style="background: url('img/Header.JPG') no-repeat center center/cover;">
+    <div class="landing-overlay"></div>
+    <div class="landing-content">
+      <h1>Empowering Young Innovators</h1>
+      <p>At Jenga IT Hub, we ignite creativity and curiosity in children through engaging coding and robotics training.</p>
+      <a href="contact.html" class="cta-button">Contact Us</a>
+    </div>
+  </div>
+
+  
+  <!-- Coding for Beginners -->
+  <section class="coding-for-beginners">
+    <h1>Coding for Beginners</h1>
+    <p class="subtitle">Unlock the world of programming!</p>
+    <div class="coding-container">
+        <div class="card">
+            <img src="img/kericho 2.jpeg" alt="Interactive Learning Modules">
+            <h3>Interactive Learning Modules</h3>
+            <p>Our beginner program features interactive learning modules that make coding fun and accessible. Kids will engage with hands-on projects that allow them to see the results of their code in real-time, fostering both creativity and problem-solving skills. Each module is designed to gradually introduce concepts, ensuring a solid foundation in coding fundamentals.</p>
+        </div>
+        <div class="card">
+            <img src="img/kericho 7.jpeg" alt="Creative Project Development">
+            <h3>Creative Project Development</h3>
+            <p>Students will have the opportunity to work on creative projects that encourage them to apply their coding skills. From developing simple games to creating animations, kids will learn to think like programmers while expressing their ideas. This hands-on approach ensures that learning is both enjoyable.</p>
+        </div>
+        <div class="card">
+            <img src="img/Robotics 2.jpeg" alt="Supportive Learning Environment">
+            <h3>Supportive Learning Environment</h3>
+            <p>We prioritize a supportive learning environment where students can thrive. Our experienced instructors provide personalized guidance, nurturing each child's unique pace and style of learning. This approach not only boosts confidence but also cultivates a lifelong interest in technology and coding.</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- Robotics Workshop Section -->
+<section class="robotics-workshop-section">
+    <h2 class="section-title">Electronics & Robotics</h2>
+    <p class="section-subtitle">Unlock the Future of Innovation</p>
+    <div class="robotics-workshop-container">
+  
+      <!-- Card 1: Beginner Robotics -->
+      <div class="robotics-card">
+        <div class="robotics-card-front">
+          <img src="img/pass.jpeg" alt="Beginner Robotics">
+          <h3>Beginner Robotics</h3>
+        </div>
+        <div class="robotics-card-back">
+          <h3>Beginner Robotics</h3>
+          <p>Perfect for young learners just starting their robotics journey, this program introduces fundamental concepts like circuits, electronics, and programming. Children will use hands-on tools like Quarky or Arduino boards to build and control simple robots. This level focuses on understanding how electronics power everyday devices and provides a strong foundation for further exploration.</p>
+        </div>
+      </div>
+  
+      <!-- Card 2: Advanced Robotics & Electronics -->
+      <div class="robotics-card">
+        <div class="robotics-card-front">
+          <img src="img/adv.services.jpeg" alt="Advanced Robotics & Electronics">
+          <h3>Advanced Robotics</h3>
+        </div>
+        <div class="robotics-card-back">
+          <h3>Advanced Robotics & Electronics</h3>
+          <p>For experienced learners, this program delves into advanced microcontroller programming and the design of sophisticated robotic systems. Children will learn to integrate multiple sensors, optimize robot performance, and participate in robotics competitions to showcase their skills. This level equips students with the technical knowledge and problem-solving abilities to tackle complex engineering challenges.</p>
+        </div>
+      </div>
+  
+      <!-- Card 3: STEM Integration -->
+      <div class="robotics-card">
+        <div class="robotics-card-front">
+          <img src="img/Stem.services.jpeg" alt="STEM Integration">
+          <h3>STEM Integration</h3>
+        </div>
+        <div class="robotics-card-back">
+          <h3>STEM Integration</h3>
+          <p>Our STEM Integration projects highlight the real-world applications of robotics, encouraging children to work on eco-friendly designs, such as solar-powered robots or automated recycling systems. This subcategory bridges the gap between theoretical knowledge and practical innovation, inspiring students to apply their skills to make a positive impact on the environment and society.</p>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+    
+   <!-- AI & Machine Learning for Kids Section -->
+<section class="ai-ml-section">
+    <h2 class="section-title">AI & Machine Learning for Kids</h2>
+    <p class="section-subtitle">Explore the World of Artificial Intelligence</p>
+    <div class="ai-ml-container">
+      
+      <!-- Card 1: Introduction to AI -->
+      <div class="ai-ml-card">
+        <div class="ai-ml-card-front">
+          <img src="img/machine.services.jpg" alt="Introduction to AI">
+          <h3>Introduction to AI</h3>
+        </div>
+        <div class="ai-ml-card-back">
+          <h3>Introduction to AI</h3>
+          <p>This entry-level program helps kids understand the fundamentals of Artificial Intelligence, such as how computers learn and make decisions. Through fun and interactive games, students explore concepts like pattern recognition and data processing, sparking curiosity about the potential of AI in everyday life.</p>
+        </div>
+      </div>
+  
+      <!-- Card 2: Advanced AI & Smart Applications -->
+      <div class="ai-ml-card">
+        <div class="ai-ml-card-front">
+          <img src="img/Mach4.jpg" alt="Advanced AI & Smart Applications">
+          <h3>Advanced AI & Smart Applications</h3>
+        </div>
+        <div class="ai-ml-card-back">
+          <h3>Advanced AI & Smart Applications</h3>
+          <p>At this level, students dive deeper into AI technology by building smart applications like chatbots, image recognition systems, and voice assistants. They’ll also explore neural networks and decision-making algorithms, gaining an understanding of how these tools are used in cutting-edge industries.</p>
+        </div>
+      </div>
+  
+      <!-- Card 3: AI Challenges and Projects -->
+      <div class="ai-ml-card">
+        <div class="ai-ml-card-front">
+          <img src="img/mach3.jpg" alt="AI Challenges and Projects">
+          <h3>AI Challenges & Projects</h3>
+        </div>
+        <div class="ai-ml-card-back">
+          <h3>AI Challenges and Projects</h3>
+          <p>To apply their knowledge, children participate in collaborative challenges where they design AI systems to solve real-world problems. From creating smart home assistants to AI-powered environmental monitoring tools, this subcategory emphasizes innovation, teamwork, and practical application.</p>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+    <!-- LEGO Engineering Section -->
+<section class="lego-engineering-section">
+    <h2 class="section-title">LEGO Engineering</h2>
+    <p class="section-subtitle">Where Creativity Meets Engineering</p>
+    <div class="lego-engineering-container">
+      
+      <!-- Card 1: Basic LEGO Building -->
+      <div class="lego-card">
+        <div class="lego-card-front">
+          <img src="img/lego.services1.jpg" alt="Basic LEGO Building">
+          <h3>Basic LEGO Building</h3>
+        </div>
+        <div class="lego-card-back">
+          <h3>Basic LEGO Building</h3>
+          <p>This introductory level encourages creativity and free play as children learn to build imaginative structures using LEGO bricks. They’ll develop spatial awareness, problem-solving skills, and a passion for designing unique creations.</p>
+        </div>
+      </div>
+  
+      <!-- Card 2: LEGO Mechanics -->
+      <div class="lego-card">
+        <div class="lego-card-front">
+          <img src="img/Lego.jpeg" alt="LEGO Mechanics">
+          <h3>LEGO Mechanics</h3>
+        </div>
+        <div class="lego-card-back">
+          <h3>LEGO Mechanics</h3>
+          <p>Moving beyond basic building, this program introduces the principles of mechanics through hands-on projects with gears, levers, pulleys, and axles. Children explore how these components work together to create functional designs, fostering an understanding of engineering concepts in a fun and accessible way.</p>
+        </div>
+      </div>
+  
+      <!-- Card 3: LEGO Creativity Workshops -->
+      <div class="lego-card">
+        <div class="lego-card-front">
+          <img src="img/Lego33.jpg" alt="LEGO Creativity Workshops">
+          <h3>LEGO Creativity Workshops</h3>
+        </div>
+        <div class="lego-card-back">
+          <h3>LEGO Creativity Workshops</h3>
+          <p>These workshops focus on storytelling and design challenges, inspiring kids to think outside the box. Participants use LEGO bricks to bring their ideas to life, whether creating a vibrant cityscape, reimagining famous landmarks, or solving real-world problems with creative models.</p>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+
+  <!-- Advanced Coding Techniques -->
+<section class="advanced-coding-techniques-section">
+  <h2 class="section-title">Advanced Coding Techniques</h2>
+  <p class="section-subtitle">Take your coding skills to the next level!</p>
+  <div class="advanced-coding-techniques-container">
+      <!-- Card 1 -->
+      <div class="advanced-coding-techniques-card">
+          <h3>In-Depth Language Exploration</h3>
+          <p>
+              This program delves into advanced programming languages and concepts, offering students a chance to explore languages 
+              such as Python, Java, and C++. With in-depth modules, students will learn about algorithms, data structures, and software 
+              development practices, preparing them for more complex projects.
+          </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="advanced-coding-techniques-card">
+          <h3>Real-World Applications</h3>
+          <p>
+              Students will work on real-world applications and projects that mirror industry standards. This experience not only enhances 
+              their technical skills but also provides insight into the software development lifecycle, emphasizing the importance of testing 
+              and debugging.
+          </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="advanced-coding-techniques-card">
+          <h3>Collaborative Group Projects</h3>
+          <p>
+              Collaboration is key in the tech industry, and our program emphasizes group projects that foster teamwork. Students will learn 
+              to communicate effectively, share ideas, and tackle challenges together, preparing them for future endeavors in tech.
+          </p>
+      </div>
+  </div>
+</section>
+
+  <!-- Contact Section -->
+  <div class="contact-section" id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-icons">
+      <!-- X Logo -->
+      <a href="" target="_blank" class="contact-icon">
+        <img src="img/twitter.png" alt="X Logo" class="icon-logo">
+        <span></span>
+    </a>
+    <!-- Facebook Logo -->
+    <a href="https://facebook.com/" target="_blank" class="contact-icon">
+        <img src="img/facebook.png" alt="Facebook Logo" class="icon-logo">
+        <span></span>
+    </a>
+    <!-- WhatsApp Logo -->
+    <a href="https://wa.me/+254115019909?text=Hello! 👋%0AThank you for reaching out to Jenga IT HUB—where innovation meets education!%0AHow can we assist you today?%0AAre you interested in our coding and robotics programs?%0AHave questions about workshops or collaborations?%0AWe’re here to help." 
+    target="_blank" class="contact-icon">
+    <img src="img/whatsapp.png" alt="WhatsApp Logo" class="icon-logo">
+ </a>
+    <!-- Email Logo -->
+    <a href="mailto:jengaithubafrica@gmail.com" class="contact-icon">
+        <img src="img/gmail (1).png" alt="Email Logo" class="icon-logo">
+        <span></span>
+    </a>
+    <!-- Instagram Logo -->
+    <a href="https://www.instagram.com/jengaitafrica?igsh=bGR4MHRvM2t2ajcx" target="_blank" class="contact-icon">
+        <img src="img/instagram.png" alt="Instagram Logo" class="icon-logo">
+        <span></span>
+    </a>
+</div>
+<!-- Back to Top Button -->
+<button id="back-to-top">↑ Back to Top</button>
+
+<script>
+  // Select the button
+  const backToTopButton = document.getElementById("back-to-top");
+
+  // Show the button when the user scrolls down 300px
+  window.onscroll = function () {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      backToTopButton.style.display = "block";
+    } else {
+      backToTopButton.style.display = "none";
+    }
+  };
+
+  // Smooth scroll back to the top
+  backToTopButton.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+</script>
+    </div>
+  </div>
+</body>
+</html>
