@@ -4,472 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jenga IT Hub</title>
-  <style>
-    /* Reset Styling */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: sans-serif;
-      background-color: #3b3838;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    body {
-      font-family: sans-serif;
-      background-color: #5f5d5d;
-      color: #333;
-      line-height: 1.6;
-    }
-
-/* General Navbar Styling */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #ff8800;
-  padding: 5px 10px;
-  box-shadow: 0 2px 5px rgba(197, 8, 8, 0.2);
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 100; /* Ensure navbar stays above other elements */
-}
-
-/* Navbar Links */
-.navbar ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-  flex-wrap: wrap;
-  justify-content: flex-start; /* Align items to the left */
-}
-
-.navbar ul li {
-  margin: 0 10px;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.navbar ul li a:hover {
-  color: #d1d1d1;
-  transform: scale(1.1);
-}
-
-/* Logo Styling */
-.navbar .logo-container img {
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #fff;
-  animation: bounce 2s ease-in-out infinite;
-  z-index: 50; /* Ensure logo is above background elements */
-}
-
-/* Company Name Styling */
-.navbar .company-name {
-  position: absolute;
-  left: 20%;
-  transform: translateX(-50%);
-  text-align: left;
-}
-
-.navbar .company-name h1 {
-  color: #fff;
-  font-size: 22px;
-  font-weight: bold;
-  margin: 0;
-  letter-spacing: 1px;
-}
-
-/* Keyframes for Bouncing Logo Animation */
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0); /* Original position */
-  }
-  50% {
-    transform: translateY(-10px); /* Move slightly upwards */
-  }
-}
-
-/* Responsive Design for Smaller Screens */
-/* Hamburger Menu Styling */
-.hamburger-menu {
-  display: none;
-  font-size: 30px;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* Overlay */
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 99;
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: row;
-  }
-
-  /* Adjust Company Name Positioning */
-  .navbar .company-name {
-    position: absolute;
-    left: 50%;
-  }
-
-  /* Adjust Company Name Font Size */
-  .navbar .company-name h1 {
-    font-size: 15px;
-  }
-
-  /* Hamburger Menu Visibility */
-  .hamburger-menu {
-    display: block;
-    order: 2;
-    margin-left: auto;
-    z-index: 101;
-  }
-
-  .navbar .logo-container {
-    order: 1;
-    margin-right: auto;
-  }
-
-  /* Navbar Links - Hidden Initially */
-  .navbar ul {
-    display: none; /* Initially hidden */
-    flex-direction: column;
-    position: fixed; /* Ensure it overlays the logo and other elements */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 38%; /* Full-screen height for the menu */
-    background-color: rgba(255, 136, 0, 0.95); /* Semi-transparent overlay */
-    padding: 20px;
-    justify-content: flex-start;
-    align-items: flex-start;
-    z-index: 102; /* Ensure links are above everything */
-  }
-
-  /* Navbar Links - Visible When Toggled */
-  .navbar ul.show-menu {
-    display: flex; /* Ensure links are visible */
-  }
-
-  /* Separator for Links */
-  .navbar ul li {
-    text-align: left;
-    margin: 15px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Add separator line */
-    width: 100%; /* Ensure line spans full width */
-  }
-
-  .navbar ul li:last-child {
-    border-bottom: none; /* Remove border for the last item */
-  }
-
-  /* Close Button */
-  .close-menu {
-    display: block;
-    font-size: 24px;
-    color: #fff;
-    cursor: pointer;
-    margin-bottom: 20px;
-  }
-
-  /* Overlay Visibility */
-  .overlay.show-overlay {
-    display: block;
-  }
-}
-
-
-
-/* landing section */
-.landing-section {
-  position: relative;
-  width: 100%;
-  height: 40vh;
-  background: url('img/kericho\ 4.jpeg') no-repeat center center/cover;
-  animation: zoomInBackground 15s ease-in-out infinite;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.landing-overlay {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  animation: slideInOverlay 1s ease-out forwards;
-}
-
-.landing-content {
-  position: relative;
-  z-index: 1;
-  color: white;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 1.5s ease-out forwards;
-}
-
-.landing-content h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
-
-.cta-button {
-  padding: 12px 24px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 16px;
-  animation: pulse 2s infinite;
-}
-
-.cta-button:hover {
-  background-color: #0056b3;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInOverlay {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 0;
-  }
-}
-
-@keyframes zoomInBackground {
-  0% {
-    background-size: 100%;
-  }
-  50% {
-    background-size: 110%;
-  }
-  100% {
-    background-size: 100%;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
-}
-
-/* Responsive Design for Mobile Screens (Max Width: 600px) */
-@media (max-width: 600px) {
-  .landing-section {
-    height: 30vh; /* Increased height for smaller screens */
-  }
-
-  .landing-content h1 {
-    font-size: 1.8em; /* Smaller font size for heading */
-    margin-bottom: 15px;
-  }
-
-  .landing-content p {
-    font-size: 1em; /* Adjust paragraph text size */
-    margin-bottom: 20px;
-  }
-
-  .cta-button {
-    padding: 10px 20px; /* Reduced padding for buttons */
-    font-size: 14px; /* Adjusted button text size */
-  }
-}
-
-
-
-/* Contact Container */
-.contact-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 40px;
-  background-color: #f9f9f9;
-}
-
-.contact-form {
-  flex: 1;
-  max-width: 50%;
-  margin-right: 20px;
-}
-
-.contact-form h2 {
-  color: #d47c08;
-}
-
-.contact-form p {
-  font-size: 18px;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-.contact-form form label {
-  display: block;
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-.contact-form form input,
-.contact-form form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.contact-form form .checkbox {
-  display: flex;
-  align-items: center;
-  margin-top: 15px;
-}
-
-.contact-form form .checkbox label {
-  margin-left: 10px;
-  font-size: 14px;
-}
-
-.contact-form form button {
-  background-color: #dd7a09;
-  color: white;
-  padding: 10px 20px;
-  margin-top: 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.contact-form form button:hover {
-  background-color: #f09205;
-}
-
-/* Contact Details Section */
-.contact-details {
-  flex: 1;
-  max-width: 40%;
-  background-color: #505050;
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin-left: 30px; /* Move the container slightly to the right */
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for better effect */
-}
-
-.contact-details h2,
-.contact-details h3 {
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.contact-details p,
-.contact-details ul {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-.contact-details ul li {
-  margin-bottom: 5px;
-}
-
-.contact-details a {
-  color: white;
-  text-decoration: underline;
-}
-
-.contact-details a:hover {
-  text-decoration: none;
-}
-
-/* Media Queries for Smaller Screens */
-@media (max-width: 768px) {
-  .contact-container {
-    flex-direction: column; /* Stack elements vertically */
-    padding: 20px; /* Reduce padding for smaller screens */
-  }
-
-  .contact-form {
-    max-width: 100%; /* Full-width form */
-    margin-right: 0; /* Remove right margin */
-  }
-
-  .contact-details {
-    max-width: 100%; /* Full-width contact details */
-    margin-left: 0; /* Remove left margin */
-    margin-top: 20px; /* Add some spacing between the form and details */
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-form p,
-  .contact-details p {
-    font-size: 14px; /* Reduce font size for better fit */
-  }
-
-  .contact-form form button {
-    width: 100%; /* Full-width button for mobile */
-    padding: 10px; /* Adjust padding for smaller screens */
-  }
-
-  .contact-details {
-    padding: 15px; /* Reduce padding inside contact details */
-    font-size: 14px; /* Adjust font size for smaller screens */
-  }
-}
-
-
-
-  </style>
+  <link rel="icon" type="image/png" href="img/icon.png" sizes="32*32">
+  <!-- External CSS link -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
- <!-- Navbar -->
-<div class="navbar">
+  <!-- Navbar -->
+  <div class="navbar">
   <div class="logo-container">
     <img src="img/robotics header.jpeg" alt="Logo">
   </div>
@@ -516,7 +58,7 @@
 
 
   <!-- Landing Section -->
-  <div class="landing-section">
+  <div class="landing-section" style="background: url('img/kericho\ 4.jpeg') no-repeat center center/cover;">
     <div class="landing-overlay"></div>
     <div class="landing-content">
       <h1>Empowering Young Innovators</h1>
@@ -525,46 +67,55 @@
   </div>
 
  <!-- Contact Section -->
-<div class="contact-container">
-  <div class="contact-form">
-    <h2>Get in Touch</h2>
-    <p>We're here to help you learn!</p>
-    <form action="mailto:jengaithubafrica@gmail.com" method="post" enctype="text/plain">
-      <label for="name">Name *</label>
-      <input type="text" id="name" name="name" placeholder="Jane Smith" required>
-      
-      <label for="email">Email address *</label>
-      <input type="email" id="email" name="email" placeholder="email@website.com" required>
-      
-      <label for="phone">Phone number *</label>
-      <input type="tel" id="phone" name="phone" placeholder="555-555-5555" required>
-      
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" placeholder=""></textarea>
-      
-      <div class="checkbox">
-        <input type="checkbox" id="consent" name="consent" required>
-        <label for="consent">I allow this website to store my submission so they can respond to my inquiry. *</label>
-      </div>
-      
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+</head>
+<body>
+  <div class="contact-container">
+    <div class="contact-form">
+      <h2>Get in Touch</h2>
+      <p>We're here to help you learn!</p>
+      <form action="process_contact.php" method="post">
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+        
+        <label for="email">Email address *</label>
+        <input type="email" id="email" name="email" placeholder="email@website.com" required>
+        
+        <label for="phone">Phone number *</label>
+        <input type="tel" id="phone" name="phone" placeholder="555-555-5555" required>
+        
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder=""></textarea>
+        
+        <div class="checkbox">
+          <input type="checkbox" id="consent" name="consent" required>
+          <label for="consent">I allow this website to store my submission so they can respond to my inquiry. *</label>
+        </div>
+        
+        <button type="submit">Submit</button>
+      </form>
+    </div>
 
-  <div class="contact-details">
-    <h2>Get in touch</h2>
-    <p><a href="mailto:felixbraido@gmail.com">felixbraido@gmail.com</a></p>
-    <p>Location: Nairobi, 30 KE</p>
-    <h3>Hours</h3>
-    <ul>
-      <li>Monday: 9:00am – 10:00pm</li>
-      <li>Tuesday: 9:00am – 10:00pm</li>
-      <li>Wednesday: 9:00am – 10:00pm</li>
-      <li>Thursday: 9:00am – 10:00pm</li>
-      <li>Friday: 9:00am – 10:00pm</li>
-      <li>Saturday: 9:00am – 6:00pm</li>
-      <li>Sunday: 9:00am – 12:00pm</li>
-    </ul>
+    <div class="contact-details">
+      <h2>Get in Touch</h2>
+      <p><a href="mailto:jengaithubafrica@gmail.com">jengaithubafrica@gmail.com</a></p>
+      <p>Location: Nairobi, 30 KE</p>
+      <h3>Hours</h3>
+      <ul>
+        <li>Monday: 9:00am – 10:00pm</li>
+        <li>Tuesday: 9:00am – 10:00pm</li>
+        <li>Wednesday: 9:00am – 10:00pm</li>
+        <li>Thursday: 9:00am – 10:00pm</li>
+        <li>Friday: 9:00am – 10:00pm</li>
+        <li>Saturday: 9:00am – 6:00pm</li>
+        <li>Sunday: 9:00am – 12:00pm</li>
+      </ul>
+    </div>
   </div>
-</div>
-
+</body>
+</html>
